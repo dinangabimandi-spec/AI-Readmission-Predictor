@@ -1,0 +1,108 @@
+[
+  {
+    "id": "D001",
+    "name": "Dr. Nirmal Perera",
+    "role": "Doctor",
+    "specialization": "General Physician",
+    "username": "d001",
+    "password": "doc123",
+    "department": "General Physician"
+  },
+  {
+    "id": "D002",
+    "name": "Dr. Tharindu Fernando",
+    "role": "Doctor",
+    "specialization": "Cardiologist",
+    "username": "d002",
+    "password": "doc123",
+    "department": "Cardiologist"
+  },
+  {
+    "id": "D003",
+    "name": "Dr. Sachini Wijesinghe",
+    "role": "Doctor",
+    "specialization": "Endocrinologist",
+    "username": "d003",
+    "password": "doc123",
+    "department": "Endocrinologist"
+  },
+  {
+    "id": "D004",
+    "name": "Dr. Kasun Jayawardena",
+    "role": "Doctor",
+    "specialization": "Pulmonologist",
+    "username": "d004",
+    "password": "doc123",
+    "department": "Pulmonologist"
+  },
+  {
+    "id": "D005",
+    "name": "Dr. Dinithi Silva",
+    "role": "Doctor",
+    "specialization": "Geriatric Medicine",
+    "username": "d005",
+    "password": "doc123",
+    "department": "Geriatric Medicine"
+  },
+  {
+    "id": "N001",
+    "name": "Nurse Malsha Fernando",
+    "role": "Nurse",
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "username": "n001",
+    "password": "nurse123"
+  },
+  {
+    "id": "N002",
+    "name": "Nurse Ishari Gunasekara",
+    "role": "Nurse",
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "username": "n002",
+    "password": "nurse123"
+  },
+  {
+    "id": "N003",
+    "name": "Nurse Tharushi Jayasinghe",
+    "role": "Nurse",
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "username": "n003",
+    "password": "nurse123"
+  },
+  {
+    "id": "N004",
+    "name": "Nurse Sanduni Perera",
+    "role": "Nurse",
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "username": "n004",
+    "password": "nurse123"
+  },
+  {
+    "id": "N005",
+    "name": "Nurse Nethmi Wickramasinghe",
+    "role": "Nurse",
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "username": "n005",
+    "password": "nurse123"
+  },
+  {
+    "id": "R001",
+    "name": "Anjali Samarasinghe",
+    "role": "Receptionist",
+    "username": "r001",
+    "password": "rec123"
+  },
+  {
+    "id": "R002",
+    "name": "Kavinda Ranathunga",
+    "role": "Receptionist",
+    "username": "r002",
+    "password": "rec123"
+  },
+  {
+    "id": "A001",
+    "name": "Admin Chandrika",
+    "role": "Administrator",
+    "username": "admin",
+    "password": "admin123"
+  }
+]

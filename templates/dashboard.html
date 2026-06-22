@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Suwa Setha AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        body { background: #F8FAFC; }
+        .navbar-dark { background: #1E3A8A !important; }
+        .navbar-dark .navbar-nav .nav-link { color: rgba(255,255,255,0.85); }
+        .navbar-dark .navbar-nav .nav-link:hover { color: white; }
+        .navbar-text { color: rgba(255,255,255,0.85) !important; }
+        .stat-card { background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #3B82F6; height: 100%; transition: transform 0.2s; }
+        .stat-card:hover { transform: translateY(-2px); }
+        .stat-card .number { font-size: 28px; font-weight: 700; color: #1E3A8A; }
+        .stat-card .label { font-size: 13px; color: #64748B; font-weight: 500; }
+        .stat-card .icon { font-size: 28px; opacity: 0.15; float: right; }
+        .stat-card.high { border-color: #EF4444; }
+        .stat-card.medium { border-color: #F59E0B; }
+        .stat-card.low { border-color: #10B981; }
+        .stat-card.total { border-color: #1E3A8A; }
+        .stat-card.staff { border-color: #8B5CF6; }
+        .btn-primary { background: #1E3A8A; border: none; }
+        .btn-primary:hover { background: #2563EB; }
+        .btn-sm { font-size: 12px; padding: 4px 12px; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+        .feature-item { background: #F1F5F9; border-radius: 10px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; transition: all 0.3s; cursor: pointer; border: 2px solid transparent; }
+        .feature-item:hover { background: #E2E8F0; transform: translateX(4px); border-color: #1E3A8A; }
+        .feature-item i { font-size: 20px; color: #1E3A8A; width: 30px; text-align: center; }
+        .feature-item span { font-size: 14px; font-weight: 500; color: #1F2937; }
+        .chart-container { max-height: 200px; position: relative; }
+        .activity-item { padding: 8px 0; border-bottom: 1px solid #F1F5F9; font-size: 13px; }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-time { float: right; color: #94A3B8; font-size: 11px; }
+        .activity-icon { width: 28px; display: inline-block; text-align: center; margin-right: 8px; }
+        .table th { font-size: 12px; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; }
+        .table td { font-size: 13px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark navbar-expand-lg px-4 sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><i class="fas fa-hospital"></i> Suwa Setha AI</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><span class="navbar-text me-3"><i class="fas fa-user-shield me-1"></i> {{ user.name }}</span></li>
+                <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- FIX: Store Jinja2 risk values in data attributes on a hidden element.
+     JS reads plain integers from the DOM — no Jinja2 inside <script>. -->
+<div id="chartData"
+     data-high="{{ high_risk }}"
+     data-medium="{{ medium_risk }}"
+     data-low="{{ low_risk }}"
+     style="display:none;">
+</div>
+
+<div class="container-fluid px-4 py-4 fade-in">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Welcome Banner -->
+    <div class="card p-3 mb-4" style="background: linear-gradient(135deg, #1E3A8A, #3B82F6); color: white; border: none; border-radius: 12px;">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h5 style="font-weight: 600;">👋 Welcome, {{ user.name }}</h5>
+                <p style="opacity: 0.8; font-size: 14px; margin: 0;">System Administrator</p>
+            </div>
+            <div>
+                <span class="badge bg-light text-dark"><i class="fas fa-calendar"></i> {{ now.strftime('%B %d, %Y') }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Access -->
+    <div class="feature-grid mb-4">
+        <div class="feature-item" onclick="location.href='/search'">
+            <i class="fas fa-search"></i><span>Search</span>
+        </div>
+        <div class="feature-item" onclick="location.href='/add_doctor'">
+            <i class="fas fa-user-md"></i><span>Add Doctor</span>
+        </div>
+        <div class="feature-item" onclick="location.href='/add_nurse'">
+            <i class="fas fa-user-nurse"></i><span>Add Nurse</span>
+        </div>
+        <div class="feature-item" onclick="location.href='/assign_nurse'">
+            <i class="fas fa-handshake"></i><span>Assign Nurse</span>
+        </div>
+        <div class="feature-item" onclick="location.href='/reports'">
+            <i class="fas fa-chart-line"></i><span>Reports</span>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="row g-3 mb-4">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="stat-card total">
+                <span class="icon"><i class="fas fa-users"></i></span>
+                <div class="number">{{ total_patients }}</div>
+                <div class="label">Total Patients</div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="stat-card high">
+                <span class="icon"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="number">{{ high_risk }}</div>
+                <div class="label">🔴 High Risk</div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="stat-card medium">
+                <span class="icon"><i class="fas fa-chart-line"></i></span>
+                <div class="number">{{ medium_risk }}</div>
+                <div class="label">🟠 Medium Risk</div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="stat-card low">
+                <span class="icon"><i class="fas fa-check-circle"></i></span>
+                <div class="number">{{ low_risk }}</div>
+                <div class="label">🟢 Low Risk</div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="stat-card staff">
+                <span class="icon"><i class="fas fa-id-badge"></i></span>
+                <div class="number">{{ staff|length }}</div>
+                <div class="label">👤 Staff</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card p-3" style="border-radius:12px;">
+                <h6 class="card-title"><i class="fas fa-chart-pie" style="color:#1E3A8A;"></i> Risk Distribution</h6>
+                <div class="chart-container" style="height:170px;">
+                    <canvas id="riskChart"></canvas>
+                </div>
+                <div class="text-center mt-2">
+                    <span class="badge bg-danger me-1">High: {{ high_risk }}</span>
+                    <span class="badge bg-warning me-1">Medium: {{ medium_risk }}</span>
+                    <span class="badge bg-success">Low: {{ low_risk }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card p-3" style="border-radius:12px;">
+                <h6 class="card-title"><i class="fas fa-clock" style="color:#1E3A8A;"></i> Recent Activities</h6>
+                <div style="max-height:200px; overflow-y:auto;">
+                    {% if activities %}
+                        {% for act in activities %}
+                        <div class="activity-item">
+                            <span class="activity-icon">
+                                {% if 'logged in' in act.text %}<i class="fas fa-sign-in-alt" style="color:#3B82F6;"></i>
+                                {% elif 'logged out' in act.text %}<i class="fas fa-sign-out-alt" style="color:#64748B;"></i>
+                                {% elif 'registered' in act.text %}<i class="fas fa-user-plus" style="color:#10B981;"></i>
+                                {% elif 'approved' in act.text %}<i class="fas fa-check-circle" style="color:#10B981;"></i>
+                                {% elif 'rejected' in act.text %}<i class="fas fa-times-circle" style="color:#EF4444;"></i>
+                                {% elif 'alert' in act.text %}<i class="fas fa-bell" style="color:#EF4444;"></i>
+                                {% elif 'assessment' in act.text %}<i class="fas fa-clipboard-list" style="color:#F59E0B;"></i>
+                                {% elif 'PDF' in act.text %}<i class="fas fa-file-pdf" style="color:#EF4444;"></i>
+                                {% else %}<i class="fas fa-circle" style="color:#94A3B8; font-size:8px;"></i>
+                                {% endif %}
+                            </span>
+                            {{ act.text }}
+                            <span class="activity-time">{{ act.timestamp }}</span>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="text-muted text-center py-3">No recent activities.</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Staff List -->
+    <div class="card" style="border-radius:12px;">
+        <div class="card-body">
+            <h6 class="card-title"><i class="fas fa-users" style="color:#1E3A8A;"></i> Staff Directory</h6>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Specialization / Assigned To</th>
+                            <th>Username</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in staff %}
+                        <tr>
+                            <td>{{ s.id }}</td>
+                            <td>{{ s.name }}</td>
+                            <td><span class="badge {% if s.role == 'Doctor' %}bg-primary{% elif s.role == 'Nurse' %}bg-info{% elif s.role == 'Administrator' %}bg-danger{% else %}bg-secondary{% endif %}">{{ s.role }}</span></td>
+                            <td>{{ s.specialization if s.specialization else s.assigned_doctor if s.assigned_doctor else '-' }}</td>
+                            <td><code>{{ s.username }}</code></td>
+                            <td>
+                                <a href="/edit_staff/{{ s.id }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr><td colspan="6" class="text-center text-muted">No staff found.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // FIX: Read risk values from data attributes — pure JS, no Jinja2 inside <script>
+    var chartEl = document.getElementById('chartData');
+    var highRisk   = parseInt(chartEl.getAttribute('data-high'),   10);
+    var mediumRisk = parseInt(chartEl.getAttribute('data-medium'), 10);
+    var lowRisk    = parseInt(chartEl.getAttribute('data-low'),    10);
+
+    new Chart(document.getElementById('riskChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['High Risk', 'Medium Risk', 'Low Risk'],
+            datasets: [{
+                data: [highRisk, mediumRisk, lowRisk],
+                backgroundColor: ['#EF4444', '#F59E0B', '#10B981'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { boxWidth: 10, padding: 8, font: { size: 11 } }
+                }
+            },
+            cutout: '65%'
+        }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

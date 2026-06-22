@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Suwa Setha AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        body { background: #F8FAFC; }
+        .navbar-dark { background: #1E3A8A !important; }
+        .btn-primary { background: #1E3A8A; border: none; }
+        .btn-primary:hover { background: #2563EB; }
+        .result-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 12px; }
+        .result-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+        .result-card .badge { font-size: 11px; padding: 4px 10px; }
+        .section-title { font-size: 16px; font-weight: 600; color: #1E3A8A; margin-top: 16px; margin-bottom: 12px; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px; }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark navbar-expand-lg px-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">🏥 Suwa Setha AI</a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><span class="navbar-text text-light me-3"><i class="fas fa-user-shield"></i> {{ user.name }}</span></li>
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container py-4">
+    <h2 style="color:#1E3A8A;"><i class="fas fa-search"></i> Search</h2>
+    <p class="text-muted">Search for patients, doctors, or nurses by name or ID.</p>
+
+    <form method="POST" class="row g-3 mb-4">
+        <div class="col-md-10">
+            <input type="text" class="form-control form-control-lg" name="search_query" placeholder="Enter name or ID..." value="{{ query }}" required>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search"></i> Search</button>
+        </div>
+    </form>
+
+    {% if results %}
+        <!-- Patients -->
+        {% if results.patients %}
+        <h6 class="section-title"><i class="fas fa-users" style="color:#1E3A8A;"></i> Patients ({{ results.patients|length }})</h6>
+        {% for patient in results.patients %}
+        <div class="result-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ patient.full_name }}</strong>
+                    <span class="badge bg-secondary">{{ patient.id }}</span>
+                    <span class="badge bg-info">{{ patient.gender }}, {{ patient.age }}</span>
+                    <span class="badge bg-primary">{{ patient.diagnosis }}</span>
+                </div>
+                <div>
+                    <a href="/profile/{{ patient.id }}" class="btn btn-sm btn-primary">View Profile</a>
+                </div>
+            </div>
+            <div class="mt-1">
+                <small class="text-muted">Doctor: {{ patient.assigned_doctor or 'Unassigned' }} | Status: {{ patient.status }}</small>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <!-- Doctors -->
+        {% if results.doctors %}
+        <h6 class="section-title"><i class="fas fa-user-md" style="color:#1E3A8A;"></i> Doctors ({{ results.doctors|length }})</h6>
+        {% for doctor in results.doctors %}
+        <div class="result-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ doctor.name }}</strong>
+                    <span class="badge bg-primary">Doctor</span>
+                    <span class="badge bg-info">{{ doctor.specialization }}</span>
+                    <span class="badge bg-secondary">{{ doctor.id }}</span>
+                </div>
+                <div>
+                    <a href="/edit_staff/{{ doctor.id }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                </div>
+            </div>
+            <div class="mt-1">
+                <small class="text-muted">Department: {{ doctor.department }} | Username: <code>{{ doctor.username }}</code></small>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <!-- Nurses -->
+        {% if results.nurses %}
+        <h6 class="section-title"><i class="fas fa-user-nurse" style="color:#1E3A8A;"></i> Nurses ({{ results.nurses|length }})</h6>
+        {% for nurse in results.nurses %}
+        <div class="result-card">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ nurse.name }}</strong>
+                    <span class="badge bg-info">Nurse</span>
+                    <span class="badge bg-secondary">{{ nurse.id }}</span>
+                </div>
+                <div>
+                    <a href="/edit_staff/{{ nurse.id }}" class="btn btn-sm btn-outline-primary">Edit</a>
+                </div>
+            </div>
+            <div class="mt-1">
+                <small class="text-muted">Assigned to: {{ nurse.assigned_doctor or 'Unassigned' }} | Username: <code>{{ nurse.username }}</code></small>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        {% if not results.patients and not results.doctors and not results.nurses %}
+        <div class="alert alert-info">No results found.</div>
+        {% endif %}
+    {% endif %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

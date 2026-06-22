@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile - Suwa Setha AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        body { background: #F8FAFC; }
+        .navbar-dark { background: #1E3A8A !important; }
+        .btn-primary { background: #1E3A8A; border: none; }
+        .btn-primary:hover { background: #2563EB; }
+        .profile-card { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .section-title { font-size: 18px; font-weight: 600; color: #1E3A8A; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px; margin-top: 20px; }
+        .badge-risk { font-weight: 500; padding: 6px 18px; border-radius: 20px; font-size: 16px; }
+
+        /* FIX Line 91: Dedicated classes replace inline Jinja2 style on badge-risk */
+        .badge-risk-high   { background: #FEE2E2; color: #EF4444; }
+        .badge-risk-medium { background: #FEF3C7; color: #F59E0B; }
+        .badge-risk-low    { background: #D1FAE5; color: #10B981; }
+
+        /* FIX Line 88: Risk score number colour driven by a CSS variable set inline on the element.
+           Using a CSS custom property on the element itself is valid — only Jinja2 in style="" causes errors. */
+        .risk-score-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--risk-color, #1E3A8A);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark navbar-expand-lg px-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">🏥 Suwa Setha AI</a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><span class="navbar-text text-light me-3"><i class="fas fa-user-md"></i> {{ user.name }}</span></li>
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container py-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h2 style="color:#1E3A8A;">👤 Patient Profile</h2>
+
+    <div class="row mt-3">
+        <div class="col-md-8">
+            <div class="profile-card">
+                <h5 class="mb-3">{{ patient.full_name }}</h5>
+                <p><strong>Patient ID:</strong> {{ patient.id }}</p>
+
+                <div class="section-title">Personal Information</div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><strong>Age:</strong> {{ patient.age }}</div>
+                    <div class="col-md-6"><strong>Gender:</strong> {{ patient.gender }}</div>
+                    <div class="col-md-6"><strong>NIC:</strong> {{ patient.nic }}</div>
+                    <div class="col-md-6"><strong>Phone:</strong> {{ patient.phone }}</div>
+                    <div class="col-md-6"><strong>Email:</strong> {{ patient.email }}</div>
+                    <div class="col-md-12"><strong>Address:</strong> {{ patient.address }}</div>
+                </div>
+
+                <div class="section-title">Medical Information</div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><strong>Primary Diagnosis:</strong> {{ patient.diagnosis }}</div>
+                    <div class="col-md-6"><strong>Secondary Diagnosis:</strong> {{ patient.secondary_diagnosis or '-' }}</div>
+                    <div class="col-md-12"><strong>Existing Diseases:</strong> {{ patient.existing_diseases | join(', ') or 'None' }}</div>
+                    <div class="col-md-6"><strong>Previous Admissions:</strong> {{ patient.previous_admissions }}</div>
+                    <div class="col-md-6"><strong>Allergies:</strong> {{ patient.allergies | join(', ') or 'None' }}</div>
+                    <div class="col-md-12"><strong>Current Medications:</strong> {{ patient.current_medications | join(', ') }}</div>
+                </div>
+
+                <div class="section-title">Hospital Information</div>
+                <div class="row mt-2">
+                    <div class="col-md-4"><strong>Admission Date:</strong> {{ patient.admission_date }}</div>
+                    <div class="col-md-4"><strong>Discharge Date:</strong> {{ patient.discharge_date or 'Not discharged yet' }}</div>
+                    <div class="col-md-4"><strong>Length of Stay:</strong> {{ patient.length_of_stay or '0' }} days</div>
+                    <div class="col-md-6"><strong>Assigned Doctor:</strong> {{ patient.assigned_doctor or 'Unassigned' }}</div>
+                    <div class="col-md-6"><strong>Status:</strong> {{ patient.status }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="profile-card">
+                <h6 class="mb-3">🤖 AI Risk Summary</h6>
+                <div class="text-center">
+                    <!-- FIX Line 88: CSS custom property carries the dynamic colour — no Jinja2 inside style value -->
+                    <div class="risk-score-number" style="--risk-color: {{ risk.risk_color }};">
+                        {{ risk.risk_score }}{% if risk.risk_score > 0 %}%{% endif %}
+                    </div>
+
+                    <!-- FIX Line 91: CSS class replaces inline Jinja2 conditional style -->
+                    <span class="badge-risk
+                        {% if risk.risk_level == 'High Risk' %}badge-risk-high
+                        {% elif risk.risk_level == 'Medium Risk' %}badge-risk-medium
+                        {% else %}badge-risk-low{% endif %}">
+                        {{ risk.risk_level }}
+                    </span>
+                </div>
+                <hr>
+                <p><strong>Priority:</strong> {{ risk.priority }}</p>
+                <p><strong>Status:</strong> {{ risk.status }}</p>
+                <p><strong>Risk Factors:</strong></p>
+                <ul class="small">
+                    {% for factor in risk.risk_factors %}
+                    <li>{{ factor }}</li>
+                    {% endfor %}
+                </ul>
+
+                <!-- Action Buttons -->
+                <div class="mt-3">
+                    {% if user.role == 'Nurse' and risk.status == 'Not Assessed' %}
+                    <a href="/assess/{{ patient.id }}" class="btn btn-primary w-100">
+                        <i class="fas fa-clipboard-list"></i> Start Discharge Assessment
+                    </a>
+                    {% endif %}
+
+                    {% if risk.status != 'Not Assessed' and risk.status != 'Draft' %}
+                    <a href="/care_plan/{{ patient.id }}" class="btn btn-outline-primary w-100 mt-2">
+                        <i class="fas fa-file-medical"></i> View Care Plan
+                    </a>
+                    {% endif %}
+
+                    <a href="/history" class="btn btn-outline-secondary w-100 mt-2">
+                        <i class="fas fa-history"></i> View History
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function (alert) {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(function () { alert.remove(); }, 500);
+            });
+        }, 4000);
+    });
+</script>
+</body>
+</html>

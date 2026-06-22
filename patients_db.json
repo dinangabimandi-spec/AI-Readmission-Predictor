@@ -1,0 +1,3094 @@
+{
+  "P2000": {
+    "full_name": "Janaka Lokuhewa",
+    "age": 61,
+    "nic": "197416130",
+    "gender": "Female",
+    "address": "54, Station Road, Negombo",
+    "phone": "077-5117806",
+    "email": "janaka.lokuhewa@email.com",
+    "diagnosis": "Migraine",
+    "secondary_diagnosis": "Glaucoma",
+    "existing_diseases": [
+      "Diabetes",
+      "Heart Disease"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Sertraline",
+      "Metformin",
+      "Albuterol",
+      "Insulin",
+      "Amoxicillin",
+      "Omeprazole",
+      "Lisinopril"
+    ],
+    "allergies": [
+      "Penicillin",
+      "Ibuprofen"
+    ],
+    "admission_date": "2026-06-07",
+    "discharge_date": "2026-06-17",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2001": {
+    "full_name": "Deepani Amarasinghe",
+    "age": 56,
+    "nic": "200329106",
+    "gender": "Female",
+    "address": "129, Galle Road, Colombo",
+    "phone": "076-4312477",
+    "email": "deepani.amarasinghe@email.com",
+    "diagnosis": "Epilepsy",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "COPD",
+      "Alzheimer's",
+      "Heart Disease"
+    ],
+    "previous_admissions": 1,
+    "current_medications": [
+      "Levothyroxine",
+      "Warfarin",
+      "Losartan",
+      "Lisinopril",
+      "Omeprazole",
+      "Sertraline",
+      "Albuterol"
+    ],
+    "allergies": [
+      "Pet Dander",
+      "Penicillin"
+    ],
+    "admission_date": "2026-06-16",
+    "discharge_date": "",
+    "length_of_stay": 6,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Admitted"
+  },
+  "P2002": {
+    "full_name": "Kanthi Seneviratne",
+    "age": 86,
+    "nic": "200115316",
+    "gender": "Male",
+    "address": "1, Station Road, Anuradhapura",
+    "phone": "077-2522725",
+    "email": "kanthi.seneviratne@email.com",
+    "diagnosis": "COPD",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Heart Disease",
+      "Anxiety",
+      "Thyroid Disorder"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Amoxicillin",
+      "Metformin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-14",
+    "discharge_date": "2026-06-19",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2003": {
+    "full_name": "Bandula Wijesinghe",
+    "age": 61,
+    "nic": "196921291",
+    "gender": "Female",
+    "address": "104, Station Road, Badulla",
+    "phone": "076-4918864",
+    "email": "bandula.wijesinghe@email.com",
+    "diagnosis": "Tuberculosis",
+    "secondary_diagnosis": "Dermatitis",
+    "existing_diseases": [
+      "Heart Disease",
+      "COPD",
+      "Asthma"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Gabapentin",
+      "Levothyroxine"
+    ],
+    "allergies": [
+      "Pollen"
+    ],
+    "admission_date": "2026-05-30",
+    "discharge_date": "2026-06-07",
+    "length_of_stay": 8,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2004": {
+    "full_name": "Chandrika Ranasinghe",
+    "age": 54,
+    "nic": "196012903",
+    "gender": "Female",
+    "address": "13, Main Street, Kurunegala",
+    "phone": "078-2463035",
+    "email": "chandrika.ranasinghe@email.com",
+    "diagnosis": "Dengue",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "COPD",
+      "Epilepsy"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Diazepam",
+      "Amoxicillin",
+      "Clopidogrel"
+    ],
+    "allergies": [
+      "Morphine"
+    ],
+    "admission_date": "2026-05-24",
+    "discharge_date": "2026-06-05",
+    "length_of_stay": 12,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2005": {
+    "full_name": "Deepani Mendis",
+    "age": 50,
+    "nic": "196117407",
+    "gender": "Female",
+    "address": "195, Lake Road, Anuradhapura",
+    "phone": "076-5411502",
+    "email": "deepani.mendis@email.com",
+    "diagnosis": "Anxiety",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Hypertension",
+      "Liver Disease",
+      "Heart Disease"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Paracetamol",
+      "Tramadol",
+      "Lisinopril",
+      "Omeprazole"
+    ],
+    "allergies": [
+      "Ibuprofen",
+      "Shellfish"
+    ],
+    "admission_date": "2026-06-07",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 14,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2006": {
+    "full_name": "Sujeewa Fernando",
+    "age": 48,
+    "nic": "199727808",
+    "gender": "Male",
+    "address": "200, Galle Road, Matara",
+    "phone": "073-6594046",
+    "email": "sujeewa.fernando@email.com",
+    "diagnosis": "Alzheimer's",
+    "secondary_diagnosis": "Bronchitis",
+    "existing_diseases": [
+      "Heart Disease",
+      "Hypertension"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Ventolin",
+      "Ibuprofen",
+      "Losartan",
+      "Omeprazole",
+      "Paracetamol",
+      "Atorvastatin",
+      "Warfarin",
+      "Albuterol"
+    ],
+    "allergies": [
+      "Morphine"
+    ],
+    "admission_date": "2026-05-24",
+    "discharge_date": "",
+    "length_of_stay": 29,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Admitted"
+  },
+  "P2007": {
+    "full_name": "Somasiri Kumara",
+    "age": 53,
+    "nic": "199511037",
+    "gender": "Male",
+    "address": "102, Lake Road, Jaffna",
+    "phone": "071-7397834",
+    "email": "somasiri.kumara@email.com",
+    "diagnosis": "Osteoporosis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Albuterol",
+      "Omeprazole",
+      "Prednisone"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-27",
+    "discharge_date": "2026-06-06",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2008": {
+    "full_name": "Sujeewa Lokuhewa",
+    "age": 39,
+    "nic": "198011984",
+    "gender": "Male",
+    "address": "199, Main Street, Negombo",
+    "phone": "075-8440086",
+    "email": "sujeewa.lokuhewa@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Diabetes"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Aspirin",
+      "Clopidogrel",
+      "Ventolin",
+      "Amoxicillin",
+      "Zolpidem",
+      "Lisinopril",
+      "Paracetamol"
+    ],
+    "allergies": [
+      "Pet Dander",
+      "Latex"
+    ],
+    "admission_date": "2026-06-03",
+    "discharge_date": "",
+    "length_of_stay": 19,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Admitted"
+  },
+  "P2009": {
+    "full_name": "Gunasekera Mendis",
+    "age": 57,
+    "nic": "199225005",
+    "gender": "Male",
+    "address": "27, Galle Road, Colombo",
+    "phone": "078-9867489",
+    "email": "gunasekera.mendis@email.com",
+    "diagnosis": "Kidney Disease",
+    "secondary_diagnosis": "Cataract",
+    "existing_diseases": [
+      "Diabetes",
+      "Asthma",
+      "Thyroid Disorder"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Citalopram",
+      "Tramadol",
+      "Atorvastatin",
+      "Insulin",
+      "Prednisone",
+      "Warfarin"
+    ],
+    "allergies": [
+      "Morphine"
+    ],
+    "admission_date": "2026-06-05",
+    "discharge_date": "",
+    "length_of_stay": 17,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2010": {
+    "full_name": "Upul Gamage",
+    "age": 81,
+    "nic": "197225721",
+    "gender": "Female",
+    "address": "51, Lake Road, Ratnapura",
+    "phone": "070-7922709",
+    "email": "upul.gamage@email.com",
+    "diagnosis": "Depression",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Prednisone",
+      "Citalopram",
+      "Losartan",
+      "Omeprazole"
+    ],
+    "allergies": [
+      "Pet Dander"
+    ],
+    "admission_date": "2026-05-27",
+    "discharge_date": "2026-06-01",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2011": {
+    "full_name": "Lakshmi Dissanayake",
+    "age": 30,
+    "nic": "196825490",
+    "gender": "Male",
+    "address": "110, Temple Road, Colombo",
+    "phone": "071-4425800",
+    "email": "lakshmi.dissanayake@email.com",
+    "diagnosis": "Hypertension",
+    "secondary_diagnosis": "Asthma",
+    "existing_diseases": [
+      "Depression"
+    ],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Ventolin",
+      "Atorvastatin",
+      "Zolpidem",
+      "Paracetamol",
+      "Aspirin",
+      "Amoxicillin",
+      "Insulin",
+      "Sertraline"
+    ],
+    "allergies": [
+      "Peanuts",
+      "Ibuprofen"
+    ],
+    "admission_date": "2026-06-19",
+    "discharge_date": "2026-06-19",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2012": {
+    "full_name": "Malkanthi De Silva",
+    "age": 67,
+    "nic": "200122102",
+    "gender": "Male",
+    "address": "171, Galle Road, Jaffna",
+    "phone": "072-9838434",
+    "email": "malkanthi.de silva@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "Glaucoma",
+    "existing_diseases": [
+      "COPD",
+      "Thyroid Disorder",
+      "Hypertension"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Clopidogrel"
+    ],
+    "allergies": [
+      "Latex",
+      "Sulfa"
+    ],
+    "admission_date": "2026-06-16",
+    "discharge_date": "2026-06-19",
+    "length_of_stay": 3,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2013": {
+    "full_name": "Lakshmi Wijeratne",
+    "age": 30,
+    "nic": "197213525",
+    "gender": "Male",
+    "address": "98, Lake Road, Matara",
+    "phone": "077-2520219",
+    "email": "lakshmi.wijeratne@email.com",
+    "diagnosis": "Tuberculosis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Hypertension",
+      "Osteoporosis",
+      "Thyroid Disorder"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Omeprazole",
+      "Ibuprofen",
+      "Zolpidem",
+      "Clopidogrel",
+      "Losartan",
+      "Aspirin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-03",
+    "discharge_date": "",
+    "length_of_stay": 19,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Admitted"
+  },
+  "P2014": {
+    "full_name": "Malkanthi Fernando",
+    "age": 33,
+    "nic": "197429748",
+    "gender": "Male",
+    "address": "47, Galle Road, Badulla",
+    "phone": "071-3691476",
+    "email": "malkanthi.fernando@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "COPD"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Atorvastatin",
+      "Zolpidem",
+      "Amoxicillin",
+      "Aspirin",
+      "Ibuprofen",
+      "Ventolin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-31",
+    "discharge_date": "2026-06-14",
+    "length_of_stay": 14,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2015": {
+    "full_name": "Priyantha Wijesinghe",
+    "age": 56,
+    "nic": "199815087",
+    "gender": "Male",
+    "address": "159, Lake Road, Kurunegala",
+    "phone": "075-6639413",
+    "email": "priyantha.wijesinghe@email.com",
+    "diagnosis": "Epilepsy",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "COPD"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Insulin",
+      "Aspirin",
+      "Levothyroxine"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-28",
+    "discharge_date": "2026-06-07",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2016": {
+    "full_name": "Piyal Wijeratne",
+    "age": 74,
+    "nic": "199716771",
+    "gender": "Female",
+    "address": "69, Lake Road, Anuradhapura",
+    "phone": "071-5648423",
+    "email": "piyal.wijeratne@email.com",
+    "diagnosis": "Diabetes",
+    "secondary_diagnosis": "Glaucoma",
+    "existing_diseases": [
+      "Diabetes",
+      "Anxiety",
+      "Thyroid Disorder"
+    ],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Ventolin",
+      "Lisinopril",
+      "Amoxicillin",
+      "Clopidogrel"
+    ],
+    "allergies": [
+      "Morphine"
+    ],
+    "admission_date": "2026-06-12",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 9,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2017": {
+    "full_name": "Priyantha Herath",
+    "age": 74,
+    "nic": "200327362",
+    "gender": "Female",
+    "address": "1, Station Road, Galle",
+    "phone": "070-6166879",
+    "email": "priyantha.herath@email.com",
+    "diagnosis": "Heart Disease",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Amoxicillin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-15",
+    "discharge_date": "2026-06-17",
+    "length_of_stay": 2,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2018": {
+    "full_name": "Thilak Seneviratne",
+    "age": 45,
+    "nic": "200315530",
+    "gender": "Male",
+    "address": "160, Station Road, Ratnapura",
+    "phone": "074-4841859",
+    "email": "thilak.seneviratne@email.com",
+    "diagnosis": "Migraine",
+    "secondary_diagnosis": "Anemia",
+    "existing_diseases": [],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Atorvastatin",
+      "Omeprazole",
+      "Gabapentin",
+      "Lisinopril",
+      "Clopidogrel"
+    ],
+    "allergies": [
+      "Pollen",
+      "Shellfish"
+    ],
+    "admission_date": "2026-06-03",
+    "discharge_date": "2026-06-16",
+    "length_of_stay": 13,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2019": {
+    "full_name": "Nimal Karunaratne",
+    "age": 83,
+    "nic": "197328345",
+    "gender": "Male",
+    "address": "16, Lake Road, Colombo",
+    "phone": "078-7782583",
+    "email": "nimal.karunaratne@email.com",
+    "diagnosis": "Osteoporosis",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Diabetes",
+      "Alzheimer's"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Prednisone",
+      "Warfarin"
+    ],
+    "allergies": [
+      "Codeine",
+      "Pollen"
+    ],
+    "admission_date": "2026-06-21",
+    "discharge_date": "2026-06-20",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2020": {
+    "full_name": "Daya Perera",
+    "age": 25,
+    "nic": "197413645",
+    "gender": "Male",
+    "address": "164, Station Road, Matara",
+    "phone": "072-4226506",
+    "email": "daya.perera@email.com",
+    "diagnosis": "Asthma",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Hypertension"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Levothyroxine",
+      "Ibuprofen"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-15",
+    "discharge_date": "",
+    "length_of_stay": 7,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Admitted"
+  },
+  "P2021": {
+    "full_name": "Gunasekera Rathnayake",
+    "age": 24,
+    "nic": "200518462",
+    "gender": "Male",
+    "address": "161, Temple Road, Badulla",
+    "phone": "078-3279356",
+    "email": "gunasekera.rathnayake@email.com",
+    "diagnosis": "Dengue",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension"
+    ],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Insulin",
+      "Zolpidem",
+      "Sertraline",
+      "Paracetamol",
+      "Atorvastatin",
+      "Citalopram"
+    ],
+    "allergies": [
+      "Sulfa"
+    ],
+    "admission_date": "2026-06-11",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2022": {
+    "full_name": "Gamini Wijesinghe",
+    "age": 66,
+    "nic": "196629338",
+    "gender": "Male",
+    "address": "144, Temple Road, Colombo",
+    "phone": "076-4400335",
+    "email": "gamini.wijesinghe@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Hypertension",
+      "Diabetes",
+      "Alzheimer's"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Sertraline",
+      "Insulin",
+      "Amoxicillin",
+      "Warfarin",
+      "Aspirin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-25",
+    "discharge_date": "2026-06-04",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2023": {
+    "full_name": "Gunasekera Hettiarachchi",
+    "age": 68,
+    "nic": "197212093",
+    "gender": "Female",
+    "address": "89, Kandy Road, Jaffna",
+    "phone": "075-7237373",
+    "email": "gunasekera.hettiarachchi@email.com",
+    "diagnosis": "Dengue",
+    "secondary_diagnosis": "Eczema",
+    "existing_diseases": [
+      "Diabetes",
+      "Parkinson's",
+      "Cancer"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Amoxicillin",
+      "Omeprazole"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-05",
+    "discharge_date": "2026-06-09",
+    "length_of_stay": 4,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2024": {
+    "full_name": "Janaka Karunaratne",
+    "age": 41,
+    "nic": "198822226",
+    "gender": "Male",
+    "address": "63, Temple Road, Colombo",
+    "phone": "078-3952956",
+    "email": "janaka.karunaratne@email.com",
+    "diagnosis": "Kidney Disease",
+    "secondary_diagnosis": "Dermatitis",
+    "existing_diseases": [
+      "Hypertension"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Insulin",
+      "Tramadol",
+      "Prednisone"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-19",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 2,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2025": {
+    "full_name": "Wimal Premaratne",
+    "age": 44,
+    "nic": "199328169",
+    "gender": "Male",
+    "address": "158, Lake Road, Ratnapura",
+    "phone": "070-6279278",
+    "email": "wimal.premaratne@email.com",
+    "diagnosis": "Cancer",
+    "secondary_diagnosis": "Glaucoma",
+    "existing_diseases": [
+      "Diabetes",
+      "Depression",
+      "Osteoporosis"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Tramadol",
+      "Diazepam",
+      "Amoxicillin",
+      "Sertraline",
+      "Omeprazole",
+      "Levothyroxine",
+      "Losartan"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-07",
+    "discharge_date": "2026-06-15",
+    "length_of_stay": 8,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2026": {
+    "full_name": "Kusum Jayasuriya",
+    "age": 82,
+    "nic": "198528977",
+    "gender": "Male",
+    "address": "43, Lake Road, Negombo",
+    "phone": "076-3315560",
+    "email": "kusum.jayasuriya@email.com",
+    "diagnosis": "Diabetes",
+    "secondary_diagnosis": "Eczema",
+    "existing_diseases": [
+      "Hypertension",
+      "Kidney Disease"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Metformin",
+      "Lisinopril"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-11",
+    "discharge_date": "",
+    "length_of_stay": 11,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Admitted"
+  },
+  "P2027": {
+    "full_name": "Janaka Amarasinghe",
+    "age": 29,
+    "nic": "198723575",
+    "gender": "Female",
+    "address": "43, Temple Road, Negombo",
+    "phone": "070-2721504",
+    "email": "janaka.amarasinghe@email.com",
+    "diagnosis": "Parkinson's",
+    "secondary_diagnosis": "Eczema",
+    "existing_diseases": [
+      "Diabetes"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Lisinopril",
+      "Losartan",
+      "Diazepam",
+      "Atorvastatin",
+      "Clopidogrel",
+      "Zolpidem"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-14",
+    "discharge_date": "",
+    "length_of_stay": 8,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Admitted"
+  },
+  "P2028": {
+    "full_name": "Kusum Gamage",
+    "age": 27,
+    "nic": "197214884",
+    "gender": "Female",
+    "address": "83, Main Street, Anuradhapura",
+    "phone": "074-4052401",
+    "email": "kusum.gamage@email.com",
+    "diagnosis": "Hypertension",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Cancer",
+      "Parkinson's"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Losartan",
+      "Ibuprofen",
+      "Warfarin",
+      "Metformin",
+      "Ventolin",
+      "Omeprazole",
+      "Paracetamol"
+    ],
+    "allergies": [
+      "Peanuts"
+    ],
+    "admission_date": "2026-06-20",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2029": {
+    "full_name": "Somasiri Kariyawasam",
+    "age": 84,
+    "nic": "198717923",
+    "gender": "Male",
+    "address": "152, Temple Road, Negombo",
+    "phone": "072-9703635",
+    "email": "somasiri.kariyawasam@email.com",
+    "diagnosis": "Dengue",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Cancer"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Amoxicillin",
+      "Albuterol",
+      "Diazepam"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-10",
+    "discharge_date": "2026-06-20",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2030": {
+    "full_name": "Kanthi Karunaratne",
+    "age": 80,
+    "nic": "197618607",
+    "gender": "Female",
+    "address": "95, Temple Road, Kandy",
+    "phone": "078-4250188",
+    "email": "kanthi.karunaratne@email.com",
+    "diagnosis": "COPD",
+    "secondary_diagnosis": "",
+    "existing_diseases": [],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Insulin",
+      "Tramadol",
+      "Warfarin",
+      "Lisinopril",
+      "Clopidogrel"
+    ],
+    "allergies": [
+      "Latex"
+    ],
+    "admission_date": "2026-05-29",
+    "discharge_date": "",
+    "length_of_stay": 24,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2031": {
+    "full_name": "Daya Kulasekara",
+    "age": 52,
+    "nic": "199519137",
+    "gender": "Male",
+    "address": "164, Station Road, Badulla",
+    "phone": "076-5072009",
+    "email": "daya.kulasekara@email.com",
+    "diagnosis": "Pneumonia",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "Hypertension"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Metformin",
+      "Insulin",
+      "Amoxicillin",
+      "Warfarin"
+    ],
+    "allergies": [
+      "Pet Dander"
+    ],
+    "admission_date": "2026-06-19",
+    "discharge_date": "2026-06-20",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2032": {
+    "full_name": "Gamini Kariyawasam",
+    "age": 43,
+    "nic": "199813420",
+    "gender": "Female",
+    "address": "181, Galle Road, Negombo",
+    "phone": "077-7871112",
+    "email": "gamini.kariyawasam@email.com",
+    "diagnosis": "Asthma",
+    "secondary_diagnosis": "Cataract",
+    "existing_diseases": [
+      "Hypertension"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Diazepam",
+      "Citalopram",
+      "Clopidogrel",
+      "Ibuprofen"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-15",
+    "discharge_date": "",
+    "length_of_stay": 7,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Admitted"
+  },
+  "P2033": {
+    "full_name": "Anura Gamage",
+    "age": 75,
+    "nic": "197325773",
+    "gender": "Male",
+    "address": "156, Main Street, Colombo",
+    "phone": "073-6143615",
+    "email": "anura.gamage@email.com",
+    "diagnosis": "Thyroid Disorder",
+    "secondary_diagnosis": "Asthma",
+    "existing_diseases": [
+      "Heart Disease",
+      "Hypertension"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Paracetamol",
+      "Lisinopril"
+    ],
+    "allergies": [
+      "Codeine",
+      "Dust"
+    ],
+    "admission_date": "2026-06-02",
+    "discharge_date": "2026-06-11",
+    "length_of_stay": 9,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2034": {
+    "full_name": "Kanthi Rathnayake",
+    "age": 39,
+    "nic": "196929208",
+    "gender": "Male",
+    "address": "18, Temple Road, Kandy",
+    "phone": "073-7261536",
+    "email": "kanthi.rathnayake@email.com",
+    "diagnosis": "Kidney Disease",
+    "secondary_diagnosis": "Asthma",
+    "existing_diseases": [
+      "Depression",
+      "Thyroid Disorder"
+    ],
+    "previous_admissions": 1,
+    "current_medications": [
+      "Insulin",
+      "Amoxicillin",
+      "Sertraline",
+      "Atorvastatin",
+      "Tramadol",
+      "Levothyroxine",
+      "Omeprazole",
+      "Lisinopril"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-08",
+    "discharge_date": "2026-06-19",
+    "length_of_stay": 11,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2035": {
+    "full_name": "Samantha Bandara",
+    "age": 52,
+    "nic": "197927057",
+    "gender": "Male",
+    "address": "200, Temple Road, Colombo",
+    "phone": "075-6799803",
+    "email": "samantha.bandara@email.com",
+    "diagnosis": "Cancer",
+    "secondary_diagnosis": "Asthma",
+    "existing_diseases": [
+      "COPD",
+      "Heart Disease",
+      "Asthma"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Lisinopril",
+      "Citalopram",
+      "Sertraline",
+      "Metformin",
+      "Warfarin",
+      "Zolpidem"
+    ],
+    "allergies": [
+      "Dust"
+    ],
+    "admission_date": "2026-05-28",
+    "discharge_date": "2026-06-05",
+    "length_of_stay": 8,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2036": {
+    "full_name": "Siri Lokuhewa",
+    "age": 43,
+    "nic": "196613927",
+    "gender": "Male",
+    "address": "90, Main Street, Badulla",
+    "phone": "074-6300266",
+    "email": "siri.lokuhewa@email.com",
+    "diagnosis": "Alzheimer's",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "Hypertension",
+      "Epilepsy"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Ventolin",
+      "Amoxicillin",
+      "Losartan",
+      "Diazepam",
+      "Prednisone",
+      "Sertraline",
+      "Gabapentin",
+      "Atorvastatin"
+    ],
+    "allergies": [
+      "Ibuprofen",
+      "Peanuts"
+    ],
+    "admission_date": "2026-06-07",
+    "discharge_date": "",
+    "length_of_stay": 15,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Admitted"
+  },
+  "P2037": {
+    "full_name": "Indrani Herath",
+    "age": 45,
+    "nic": "196617924",
+    "gender": "Male",
+    "address": "122, Main Street, Negombo",
+    "phone": "072-5376200",
+    "email": "indrani.herath@email.com",
+    "diagnosis": "Depression",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "COPD"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Amoxicillin",
+      "Atorvastatin",
+      "Tramadol"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-24",
+    "discharge_date": "2026-06-07",
+    "length_of_stay": 14,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2038": {
+    "full_name": "Kamala Jayasuriya",
+    "age": 61,
+    "nic": "200015955",
+    "gender": "Female",
+    "address": "67, Lake Road, Anuradhapura",
+    "phone": "074-9735041",
+    "email": "kamala.jayasuriya@email.com",
+    "diagnosis": "Malaria",
+    "secondary_diagnosis": "Dermatitis",
+    "existing_diseases": [
+      "Heart Disease",
+      "COPD",
+      "Osteoporosis"
+    ],
+    "previous_admissions": 1,
+    "current_medications": [
+      "Aspirin",
+      "Omeprazole",
+      "Metformin",
+      "Amoxicillin"
+    ],
+    "allergies": [
+      "Mold"
+    ],
+    "admission_date": "2026-05-29",
+    "discharge_date": "2026-06-08",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2039": {
+    "full_name": "Kamala Kariyawasam",
+    "age": 48,
+    "nic": "197023929",
+    "gender": "Male",
+    "address": "41, Main Street, Galle",
+    "phone": "077-4941521",
+    "email": "kamala.kariyawasam@email.com",
+    "diagnosis": "Hypertension",
+    "secondary_diagnosis": "Eczema",
+    "existing_diseases": [
+      "Heart Disease",
+      "Depression",
+      "Osteoporosis"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Clopidogrel",
+      "Insulin",
+      "Gabapentin"
+    ],
+    "allergies": [
+      "Shellfish",
+      "Penicillin"
+    ],
+    "admission_date": "2026-06-03",
+    "discharge_date": "2026-06-05",
+    "length_of_stay": 2,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2040": {
+    "full_name": "Ranil Samarasinghe",
+    "age": 51,
+    "nic": "196617654",
+    "gender": "Male",
+    "address": "173, Lake Road, Galle",
+    "phone": "076-6081734",
+    "email": "ranil.samarasinghe@email.com",
+    "diagnosis": "COPD",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension",
+      "Kidney Disease"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Zolpidem"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-27",
+    "discharge_date": "",
+    "length_of_stay": 26,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2041": {
+    "full_name": "Geethani Bandara",
+    "age": 90,
+    "nic": "199527423",
+    "gender": "Male",
+    "address": "132, Temple Road, Colombo",
+    "phone": "076-6186634",
+    "email": "geethani.bandara@email.com",
+    "diagnosis": "Pneumonia",
+    "secondary_diagnosis": "Eczema",
+    "existing_diseases": [],
+    "previous_admissions": 1,
+    "current_medications": [
+      "Paracetamol"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-12",
+    "discharge_date": "2026-06-19",
+    "length_of_stay": 7,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2042": {
+    "full_name": "Bandara Wickramasinghe",
+    "age": 67,
+    "nic": "200011537",
+    "gender": "Male",
+    "address": "138, Main Street, Colombo",
+    "phone": "075-5978198",
+    "email": "bandara.wickramasinghe@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "Hypertension",
+      "Osteoporosis"
+    ],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Amoxicillin"
+    ],
+    "allergies": [
+      "Dust"
+    ],
+    "admission_date": "2026-05-23",
+    "discharge_date": "2026-06-02",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2043": {
+    "full_name": "Bandara Gunawardena",
+    "age": 32,
+    "nic": "196922496",
+    "gender": "Female",
+    "address": "136, Main Street, Kurunegala",
+    "phone": "076-5735615",
+    "email": "bandara.gunawardena@email.com",
+    "diagnosis": "Cancer",
+    "secondary_diagnosis": "Asthma",
+    "existing_diseases": [
+      "Liver Disease",
+      "Hypertension"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Albuterol",
+      "Tramadol",
+      "Warfarin",
+      "Aspirin",
+      "Losartan",
+      "Diazepam"
+    ],
+    "allergies": [
+      "Codeine",
+      "Pollen"
+    ],
+    "admission_date": "2026-06-12",
+    "discharge_date": "",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Admitted"
+  },
+  "P2044": {
+    "full_name": "Nimal Jayasuriya",
+    "age": 76,
+    "nic": "197213662",
+    "gender": "Female",
+    "address": "87, Lake Road, Kurunegala",
+    "phone": "078-4703026",
+    "email": "nimal.jayasuriya@email.com",
+    "diagnosis": "Epilepsy",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension",
+      "COPD",
+      "Cancer"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Paracetamol",
+      "Omeprazole",
+      "Levothyroxine",
+      "Warfarin",
+      "Aspirin",
+      "Citalopram"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-23",
+    "discharge_date": "",
+    "length_of_stay": 30,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Admitted"
+  },
+  "P2045": {
+    "full_name": "Anura Kariyawasam",
+    "age": 84,
+    "nic": "196112313",
+    "gender": "Male",
+    "address": "81, Kandy Road, Negombo",
+    "phone": "073-7815722",
+    "email": "anura.kariyawasam@email.com",
+    "diagnosis": "Pneumonia",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Diabetes",
+      "Heart Disease",
+      "Parkinson's"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Citalopram",
+      "Omeprazole",
+      "Insulin",
+      "Losartan",
+      "Albuterol",
+      "Diazepam",
+      "Paracetamol",
+      "Metformin"
+    ],
+    "allergies": [
+      "Peanuts",
+      "Shellfish"
+    ],
+    "admission_date": "2026-06-02",
+    "discharge_date": "2026-06-07",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2046": {
+    "full_name": "Chandrika Herath",
+    "age": 19,
+    "nic": "199022163",
+    "gender": "Male",
+    "address": "134, Main Street, Jaffna",
+    "phone": "070-5466016",
+    "email": "chandrika.herath@email.com",
+    "diagnosis": "Liver Disease",
+    "secondary_diagnosis": "Anemia",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Amoxicillin",
+      "Zolpidem",
+      "Citalopram",
+      "Atorvastatin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-10",
+    "discharge_date": "2026-06-18",
+    "length_of_stay": 8,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2047": {
+    "full_name": "Karunaratne De Silva",
+    "age": 48,
+    "nic": "196925764",
+    "gender": "Female",
+    "address": "44, Station Road, Kandy",
+    "phone": "075-6619542",
+    "email": "karunaratne.de silva@email.com",
+    "diagnosis": "Pneumonia",
+    "secondary_diagnosis": "Dermatitis",
+    "existing_diseases": [
+      "Heart Disease",
+      "Asthma"
+    ],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Sertraline",
+      "Zolpidem",
+      "Atorvastatin",
+      "Amoxicillin",
+      "Warfarin",
+      "Insulin",
+      "Prednisone",
+      "Tramadol"
+    ],
+    "allergies": [
+      "Mold",
+      "Peanuts"
+    ],
+    "admission_date": "2026-05-26",
+    "discharge_date": "2026-05-31",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2048": {
+    "full_name": "Janaka Wijeratne",
+    "age": 45,
+    "nic": "197418882",
+    "gender": "Female",
+    "address": "184, Main Street, Kandy",
+    "phone": "075-4487201",
+    "email": "janaka.wijeratne@email.com",
+    "diagnosis": "Liver Disease",
+    "secondary_diagnosis": "Eczema",
+    "existing_diseases": [
+      "Diabetes",
+      "COPD"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Paracetamol",
+      "Losartan",
+      "Gabapentin",
+      "Prednisone",
+      "Ibuprofen",
+      "Lisinopril",
+      "Albuterol"
+    ],
+    "allergies": [
+      "Shellfish",
+      "Penicillin"
+    ],
+    "admission_date": "2026-06-04",
+    "discharge_date": "2026-06-13",
+    "length_of_stay": 9,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2049": {
+    "full_name": "Chandani Ranasinghe",
+    "age": 31,
+    "nic": "198624297",
+    "gender": "Male",
+    "address": "78, Station Road, Jaffna",
+    "phone": "077-7308093",
+    "email": "chandani.ranasinghe@email.com",
+    "diagnosis": "Alzheimer's",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Heart Disease",
+      "Hypertension",
+      "COPD",
+      "Thyroid Disorder"
+    ],
+    "previous_admissions": 1,
+    "current_medications": [
+      "Lisinopril"
+    ],
+    "allergies": [
+      "Ibuprofen"
+    ],
+    "admission_date": "2026-06-21",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2050": {
+    "full_name": "Herath Gamage",
+    "age": 61,
+    "nic": "197927683",
+    "gender": "Female",
+    "address": "13, Kandy Road, Matara",
+    "phone": "074-7975866",
+    "email": "herath.gamage@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "COPD"
+    ],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Ibuprofen"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-01",
+    "discharge_date": "2026-06-13",
+    "length_of_stay": 12,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2051": {
+    "full_name": "Gamika Gunawardena",
+    "age": 83,
+    "nic": "198017944",
+    "gender": "Male",
+    "address": "11, Kandy Road, Colombo",
+    "phone": "076-5019032",
+    "email": "gamika.gunawardena@email.com",
+    "diagnosis": "Malaria",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "Parkinson's"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Paracetamol",
+      "Prednisone"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-04",
+    "discharge_date": "2026-06-10",
+    "length_of_stay": 6,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2052": {
+    "full_name": "Lalitha Premaratne",
+    "age": 48,
+    "nic": "199113653",
+    "gender": "Female",
+    "address": "59, Lake Road, Galle",
+    "phone": "070-9962337",
+    "email": "lalitha.premaratne@email.com",
+    "diagnosis": "Depression",
+    "secondary_diagnosis": "Asthma",
+    "existing_diseases": [
+      "Hypertension",
+      "Osteoporosis"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Sertraline",
+      "Citalopram",
+      "Aspirin",
+      "Omeprazole"
+    ],
+    "allergies": [
+      "Sulfa"
+    ],
+    "admission_date": "2026-05-25",
+    "discharge_date": "",
+    "length_of_stay": 28,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Admitted"
+  },
+  "P2053": {
+    "full_name": "Somasiri Wijeratne",
+    "age": 51,
+    "nic": "196111895",
+    "gender": "Female",
+    "address": "22, Galle Road, Colombo",
+    "phone": "075-6615959",
+    "email": "somasiri.wijeratne@email.com",
+    "diagnosis": "Cancer",
+    "secondary_diagnosis": "Anemia",
+    "existing_diseases": [
+      "Hypertension"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Aspirin",
+      "Clopidogrel",
+      "Levothyroxine",
+      "Lisinopril",
+      "Zolpidem",
+      "Warfarin",
+      "Ventolin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-01",
+    "discharge_date": "2026-06-09",
+    "length_of_stay": 8,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2054": {
+    "full_name": "Kanthi Ranasinghe",
+    "age": 67,
+    "nic": "196214887",
+    "gender": "Female",
+    "address": "44, Kandy Road, Colombo",
+    "phone": "077-1315169",
+    "email": "kanthi.ranasinghe@email.com",
+    "diagnosis": "Diabetes",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Sertraline",
+      "Diazepam",
+      "Omeprazole",
+      "Amoxicillin",
+      "Albuterol"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-21",
+    "discharge_date": "2026-06-20",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2055": {
+    "full_name": "Kumarasinghe De Silva",
+    "age": 34,
+    "nic": "196726150",
+    "gender": "Male",
+    "address": "144, Kandy Road, Kurunegala",
+    "phone": "071-1823436",
+    "email": "kumarasinghe.de silva@email.com",
+    "diagnosis": "Osteoporosis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Hypertension",
+      "Parkinson's"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Insulin",
+      "Lisinopril",
+      "Warfarin",
+      "Tramadol",
+      "Losartan",
+      "Gabapentin"
+    ],
+    "allergies": [
+      "Aspirin",
+      "Morphine"
+    ],
+    "admission_date": "2026-06-10",
+    "discharge_date": "",
+    "length_of_stay": 12,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Admitted"
+  },
+  "P2056": {
+    "full_name": "Chandani Perera",
+    "age": 34,
+    "nic": "197223562",
+    "gender": "Female",
+    "address": "19, Galle Road, Jaffna",
+    "phone": "070-8836537",
+    "email": "chandani.perera@email.com",
+    "diagnosis": "Hypertension",
+    "secondary_diagnosis": "Anemia",
+    "existing_diseases": [],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Amoxicillin",
+      "Gabapentin",
+      "Lisinopril"
+    ],
+    "allergies": [
+      "Morphine",
+      "Latex"
+    ],
+    "admission_date": "2026-05-27",
+    "discharge_date": "",
+    "length_of_stay": 26,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Admitted"
+  },
+  "P2057": {
+    "full_name": "Chandrika Dias",
+    "age": 68,
+    "nic": "199915260",
+    "gender": "Male",
+    "address": "134, Station Road, Matara",
+    "phone": "074-1760725",
+    "email": "chandrika.dias@email.com",
+    "diagnosis": "Diabetes",
+    "secondary_diagnosis": "Glaucoma",
+    "existing_diseases": [
+      "Arthritis",
+      "Depression"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Clopidogrel",
+      "Gabapentin",
+      "Sertraline",
+      "Tramadol",
+      "Lisinopril"
+    ],
+    "allergies": [
+      "Pollen",
+      "Peanuts"
+    ],
+    "admission_date": "2026-05-23",
+    "discharge_date": "",
+    "length_of_stay": 30,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Admitted"
+  },
+  "P2058": {
+    "full_name": "Hema Hettiarachchi",
+    "age": 67,
+    "nic": "199818845",
+    "gender": "Male",
+    "address": "185, Temple Road, Kurunegala",
+    "phone": "072-5555716",
+    "email": "hema.hettiarachchi@email.com",
+    "diagnosis": "Anxiety",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Heart Disease",
+      "Hypertension"
+    ],
+    "previous_admissions": 1,
+    "current_medications": [
+      "Gabapentin"
+    ],
+    "allergies": [
+      "Shellfish",
+      "Mold"
+    ],
+    "admission_date": "2026-05-26",
+    "discharge_date": "",
+    "length_of_stay": 27,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Admitted"
+  },
+  "P2059": {
+    "full_name": "Dammika Mudalige",
+    "age": 74,
+    "nic": "198318107",
+    "gender": "Female",
+    "address": "78, Station Road, Negombo",
+    "phone": "072-2815500",
+    "email": "dammika.mudalige@email.com",
+    "diagnosis": "Thyroid Disorder",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Heart Disease"
+    ],
+    "previous_admissions": 1,
+    "current_medications": [
+      "Citalopram",
+      "Albuterol",
+      "Tramadol"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-04",
+    "discharge_date": "2026-06-13",
+    "length_of_stay": 9,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2060": {
+    "full_name": "Champa Wickramasinghe",
+    "age": 46,
+    "nic": "196325910",
+    "gender": "Female",
+    "address": "71, Temple Road, Ratnapura",
+    "phone": "078-4189221",
+    "email": "champa.wickramasinghe@email.com",
+    "diagnosis": "Cancer",
+    "secondary_diagnosis": "Cataract",
+    "existing_diseases": [
+      "Heart Disease",
+      "COPD",
+      "Hypertension",
+      "Osteoporosis"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Zolpidem",
+      "Amoxicillin",
+      "Albuterol",
+      "Losartan",
+      "Paracetamol",
+      "Metformin",
+      "Omeprazole"
+    ],
+    "allergies": [
+      "Codeine",
+      "Pollen"
+    ],
+    "admission_date": "2026-05-30",
+    "discharge_date": "2026-06-02",
+    "length_of_stay": 3,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2061": {
+    "full_name": "Gunasekera Mendis",
+    "age": 24,
+    "nic": "197817425",
+    "gender": "Female",
+    "address": "187, Main Street, Matara",
+    "phone": "078-8258954",
+    "email": "gunasekera.mendis@email.com",
+    "diagnosis": "Stroke",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Parkinson's",
+      "Epilepsy"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Warfarin",
+      "Omeprazole",
+      "Gabapentin",
+      "Diazepam",
+      "Prednisone",
+      "Tramadol"
+    ],
+    "allergies": [
+      "Latex",
+      "Sulfa"
+    ],
+    "admission_date": "2026-06-12",
+    "discharge_date": "2026-06-22",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2062": {
+    "full_name": "Daya Peiris",
+    "age": 53,
+    "nic": "197116772",
+    "gender": "Male",
+    "address": "89, Lake Road, Colombo",
+    "phone": "072-4625859",
+    "email": "daya.peiris@email.com",
+    "diagnosis": "Kidney Disease",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Arthritis",
+      "Depression"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Levothyroxine",
+      "Metformin",
+      "Zolpidem"
+    ],
+    "allergies": [
+      "Codeine",
+      "Sulfa"
+    ],
+    "admission_date": "2026-06-19",
+    "discharge_date": "2026-06-19",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2063": {
+    "full_name": "Nilanthi Wickramasinghe",
+    "age": 67,
+    "nic": "199229145",
+    "gender": "Female",
+    "address": "78, Temple Road, Anuradhapura",
+    "phone": "071-3241650",
+    "email": "nilanthi.wickramasinghe@email.com",
+    "diagnosis": "COPD",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Aspirin",
+      "Prednisone",
+      "Citalopram",
+      "Lisinopril",
+      "Amoxicillin",
+      "Ventolin",
+      "Ibuprofen",
+      "Diazepam"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-11",
+    "discharge_date": "2026-06-16",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2064": {
+    "full_name": "Lalitha Wijeratne",
+    "age": 53,
+    "nic": "200218443",
+    "gender": "Male",
+    "address": "85, Station Road, Negombo",
+    "phone": "072-8293535",
+    "email": "lalitha.wijeratne@email.com",
+    "diagnosis": "Hypertension",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "Hypertension",
+      "Depression"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Ventolin",
+      "Metformin",
+      "Losartan",
+      "Citalopram",
+      "Lisinopril"
+    ],
+    "allergies": [
+      "Mold",
+      "Aspirin"
+    ],
+    "admission_date": "2026-06-20",
+    "discharge_date": "2026-06-19",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2065": {
+    "full_name": "Anoma Karunaratne",
+    "age": 25,
+    "nic": "199416048",
+    "gender": "Male",
+    "address": "16, Station Road, Anuradhapura",
+    "phone": "073-1222515",
+    "email": "anoma.karunaratne@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "Eczema",
+    "existing_diseases": [
+      "Diabetes"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Metformin",
+      "Losartan",
+      "Levothyroxine"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-27",
+    "discharge_date": "2026-06-09",
+    "length_of_stay": 13,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2066": {
+    "full_name": "Geethani Karunaratne",
+    "age": 45,
+    "nic": "197526861",
+    "gender": "Male",
+    "address": "58, Lake Road, Ratnapura",
+    "phone": "074-4251242",
+    "email": "geethani.karunaratne@email.com",
+    "diagnosis": "Depression",
+    "secondary_diagnosis": "Asthma",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension",
+      "Epilepsy"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Clopidogrel",
+      "Gabapentin",
+      "Diazepam",
+      "Amoxicillin",
+      "Losartan",
+      "Paracetamol",
+      "Sertraline",
+      "Tramadol"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-08",
+    "discharge_date": "2026-06-15",
+    "length_of_stay": 7,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2067": {
+    "full_name": "Kumarasinghe Fernando",
+    "age": 77,
+    "nic": "199624689",
+    "gender": "Male",
+    "address": "168, Kandy Road, Kandy",
+    "phone": "073-5204767",
+    "email": "kumarasinghe.fernando@email.com",
+    "diagnosis": "Osteoporosis",
+    "secondary_diagnosis": "Bronchitis",
+    "existing_diseases": [
+      "Hypertension",
+      "Cancer"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Ventolin",
+      "Amoxicillin"
+    ],
+    "allergies": [
+      "Shellfish",
+      "Sulfa"
+    ],
+    "admission_date": "2026-06-07",
+    "discharge_date": "2026-06-14",
+    "length_of_stay": 7,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2068": {
+    "full_name": "Upul Samarasinghe",
+    "age": 32,
+    "nic": "196926433",
+    "gender": "Female",
+    "address": "27, Main Street, Ratnapura",
+    "phone": "076-9625122",
+    "email": "upul.samarasinghe@email.com",
+    "diagnosis": "Epilepsy",
+    "secondary_diagnosis": "Cataract",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension",
+      "Arthritis"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Aspirin",
+      "Prednisone",
+      "Atorvastatin",
+      "Clopidogrel",
+      "Ventolin",
+      "Gabapentin"
+    ],
+    "allergies": [
+      "Shellfish"
+    ],
+    "admission_date": "2026-06-15",
+    "discharge_date": "",
+    "length_of_stay": 7,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2069": {
+    "full_name": "Malkanthi Ranasinghe",
+    "age": 39,
+    "nic": "198929024",
+    "gender": "Male",
+    "address": "50, Temple Road, Kurunegala",
+    "phone": "075-3752611",
+    "email": "malkanthi.ranasinghe@email.com",
+    "diagnosis": "Malaria",
+    "secondary_diagnosis": "Bronchitis",
+    "existing_diseases": [
+      "COPD",
+      "Liver Disease",
+      "Kidney Disease"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Albuterol",
+      "Amoxicillin",
+      "Clopidogrel",
+      "Levothyroxine",
+      "Losartan"
+    ],
+    "allergies": [
+      "Mold"
+    ],
+    "admission_date": "2026-06-16",
+    "discharge_date": "2026-06-20",
+    "length_of_stay": 4,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2070": {
+    "full_name": "Kanthi Jayawardena",
+    "age": 77,
+    "nic": "196817252",
+    "gender": "Male",
+    "address": "127, Kandy Road, Anuradhapura",
+    "phone": "076-8203175",
+    "email": "kanthi.jayawardena@email.com",
+    "diagnosis": "Tuberculosis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes"
+    ],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Clopidogrel",
+      "Metformin",
+      "Tramadol",
+      "Warfarin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-02",
+    "discharge_date": "2026-06-08",
+    "length_of_stay": 6,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2071": {
+    "full_name": "Janaka Kulasekara",
+    "age": 32,
+    "nic": "200221534",
+    "gender": "Female",
+    "address": "126, Temple Road, Negombo",
+    "phone": "078-7287283",
+    "email": "janaka.kulasekara@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "Diabetes"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Warfarin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-03",
+    "discharge_date": "2026-06-04",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2072": {
+    "full_name": "Chandrika Kulasekara",
+    "age": 21,
+    "nic": "198525061",
+    "gender": "Female",
+    "address": "163, Lake Road, Anuradhapura",
+    "phone": "073-9960176",
+    "email": "chandrika.kulasekara@email.com",
+    "diagnosis": "Diabetes",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "Hypertension",
+      "Kidney Disease"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Albuterol",
+      "Levothyroxine",
+      "Lisinopril",
+      "Zolpidem"
+    ],
+    "allergies": [
+      "Pet Dander"
+    ],
+    "admission_date": "2026-06-01",
+    "discharge_date": "",
+    "length_of_stay": 21,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2073": {
+    "full_name": "Premadasa Wijesinghe",
+    "age": 32,
+    "nic": "198322388",
+    "gender": "Female",
+    "address": "157, Galle Road, Ratnapura",
+    "phone": "075-8394315",
+    "email": "premadasa.wijesinghe@email.com",
+    "diagnosis": "Diabetes",
+    "secondary_diagnosis": "Cataract",
+    "existing_diseases": [
+      "Anxiety",
+      "Depression"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Insulin",
+      "Albuterol",
+      "Sertraline",
+      "Prednisone",
+      "Diazepam",
+      "Citalopram",
+      "Clopidogrel",
+      "Atorvastatin"
+    ],
+    "allergies": [
+      "Mold"
+    ],
+    "admission_date": "2026-06-10",
+    "discharge_date": "",
+    "length_of_stay": 12,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Admitted"
+  },
+  "P2074": {
+    "full_name": "Sujeewa Dias",
+    "age": 31,
+    "nic": "198218503",
+    "gender": "Male",
+    "address": "68, Station Road, Jaffna",
+    "phone": "070-1915694",
+    "email": "sujeewa.dias@email.com",
+    "diagnosis": "Tuberculosis",
+    "secondary_diagnosis": "Bronchitis",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension",
+      "Parkinson's"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Tramadol",
+      "Amoxicillin",
+      "Metformin",
+      "Omeprazole",
+      "Prednisone",
+      "Warfarin",
+      "Clopidogrel",
+      "Aspirin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-23",
+    "discharge_date": "",
+    "length_of_stay": 30,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Admitted"
+  },
+  "P2075": {
+    "full_name": "Iresha Samarasinghe",
+    "age": 38,
+    "nic": "197514744",
+    "gender": "Male",
+    "address": "12, Galle Road, Ratnapura",
+    "phone": "072-6863477",
+    "email": "iresha.samarasinghe@email.com",
+    "diagnosis": "COPD",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Diabetes",
+      "Heart Disease",
+      "Osteoporosis",
+      "Asthma"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Prednisone",
+      "Omeprazole",
+      "Gabapentin",
+      "Zolpidem"
+    ],
+    "allergies": [
+      "Peanuts"
+    ],
+    "admission_date": "2026-06-20",
+    "discharge_date": "",
+    "length_of_stay": 2,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2076": {
+    "full_name": "Somasiri Kulasekara",
+    "age": 42,
+    "nic": "199715098",
+    "gender": "Female",
+    "address": "41, Temple Road, Badulla",
+    "phone": "077-8994770",
+    "email": "somasiri.kulasekara@email.com",
+    "diagnosis": "Heart Disease",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Heart Disease",
+      "COPD",
+      "Alzheimer's"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Atorvastatin",
+      "Diazepam",
+      "Metformin",
+      "Aspirin"
+    ],
+    "allergies": [
+      "Latex"
+    ],
+    "admission_date": "2026-06-03",
+    "discharge_date": "2026-06-10",
+    "length_of_stay": 7,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2077": {
+    "full_name": "Anoma Herath",
+    "age": 58,
+    "nic": "196111396",
+    "gender": "Male",
+    "address": "106, Kandy Road, Negombo",
+    "phone": "074-2775378",
+    "email": "anoma.herath@email.com",
+    "diagnosis": "Alzheimer's",
+    "secondary_diagnosis": "Glaucoma",
+    "existing_diseases": [
+      "Diabetes",
+      "Osteoporosis"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Metformin",
+      "Sertraline",
+      "Prednisone"
+    ],
+    "allergies": [
+      "Pet Dander",
+      "Codeine"
+    ],
+    "admission_date": "2026-06-12",
+    "discharge_date": "2026-06-16",
+    "length_of_stay": 4,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2078": {
+    "full_name": "Channa Kumara",
+    "age": 89,
+    "nic": "197728257",
+    "gender": "Female",
+    "address": "115, Lake Road, Kandy",
+    "phone": "077-5473255",
+    "email": "channa.kumara@email.com",
+    "diagnosis": "Cancer",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "COPD",
+      "Diabetes"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Sertraline",
+      "Aspirin",
+      "Paracetamol",
+      "Warfarin",
+      "Omeprazole",
+      "Prednisone",
+      "Citalopram"
+    ],
+    "allergies": [
+      "Sulfa",
+      "Dust"
+    ],
+    "admission_date": "2026-06-02",
+    "discharge_date": "",
+    "length_of_stay": 20,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2079": {
+    "full_name": "Lalitha Amarasinghe",
+    "age": 85,
+    "nic": "196426346",
+    "gender": "Female",
+    "address": "5, Main Street, Ratnapura",
+    "phone": "074-2133066",
+    "email": "lalitha.amarasinghe@email.com",
+    "diagnosis": "COPD",
+    "secondary_diagnosis": "Bronchitis",
+    "existing_diseases": [
+      "Hypertension",
+      "COPD",
+      "Alzheimer's",
+      "Asthma"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Lisinopril",
+      "Metformin",
+      "Omeprazole",
+      "Warfarin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-13",
+    "discharge_date": "2026-06-18",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2080": {
+    "full_name": "Kanthi Gunawardena",
+    "age": 88,
+    "nic": "198515045",
+    "gender": "Male",
+    "address": "16, Temple Road, Badulla",
+    "phone": "070-6989822",
+    "email": "kanthi.gunawardena@email.com",
+    "diagnosis": "Hypertension",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Epilepsy",
+      "COPD"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Citalopram",
+      "Insulin",
+      "Levothyroxine",
+      "Atorvastatin",
+      "Albuterol",
+      "Sertraline"
+    ],
+    "allergies": [
+      "Penicillin",
+      "Sulfa"
+    ],
+    "admission_date": "2026-06-17",
+    "discharge_date": "2026-06-19",
+    "length_of_stay": 2,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2081": {
+    "full_name": "Thilak Lokuhewa",
+    "age": 68,
+    "nic": "198812418",
+    "gender": "Male",
+    "address": "154, Galle Road, Kandy",
+    "phone": "077-5191404",
+    "email": "thilak.lokuhewa@email.com",
+    "diagnosis": "Anxiety",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease",
+      "Parkinson's"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Tramadol",
+      "Sertraline"
+    ],
+    "allergies": [
+      "Shellfish"
+    ],
+    "admission_date": "2026-06-11",
+    "discharge_date": "2026-06-20",
+    "length_of_stay": 9,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2082": {
+    "full_name": "Kumarasinghe Bandara",
+    "age": 67,
+    "nic": "199014961",
+    "gender": "Male",
+    "address": "106, Main Street, Kurunegala",
+    "phone": "070-6955290",
+    "email": "kumarasinghe.bandara@email.com",
+    "diagnosis": "Anxiety",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Hypertension",
+      "Diabetes"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Sertraline",
+      "Tramadol",
+      "Aspirin"
+    ],
+    "allergies": [
+      "Mold",
+      "Pollen"
+    ],
+    "admission_date": "2026-06-09",
+    "discharge_date": "2026-06-14",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2083": {
+    "full_name": "Ranil Ranasinghe",
+    "age": 50,
+    "nic": "196519280",
+    "gender": "Female",
+    "address": "80, Kandy Road, Ratnapura",
+    "phone": "072-1582249",
+    "email": "ranil.ranasinghe@email.com",
+    "diagnosis": "Parkinson's",
+    "secondary_diagnosis": "Glaucoma",
+    "existing_diseases": [
+      "Asthma"
+    ],
+    "previous_admissions": 5,
+    "current_medications": [
+      "Tramadol",
+      "Lisinopril",
+      "Aspirin",
+      "Warfarin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-03",
+    "discharge_date": "2026-06-04",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2084": {
+    "full_name": "Nilanthi Rathnayake",
+    "age": 18,
+    "nic": "196116610",
+    "gender": "Male",
+    "address": "72, Lake Road, Kurunegala",
+    "phone": "078-4858541",
+    "email": "nilanthi.rathnayake@email.com",
+    "diagnosis": "Arthritis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Osteoporosis",
+      "Cancer"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Prednisone",
+      "Citalopram",
+      "Warfarin"
+    ],
+    "allergies": [
+      "Latex",
+      "Sulfa"
+    ],
+    "admission_date": "2026-05-31",
+    "discharge_date": "",
+    "length_of_stay": 22,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Admitted"
+  },
+  "P2085": {
+    "full_name": "Daya Karunaratne",
+    "age": 65,
+    "nic": "199924368",
+    "gender": "Male",
+    "address": "36, Station Road, Kandy",
+    "phone": "075-2901842",
+    "email": "daya.karunaratne@email.com",
+    "diagnosis": "Asthma",
+    "secondary_diagnosis": "Asthma",
+    "existing_diseases": [],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Gabapentin",
+      "Zolpidem",
+      "Insulin",
+      "Aspirin"
+    ],
+    "allergies": [
+      "Latex"
+    ],
+    "admission_date": "2026-06-14",
+    "discharge_date": "",
+    "length_of_stay": 8,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2086": {
+    "full_name": "Indrani Premaratne",
+    "age": 83,
+    "nic": "197324428",
+    "gender": "Male",
+    "address": "185, Kandy Road, Negombo",
+    "phone": "076-3278918",
+    "email": "indrani.premaratne@email.com",
+    "diagnosis": "Hepatitis",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Hypertension",
+      "Heart Disease"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Prednisone",
+      "Amoxicillin",
+      "Zolpidem",
+      "Paracetamol"
+    ],
+    "allergies": [
+      "Mold",
+      "Dust"
+    ],
+    "admission_date": "2026-05-28",
+    "discharge_date": "2026-06-10",
+    "length_of_stay": 13,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2087": {
+    "full_name": "Kumarasinghe Bandaranayake",
+    "age": 28,
+    "nic": "197015158",
+    "gender": "Male",
+    "address": "101, Galle Road, Kurunegala",
+    "phone": "077-5352620",
+    "email": "kumarasinghe.bandaranayake@email.com",
+    "diagnosis": "Dengue",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension",
+      "Liver Disease"
+    ],
+    "previous_admissions": 1,
+    "current_medications": [
+      "Tramadol",
+      "Losartan",
+      "Citalopram",
+      "Albuterol",
+      "Warfarin",
+      "Ventolin",
+      "Diazepam"
+    ],
+    "allergies": [
+      "Penicillin",
+      "Ibuprofen"
+    ],
+    "admission_date": "2026-06-09",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 12,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2088": {
+    "full_name": "Wimal Bandaranayake",
+    "age": 48,
+    "nic": "198922935",
+    "gender": "Male",
+    "address": "109, Kandy Road, Anuradhapura",
+    "phone": "072-4449597",
+    "email": "wimal.bandaranayake@email.com",
+    "diagnosis": "Dengue",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Diabetes"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Losartan"
+    ],
+    "allergies": [
+      "Shellfish"
+    ],
+    "admission_date": "2026-06-04",
+    "discharge_date": "2026-06-09",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2089": {
+    "full_name": "Bandara Abeywardena",
+    "age": 20,
+    "nic": "200027958",
+    "gender": "Male",
+    "address": "64, Temple Road, Kurunegala",
+    "phone": "070-4889825",
+    "email": "bandara.abeywardena@email.com",
+    "diagnosis": "Thyroid Disorder",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Heart Disease"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Zolpidem",
+      "Sertraline",
+      "Levothyroxine",
+      "Warfarin"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-02",
+    "discharge_date": "",
+    "length_of_stay": 20,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2090": {
+    "full_name": "Sunil Wickramasinghe",
+    "age": 48,
+    "nic": "197522688",
+    "gender": "Male",
+    "address": "89, Kandy Road, Ratnapura",
+    "phone": "074-3664849",
+    "email": "sunil.wickramasinghe@email.com",
+    "diagnosis": "Liver Disease",
+    "secondary_diagnosis": "Cataract",
+    "existing_diseases": [
+      "Heart Disease",
+      "Diabetes"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Clopidogrel",
+      "Lisinopril"
+    ],
+    "allergies": [
+      "Dust"
+    ],
+    "admission_date": "2026-06-07",
+    "discharge_date": "2026-06-20",
+    "length_of_stay": 13,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2091": {
+    "full_name": "Chandrasiri Perera",
+    "age": 56,
+    "nic": "197915691",
+    "gender": "Female",
+    "address": "129, Kandy Road, Ratnapura",
+    "phone": "075-3722638",
+    "email": "chandrasiri.perera@email.com",
+    "diagnosis": "Liver Disease",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [],
+    "previous_admissions": 7,
+    "current_medications": [
+      "Amoxicillin",
+      "Atorvastatin"
+    ],
+    "allergies": [
+      "Dust",
+      "Codeine"
+    ],
+    "admission_date": "2026-06-20",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  },
+  "P2092": {
+    "full_name": "Chandrika Wijeratne",
+    "age": 55,
+    "nic": "198411214",
+    "gender": "Female",
+    "address": "93, Temple Road, Badulla",
+    "phone": "070-1907365",
+    "email": "chandrika.wijeratne@email.com",
+    "diagnosis": "Migraine",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Hypertension",
+      "Parkinson's"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Aspirin",
+      "Insulin",
+      "Albuterol",
+      "Atorvastatin",
+      "Levothyroxine",
+      "Clopidogrel"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-23",
+    "discharge_date": "2026-06-04",
+    "length_of_stay": 12,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2093": {
+    "full_name": "Channa Kulasekara",
+    "age": 72,
+    "nic": "198024248",
+    "gender": "Female",
+    "address": "194, Lake Road, Negombo",
+    "phone": "075-1875610",
+    "email": "channa.kulasekara@email.com",
+    "diagnosis": "Stroke",
+    "secondary_diagnosis": "Anemia",
+    "existing_diseases": [
+      "Hypertension",
+      "Cancer",
+      "Anxiety"
+    ],
+    "previous_admissions": 3,
+    "current_medications": [
+      "Warfarin",
+      "Ventolin",
+      "Omeprazole",
+      "Levothyroxine",
+      "Zolpidem"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-26",
+    "discharge_date": "2026-06-05",
+    "length_of_stay": 10,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Discharged"
+  },
+  "P2094": {
+    "full_name": "Somasiri Perera",
+    "age": 41,
+    "nic": "200525427",
+    "gender": "Male",
+    "address": "168, Temple Road, Kurunegala",
+    "phone": "073-9197191",
+    "email": "somasiri.perera@email.com",
+    "diagnosis": "Alzheimer's",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Heart Disease"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Losartan",
+      "Warfarin",
+      "Aspirin",
+      "Atorvastatin"
+    ],
+    "allergies": [
+      "Penicillin"
+    ],
+    "admission_date": "2026-05-30",
+    "discharge_date": "2026-06-04",
+    "length_of_stay": 5,
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "assigned_department": "Endocrinologist",
+    "status": "Discharged"
+  },
+  "P2095": {
+    "full_name": "Chandani Weerasinghe",
+    "age": 71,
+    "nic": "198517376",
+    "gender": "Female",
+    "address": "131, Main Street, Jaffna",
+    "phone": "076-2427593",
+    "email": "chandani.weerasinghe@email.com",
+    "diagnosis": "Diabetes",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes",
+      "Hypertension",
+      "COPD"
+    ],
+    "previous_admissions": 4,
+    "current_medications": [
+      "Ibuprofen"
+    ],
+    "allergies": [
+      "Morphine",
+      "Pet Dander"
+    ],
+    "admission_date": "2026-06-04",
+    "discharge_date": "",
+    "length_of_stay": 18,
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "assigned_department": "Pulmonologist",
+    "status": "Admitted"
+  },
+  "P2096": {
+    "full_name": "Chandrika Dias",
+    "age": 73,
+    "nic": "199915080",
+    "gender": "Male",
+    "address": "162, Kandy Road, Galle",
+    "phone": "072-9746811",
+    "email": "chandrika.dias@email.com",
+    "diagnosis": "Thyroid Disorder",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "COPD",
+      "Anxiety"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Paracetamol",
+      "Lisinopril",
+      "Clopidogrel",
+      "Zolpidem",
+      "Albuterol",
+      "Gabapentin",
+      "Metformin",
+      "Tramadol"
+    ],
+    "allergies": [
+      "Morphine"
+    ],
+    "admission_date": "2026-06-19",
+    "discharge_date": "2026-06-21",
+    "length_of_stay": 2,
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "assigned_department": "Geriatric Medicine",
+    "status": "Discharged"
+  },
+  "P2097": {
+    "full_name": "Siri Perera",
+    "age": 79,
+    "nic": "199717733",
+    "gender": "Female",
+    "address": "40, Kandy Road, Galle",
+    "phone": "070-4774482",
+    "email": "siri.perera@email.com",
+    "diagnosis": "Stroke",
+    "secondary_diagnosis": "Dermatitis",
+    "existing_diseases": [
+      "Arthritis"
+    ],
+    "previous_admissions": 2,
+    "current_medications": [
+      "Prednisone",
+      "Albuterol",
+      "Clopidogrel"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-15",
+    "discharge_date": "",
+    "length_of_stay": 7,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Admitted"
+  },
+  "P2098": {
+    "full_name": "Chandrika Karunaratne",
+    "age": 71,
+    "nic": "199913364",
+    "gender": "Male",
+    "address": "39, Main Street, Negombo",
+    "phone": "075-5056143",
+    "email": "chandrika.karunaratne@email.com",
+    "diagnosis": "Pneumonia",
+    "secondary_diagnosis": "",
+    "existing_diseases": [
+      "Diabetes"
+    ],
+    "previous_admissions": 6,
+    "current_medications": [
+      "Metformin",
+      "Aspirin",
+      "Levothyroxine"
+    ],
+    "allergies": [],
+    "admission_date": "2026-05-30",
+    "discharge_date": "2026-05-31",
+    "length_of_stay": 1,
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "assigned_department": "Cardiologist",
+    "status": "Discharged"
+  },
+  "P2099": {
+    "full_name": "Piyal Kariyawasam",
+    "age": 43,
+    "nic": "197026528",
+    "gender": "Male",
+    "address": "5, Station Road, Kurunegala",
+    "phone": "077-6791512",
+    "email": "piyal.kariyawasam@email.com",
+    "diagnosis": "Migraine",
+    "secondary_diagnosis": "Gout",
+    "existing_diseases": [
+      "Hypertension",
+      "Parkinson's",
+      "Arthritis"
+    ],
+    "previous_admissions": 0,
+    "current_medications": [
+      "Ventolin",
+      "Levothyroxine",
+      "Omeprazole",
+      "Clopidogrel"
+    ],
+    "allergies": [],
+    "admission_date": "2026-06-08",
+    "discharge_date": "2026-06-11",
+    "length_of_stay": 3,
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "assigned_department": "General Physician",
+    "status": "Discharged"
+  }
+}

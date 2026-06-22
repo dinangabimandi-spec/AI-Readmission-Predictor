@@ -1,0 +1,1030 @@
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for, send_file, flash
+import pandas as pd
+import joblib
+import os
+import json
+from datetime import datetime
+import random
+from io import BytesIO
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib import colors
+from reportlab.lib.units import inch
+
+app = Flask(__name__)
+app.secret_key = 'suwa-setha-hospital-secret-key-2026'
+
+# --- 1. LOAD DATA ---
+def load_patient_db():
+    if os.path.exists('patients_db.json'):
+        with open('patients_db.json', 'r') as f:
+            return json.load(f)
+    return {}
+
+def load_staff_db():
+    if os.path.exists('staff_db.json'):
+        with open('staff_db.json', 'r') as f:
+            return json.load(f)
+    return {}
+
+def load_history():
+    if os.path.exists('history.json'):
+        with open('history.json', 'r') as f:
+            return json.load(f)
+    return []
+
+def load_alerts():
+    if os.path.exists('alerts.json'):
+        with open('alerts.json', 'r') as f:
+            return json.load(f)
+    return []
+
+def load_activities():
+    if os.path.exists('activities.json'):
+        with open('activities.json', 'r') as f:
+            return json.load(f)
+    return []
+
+def load_followups():
+    if os.path.exists('follow_ups.json'):
+        with open('follow_ups.json', 'r') as f:
+            return json.load(f)
+    return []
+
+PATIENT_DB = load_patient_db()
+STAFF_DB = load_staff_db()
+history = load_history()
+alerts = load_alerts()
+activities = load_activities()
+followups = load_followups()
+
+# --- 2. SAVE HELPERS ---
+def save_patients():
+    with open('patients_db.json', 'w') as f:
+        json.dump(PATIENT_DB, f, indent=2)
+
+def save_staff():
+    with open('staff_db.json', 'w') as f:
+        json.dump(STAFF_DB, f, indent=2)
+
+def save_history():
+    with open('history.json', 'w') as f:
+        json.dump(history, f, indent=2)
+
+def save_alerts(data):
+    with open('alerts.json', 'w') as f:
+        json.dump(data, f, indent=2)
+
+def save_activity(text):
+    acts = load_activities()
+    acts.append({"text": text, "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
+    if len(acts) > 100: acts = acts[-100:]
+    with open('activities.json', 'w') as f:
+        json.dump(acts, f, indent=2)
+
+def save_followup(data):
+    fups = load_followups()
+    fups.append(data)
+    with open('follow_ups.json', 'w') as f:
+        json.dump(fups, f, indent=2)
+
+# --- 3. LOAD AI MODEL ---
+try:
+    model_data = joblib.load('readmission_model.pkl')
+    model = model_data['model']
+    scaler = model_data['scaler']
+    encoders = model_data['encoders']
+    feature_columns = model_data['feature_columns']
+    print("✅ AI Model loaded!")
+except:
+    print("⚠️ AI Model not found.")
+    model = None
+    scaler = None
+    encoders = {}
+    feature_columns = []
+
+# --- 4. AI FUNCTIONS ---
+def predict_readmission(patient_data):
+    if model is None:
+        return {'risk_score': 0, 'risk_level': 'Offline', 'risk_color': 'gray', 'risk_factors': [], 'priority': 'Unknown'}
+    
+    df = pd.DataFrame([patient_data])
+    try:
+        df['Diagnosis_Encoded'] = encoders['Diagnosis'].transform(df['Diagnosis'])
+        df['Gender_Encoded'] = encoders['Gender'].transform(df['Gender'])
+    except:
+        df['Diagnosis_Encoded'] = 0
+        df['Gender_Encoded'] = 0
+    
+    X = df[feature_columns]
+    X_scaled = scaler.transform(X)
+    probability = model.predict_proba(X_scaled)[0][1]
+    risk_score = round(probability * 100, 1)
+    
+    if risk_score > 70:
+        risk_level, risk_color, priority = 'High Risk', '#EF4444', "Critical"
+    elif risk_score > 40:
+        risk_level, risk_color, priority = 'Medium Risk', '#F59E0B', "Medium"
+    else:
+        risk_level, risk_color, priority = 'Low Risk', '#10B981', "Low"
+
+    risk_factors = []
+    if patient_data.get('Age', 0) > 65: risk_factors.append("Advanced age (>65)")
+    if patient_data.get('Has_Diabetes', 0) == 1: risk_factors.append("Diabetes")
+    if patient_data.get('Has_Heart_Disease', 0) == 1: risk_factors.append("Heart disease")
+    if patient_data.get('Has_Hypertension', 0) == 1: risk_factors.append("Hypertension")
+    if patient_data.get('Has_COPD', 0) == 1: risk_factors.append("COPD")
+    if patient_data.get('Previous_Admissions', 0) >= 3: risk_factors.append(f"Multiple admissions ({patient_data['Previous_Admissions']})")
+    if patient_data.get('Length_of_Stay', 0) > 7: risk_factors.append("Extended stay (>7 days)")
+    if patient_data.get('Medications_Count', 0) > 5: risk_factors.append("Multiple medications (>5)")
+    if patient_data.get('recovery_status') == 'Poor': risk_factors.append("Poor recovery status")
+    if patient_data.get('family_support') == 'Weak': risk_factors.append("Weak family support")
+    if not risk_factors: risk_factors = ["No significant risk factors identified."]
+    
+    return {'risk_score': risk_score, 'risk_level': risk_level, 'risk_color': risk_color, 'risk_factors': risk_factors, 'priority': priority}
+
+def generate_care_plan(patient_data, risk_result):
+    plan = {
+        'follow_up': [], 'dietary': [], 'exercise': [], 'lifestyle': [], 'support': [], 'emergency': []
+    }
+    
+    if risk_result['risk_level'] == 'High Risk':
+        plan['follow_up'] = ["📅 Follow-up within 7 days", "📞 Phone check-in within 24 hours", "🏥 Home nurse visit within 48 hours"]
+    elif risk_result['risk_level'] == 'Medium Risk':
+        plan['follow_up'] = ["📅 Follow-up within 14 days", "📞 Phone check-in within 72 hours"]
+    else:
+        plan['follow_up'] = ["📅 Routine follow-up within 30 days"]
+    
+    plan['dietary'] = [
+        "🥗 Eat balanced meals with fruits, vegetables, and whole grains",
+        "🧂 Reduce salt intake to less than 5g per day",
+        "🍬 Limit sugar and refined carbohydrates",
+        "🥩 Choose lean proteins (fish, chicken, legumes)"
+    ]
+    if 'Diabetes' in patient_data.get('existing_diseases', []):
+        plan['dietary'].append("🩸 Follow diabetic meal plan - monitor carbs")
+    
+    plan['exercise'] = ["🚶 Light physical activity for 30 minutes daily", "🧘 Gentle stretching"]
+    if patient_data.get('mobility_status') == 'Bedridden':
+        plan['exercise'] = ["🛏️ Bed-based exercises as advised", "🔄 Change position every 2 hours"]
+    elif patient_data.get('mobility_status') == 'Assisted':
+        plan['exercise'].append("🚶 Walk with assistance")
+    
+    plan['lifestyle'] = [
+        "💤 Get 7-8 hours of quality sleep",
+        "🚫 Avoid alcohol consumption",
+        "🚭 Quit smoking immediately",
+        "💧 Drink at least 8 glasses of water daily",
+        "🧘 Practice stress management"
+    ]
+    
+    plan['support'] = ["👨‍👩‍👦 Ensure family/caregiver availability", "📋 Keep a health diary"]
+    if patient_data.get('family_support') == 'Weak':
+        plan['support'].append("📋 Arrange community support services")
+    if patient_data.get('lives_alone') == 'Yes':
+        plan['support'].append("📱 Set up daily check-in calls")
+    
+    if risk_result['risk_level'] == 'High Risk':
+        plan['emergency'] = ["🚨 Go to nearest hospital if you experience chest pain, severe dizziness, or difficulty speaking"]
+    else:
+        plan['emergency'] = ["📞 Contact your GP if symptoms worsen"]
+    
+    return plan
+
+# --- 5. AUTHENTICATION ---
+def get_user_by_username(username):
+    for s in STAFF_DB:
+        if s.get('username') == username:
+            return s
+    return None
+
+def check_role_access(required_roles):
+    if 'user' not in session:
+        return False
+    user = session['user']
+    return user.get('role') in required_roles
+
+# --- 6. ROUTES ---
+
+@app.route('/')
+def home():
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        user = get_user_by_username(username)
+        if user and user.get('password') == password:
+            session['user'] = user
+            session['username'] = username
+            save_activity(f"🔐 {user['name']} ({user['role']}) logged in")
+            flash(f'✅ Welcome, {user["name"]}!', 'success')
+            return redirect(url_for('dashboard'))
+        else:
+            flash('Invalid username or password!', 'danger')
+            return render_template('login.html')
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    if 'user' in session:
+        save_activity(f"👋 {session['user']['name']} logged out")
+    session.clear()
+    return redirect(url_for('login'))
+
+@app.route('/dashboard')
+def dashboard():
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    role = user['role']
+    
+    total_patients = len(PATIENT_DB)
+    high_risk = sum(1 for h in history if h.get('risk_level') == 'High Risk')
+    medium_risk = sum(1 for h in history if h.get('risk_level') == 'Medium Risk')
+    low_risk = sum(1 for h in history if h.get('risk_level') == 'Low Risk')
+    
+    recent_activities = activities[-20:] if activities else []
+    current_alerts = load_alerts()
+    
+    if role == 'Administrator':
+        return render_template('dashboard.html', 
+            user=user, total_patients=total_patients, high_risk=high_risk,
+            medium_risk=medium_risk, low_risk=low_risk,
+            activities=recent_activities, alerts=current_alerts,
+            staff=STAFF_DB, now=datetime.now())
+    
+    elif role == 'Receptionist':
+        patients_list = []
+        for pid, data in PATIENT_DB.items():
+            patients_list.append({
+                'id': pid, 'name': data['full_name'], 'doctor': data.get('assigned_doctor', 'Unassigned'),
+                'admission_date': data.get('admission_date', ''), 'discharge_date': data.get('discharge_date', ''),
+                'status': data.get('status', 'Admitted')
+            })
+        return render_template('receptionist_dashboard.html', user=user, patients=patients_list, now=datetime.now())
+    
+    elif role == 'Doctor':
+        doctor_name = user['name']
+        patients_list = []
+        for pid, data in PATIENT_DB.items():
+            if data.get('assigned_doctor') == doctor_name:
+                latest = None
+                for h in history:
+                    if h['patient_id'] == pid:
+                        latest = h
+                        break
+                
+                # DO NOT SHOW DRAFTS TO DOCTOR - Only show Pending, Approved, Rejected, or Not Assessed
+                status = latest.get('status', 'Not Assessed') if latest else 'Not Assessed'
+                
+                # Skip Drafts completely - Doctors don't see them
+                if status == 'Draft':
+                    continue
+                
+                patients_list.append({
+                    'id': pid,
+                    'name': data['full_name'],
+                    'risk_score': latest.get('risk_score', 0) if latest else 0,
+                    'risk_level': latest.get('risk_level', 'Not Assessed') if latest else 'Not Assessed',
+                    'status': status,
+                    'assigned_by': latest.get('assigned_by', '') if latest else ''
+                })
+        
+        # Sort by risk (High → Low)
+        risk_order = {'High Risk': 0, 'Medium Risk': 1, 'Low Risk': 2, 'Not Assessed': 3}
+        patients_list.sort(key=lambda x: risk_order.get(x['risk_level'], 4))
+        
+        return render_template('doctor_dashboard.html', 
+            user=user, 
+            patients=patients_list, 
+            now=datetime.now())
+    
+    elif role == 'Nurse':
+        assigned_doctor = user.get('assigned_doctor', '')
+        patients_list = []
+        
+        for pid, data in PATIENT_DB.items():
+            # Only show patients assigned to this nurse's doctor
+            if data.get('assigned_doctor') == assigned_doctor:
+                # Find the latest history entry for this patient
+                latest = None
+                for h in history:
+                    if h['patient_id'] == pid:
+                        latest = h
+                        break
+                
+                # Determine status
+                if latest:
+                    status = latest.get('status', 'Pending')
+                    # If status is Draft, treat as Not Assessed
+                    if status == 'Draft':
+                        status = 'Not Assessed'
+                else:
+                    status = 'Not Assessed'
+                
+                # Get risk data from history
+                risk_score = latest.get('risk_score', 0) if latest else 0
+                risk_level = latest.get('risk_level', 'Not Assessed') if latest else 'Not Assessed'
+                
+                patients_list.append({
+                    'id': pid,
+                    'name': data['full_name'],
+                    'risk_score': risk_score,
+                    'risk_level': risk_level,
+                    'status': status,
+                    'assigned_by': latest.get('assigned_by', '') if latest else ''
+                })
+        
+        # Sort by risk level (High → Low → Medium → Low → Not Assessed)
+        risk_order = {'High Risk': 0, 'Medium Risk': 1, 'Low Risk': 2, 'Not Assessed': 3}
+        patients_list.sort(key=lambda x: risk_order.get(x['risk_level'], 4))
+        
+        return render_template('nurse_dashboard.html', 
+            user=user, 
+            patients=patients_list, 
+            assigned_doctor=assigned_doctor,
+            now=datetime.now())
+    
+# --- 7. PATIENT MANAGEMENT (Receptionist/Admin) ---
+@app.route('/add_patient', methods=['GET', 'POST'])
+def add_patient():
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    if user['role'] not in ['Receptionist', 'Administrator']:
+        flash('⛔ Access denied.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    doctors = [s for s in STAFF_DB if s['role'] == 'Doctor']
+    
+    if request.method == 'POST':
+        nic = request.form.get('nic')
+        existing_patient = None
+        for pid, data in PATIENT_DB.items():
+            if data.get('nic') == nic:
+                existing_patient = {'id': pid, **data}
+                break
+        
+        if existing_patient:
+            flash('✅ Patient found! Auto-filled.', 'info')
+            return render_template('add_patient.html', user=user, doctors=doctors, patient=existing_patient, is_existing=True)
+        
+        existing_ids = list(PATIENT_DB.keys())
+        if existing_ids:
+            last_id = max([int(id.replace('P', '')) for id in existing_ids])
+            new_id = f"P{last_id + 1}"
+        else:
+            new_id = "P2000"
+        
+        new_patient = {
+            "full_name": request.form.get('full_name'),
+            "age": int(request.form.get('age', 0)),
+            "nic": nic,
+            "gender": request.form.get('gender'),
+            "address": request.form.get('address'),
+            "phone": request.form.get('phone'),
+            "email": request.form.get('email', ''),
+            "diagnosis": request.form.get('diagnosis', ''),
+            "secondary_diagnosis": request.form.get('secondary_diagnosis', ''),
+            "existing_diseases": [d.strip() for d in request.form.get('existing_diseases', '').split(',') if d.strip()],
+            "previous_admissions": int(request.form.get('previous_admissions', 0)),
+            "current_medications": [m.strip() for m in request.form.get('current_medications', '').split(',') if m.strip()],
+            "allergies": [a.strip() for a in request.form.get('allergies', '').split(',') if a.strip()],
+            "admission_date": datetime.now().strftime('%Y-%m-%d'),
+            "discharge_date": "",
+            "length_of_stay": 0,
+            "assigned_doctor": request.form.get('assigned_doctor'),
+            "assigned_department": request.form.get('assigned_department'),
+            "status": "Admitted"
+        }
+        
+        PATIENT_DB[new_id] = new_patient
+        save_patients()
+        save_activity(f"🆕 New patient {new_patient['full_name']} (ID: {new_id}) registered by {user['name']}")
+        flash(f'✅ Patient {new_patient["full_name"]} (ID: {new_id}) added!', 'success')
+        return redirect(url_for('profile', patient_id=new_id))
+    
+    return render_template('add_patient.html', user=user, doctors=doctors, patient=None, is_existing=False)
+
+# --- 8. ADMIN STAFF MANAGEMENT (NEW) ---
+@app.route('/add_doctor', methods=['GET', 'POST'])
+def add_doctor():
+    if 'user' not in session: return redirect(url_for('login'))
+    if session['user']['role'] != 'Administrator':
+        flash('⛔ Access denied.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    if request.method == 'POST':
+        existing_ids = [s['id'] for s in STAFF_DB if s['id'].startswith('D')]
+        if existing_ids:
+            nums = [int(id.replace('D', '')) for id in existing_ids]
+            new_id = f"D{max(nums) + 1:03d}"
+        else:
+            new_id = "D006"
+        
+        new_doctor = {
+            'id': new_id,
+            'name': request.form.get('name'),
+            'role': 'Doctor',
+            'specialization': request.form.get('specialization'),
+            'username': request.form.get('username'),
+            'password': request.form.get('password'),
+            'department': request.form.get('department')
+        }
+        STAFF_DB.append(new_doctor)
+        save_staff()
+        save_activity(f"👨‍⚕️ New doctor {new_doctor['name']} added by {session['user']['name']}")
+        flash(f'✅ Doctor {new_doctor["name"]} added!', 'success')
+        return redirect(url_for('dashboard'))
+    
+    return render_template('add_doctor.html', user=session['user'])
+
+@app.route('/add_nurse', methods=['GET', 'POST'])
+def add_nurse():
+    if 'user' not in session: return redirect(url_for('login'))
+    if session['user']['role'] != 'Administrator':
+        flash('⛔ Access denied.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    doctors = [s for s in STAFF_DB if s['role'] == 'Doctor']
+    
+    if request.method == 'POST':
+        existing_ids = [s['id'] for s in STAFF_DB if s['id'].startswith('N')]
+        if existing_ids:
+            nums = [int(id.replace('N', '')) for id in existing_ids]
+            new_id = f"N{max(nums) + 1:03d}"
+        else:
+            new_id = "N006"
+        
+        new_nurse = {
+            'id': new_id,
+            'name': request.form.get('name'),
+            'role': 'Nurse',
+            'assigned_doctor': request.form.get('assigned_doctor'),
+            'username': request.form.get('username'),
+            'password': request.form.get('password')
+        }
+        STAFF_DB.append(new_nurse)
+        save_staff()
+        save_activity(f"👩‍⚕️ New nurse {new_nurse['name']} added by {session['user']['name']}")
+        flash(f'✅ Nurse {new_nurse["name"]} added!', 'success')
+        return redirect(url_for('dashboard'))
+    
+    return render_template('add_nurse.html', user=session['user'], doctors=doctors)
+
+@app.route('/assign_nurse', methods=['GET', 'POST'])
+def assign_nurse():
+    if 'user' not in session: return redirect(url_for('login'))
+    if session['user']['role'] != 'Administrator':
+        flash('⛔ Access denied.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    nurses = [s for s in STAFF_DB if s['role'] == 'Nurse']
+    doctors = [s for s in STAFF_DB if s['role'] == 'Doctor']
+    
+    if request.method == 'POST':
+        nurse_id = request.form.get('nurse_id')
+        doctor_name = request.form.get('doctor_name')
+        
+        # Remove nurse from any previous assignment (one nurse -> one doctor)
+        for s in STAFF_DB:
+            if s['role'] == 'Nurse' and s['assigned_doctor'] == doctor_name and s['id'] != nurse_id:
+                s['assigned_doctor'] = None  # unassign previous nurse from this doctor
+            if s['id'] == nurse_id:
+                s['assigned_doctor'] = doctor_name
+        
+        save_staff()
+        nurse_name = next((s['name'] for s in STAFF_DB if s['id'] == nurse_id), 'Unknown')
+        save_activity(f"🔄 {nurse_name} assigned to {doctor_name} by {session['user']['name']}")
+        flash(f'✅ Nurse assigned to {doctor_name}!', 'success')
+        return redirect(url_for('dashboard'))
+    
+    return render_template('assign_nurse.html', user=session['user'], nurses=nurses, doctors=doctors)
+
+@app.route('/edit_staff/<staff_id>', methods=['GET', 'POST'])
+def edit_staff(staff_id):
+    if 'user' not in session: return redirect(url_for('login'))
+    if session['user']['role'] != 'Administrator':
+        flash('⛔ Access denied.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    staff_member = next((s for s in STAFF_DB if s['id'] == staff_id), None)
+    if not staff_member:
+        flash('❌ Staff member not found.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    if request.method == 'POST':
+        staff_member['name'] = request.form.get('name')
+        staff_member['username'] = request.form.get('username')
+        if request.form.get('password'):
+            staff_member['password'] = request.form.get('password')
+        
+        if staff_member['role'] == 'Doctor':
+            staff_member['specialization'] = request.form.get('specialization')
+            staff_member['department'] = request.form.get('department')
+        
+        save_staff()
+        save_activity(f"✏️ {staff_member['name']}'s details updated by {session['user']['name']}")
+        flash(f'✅ Staff updated!', 'success')
+        return redirect(url_for('dashboard'))
+    
+    doctors = [s for s in STAFF_DB if s['role'] == 'Doctor'] if staff_member['role'] == 'Nurse' else []
+    return render_template('edit_staff.html', user=session['user'], staff=staff_member, doctors=doctors)
+
+# --- 9. SEARCH (Patients + Doctors + Nurses) ---
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    
+    results = {'patients': [], 'doctors': [], 'nurses': []}
+    query = ''
+    
+    if request.method == 'POST':
+        query = request.form.get('search_query', '').strip().lower()
+        
+        for pid, data in PATIENT_DB.items():
+            if query in pid.lower() or query in data.get('full_name', '').lower():
+                results['patients'].append({'id': pid, **data})
+        
+        for s in STAFF_DB:
+            if query in s.get('name', '').lower() or query in s.get('id', '').lower():
+                if s['role'] == 'Doctor':
+                    results['doctors'].append(s)
+                elif s['role'] == 'Nurse':
+                    results['nurses'].append(s)
+        
+        if not any(results.values()):
+            flash('❌ No results found.', 'danger')
+    
+    return render_template('search.html', results=results, query=query, user=user)
+
+# --- 10. PROFILE ---
+@app.route('/profile/<patient_id>')
+def profile(patient_id):
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    data = PATIENT_DB.get(patient_id)
+    if not data: return "Patient not found", 404
+    
+    # Get the LATEST history entry for this patient
+    latest = None
+    for h in history:
+        if h['patient_id'] == patient_id:
+            latest = h
+            break
+    
+    if latest:
+        risk = {
+            'risk_score': latest.get('risk_score', 0),
+            'risk_level': latest.get('risk_level', 'Not Assessed'),
+            'risk_color': '#EF4444' if latest.get('risk_level') == 'High Risk' else '#F59E0B' if latest.get('risk_level') == 'Medium Risk' else '#10B981',
+            'risk_factors': latest.get('risk_factors', '').split(', ') if latest.get('risk_factors') else ['No risk factors'],
+            'priority': 'Critical' if latest.get('risk_level') == 'High Risk' else 'Medium' if latest.get('risk_level') == 'Medium Risk' else 'Low',
+            'status': latest.get('status', 'Draft')
+        }
+    else:
+        risk = {
+            'risk_score': 0, 
+            'risk_level': 'Not Assessed', 
+            'risk_color': 'gray', 
+            'risk_factors': ['No assessment yet'], 
+            'priority': 'Unknown', 
+            'status': 'Not Assessed'
+        }
+    
+    return render_template('profile.html', patient={'id': patient_id, **data}, risk=risk, user=user)
+
+# --- 11. ASSESSMENT (Nurse) ---
+@app.route('/assess/<patient_id>', methods=['GET', 'POST'])
+def assess(patient_id):
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    if user['role'] != 'Nurse':
+        flash('⛔ Only nurses can perform assessments.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    data = PATIENT_DB.get(patient_id)
+    if not data: return "Patient not found", 404
+    
+    if data.get('admission_date'):
+        try:
+            admit = datetime.strptime(data['admission_date'], '%Y-%m-%d')
+            discharge = datetime.now()
+            length = (discharge - admit).days
+            if length > 0:
+                data['length_of_stay'] = length
+                data['discharge_date'] = datetime.now().strftime('%Y-%m-%d')
+                data['status'] = 'Discharged'
+                save_patients()
+        except:
+            pass
+    
+    if request.method == 'POST':
+        assessment_data = {
+            'recovery_status': request.form.get('recovery_status'),
+            'mobility_status': request.form.get('mobility_status'),
+            'medication_compliance_risk': request.form.get('medication_compliance_risk'),
+            'family_support': request.form.get('family_support'),
+            'lives_alone': request.form.get('lives_alone') == 'Yes',
+            'transportation_access': request.form.get('transportation_access') == 'Yes',
+            'additional_notes': request.form.get('additional_notes', '')
+        }
+        
+        patient_for_ai = {
+            'Patient_ID': patient_id,
+            'Age': data['age'],
+            'Gender': data['gender'],
+            'Diagnosis': data.get('diagnosis', ''),
+            'Previous_Admissions': data.get('previous_admissions', 0),
+            'Length_of_Stay': data.get('length_of_stay', 0),
+            'Medications_Count': len(data.get('current_medications', [])),
+            'Has_Diabetes': 1 if 'Diabetes' in data.get('existing_diseases', []) else 0,
+            'Has_Heart_Disease': 1 if 'Heart Disease' in data.get('existing_diseases', []) else 0,
+            'Has_Hypertension': 1 if 'Hypertension' in data.get('existing_diseases', []) else 0,
+            'Has_COPD': 1 if 'COPD' in data.get('existing_diseases', []) else 0,
+            'recovery_status': assessment_data['recovery_status'],
+            'family_support': assessment_data['family_support'],
+            'mobility_status': assessment_data['mobility_status'],
+            'lives_alone': assessment_data['lives_alone'],
+            'existing_diseases': data.get('existing_diseases', [])
+        }
+        
+        risk_result = predict_readmission(patient_for_ai)
+        care_plan = generate_care_plan(patient_for_ai, risk_result)
+        
+        existing = next((h for h in history if h['patient_id'] == patient_id and h['status'] in ['Draft', 'Pending']), None)
+        
+        if existing:
+            existing['risk_score'] = risk_result['risk_score']
+            existing['risk_level'] = risk_result['risk_level']
+            existing['risk_factors'] = ', '.join(risk_result['risk_factors'])
+            existing['timestamp'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            existing['assigned_by'] = user['name']
+            existing['status'] = 'Pending'
+            existing['care_plan_summary'] = ', '.join(care_plan['follow_up'][:2])
+        else:
+            history_entry = {
+                'patient_id': patient_id,
+                'patient_name': data['full_name'],
+                'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'risk_score': risk_result['risk_score'],
+                'risk_level': risk_result['risk_level'],
+                'risk_factors': ', '.join(risk_result['risk_factors']),
+                'care_plan_summary': ', '.join(care_plan['follow_up'][:2]),
+                'doctor': data.get('assigned_doctor', 'Unassigned'),
+                'assigned_by': user['name'],
+                'status': 'Pending',
+                'doctor_notes': '',
+                'follow_up_days': 7 if risk_result['risk_level'] == 'High Risk' else 14 if risk_result['risk_level'] == 'Medium Risk' else 30
+            }
+            history.append(history_entry)
+        
+        save_history()
+        
+        if risk_result['risk_level'] == 'High Risk':
+            alerts = load_alerts()
+            alerts.append({
+                'patient_id': patient_id,
+                'patient_name': data['full_name'],
+                'risk_score': risk_result['risk_score'],
+                'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'assigned_doctor': data.get('assigned_doctor', 'Unassigned'),
+                'status': 'unread',
+                'message': f"🚨 HIGH RISK: {data['full_name']} ({risk_result['risk_score']}%)"
+            })
+            save_alerts(alerts)
+            save_activity(f"🚨 High-risk alert for {data['full_name']} sent to {data.get('assigned_doctor', 'doctor')}")
+        
+        save_activity(f"🤖 Assessment completed for {data['full_name']} by {user['name']}. Risk: {risk_result['risk_level']} ({risk_result['risk_score']}%)")
+        flash(f'✅ Assessment sent to {data.get("assigned_doctor", "doctor")} for approval.', 'success')
+        return redirect(url_for('care_plan', patient_id=patient_id))
+    
+    existing = next((h for h in history if h['patient_id'] == patient_id), None)
+    return render_template('assess.html', patient={'id': patient_id, **data}, user=user, existing=existing)
+
+# --- 12. CARE PLAN ---
+@app.route('/care_plan/<patient_id>')
+def care_plan(patient_id):
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    data = PATIENT_DB.get(patient_id)
+    if not data: return "Patient not found", 404
+    
+    # Get the LATEST history entry for this patient
+    latest = None
+    for h in history:
+        if h['patient_id'] == patient_id:
+            latest = h
+            break
+    
+    if not latest:
+        flash('❌ No assessment found for this patient.', 'danger')
+        return redirect(url_for('profile', patient_id=patient_id))
+    
+    # USE THE STORED RISK SCORE FROM HISTORY - NOT RECALCULATED
+    risk_result = {
+        'risk_score': latest.get('risk_score', 0),
+        'risk_level': latest.get('risk_level', 'Not Assessed'),
+        'risk_color': '#EF4444' if latest.get('risk_level') == 'High Risk' else '#F59E0B' if latest.get('risk_level') == 'Medium Risk' else '#10B981',
+        'risk_factors': latest.get('risk_factors', '').split(', ') if latest.get('risk_factors') else ['No risk factors'],
+        'priority': 'Critical' if latest.get('risk_level') == 'High Risk' else 'Medium' if latest.get('risk_level') == 'Medium Risk' else 'Low',
+        'status': latest.get('status', 'Draft'),
+        'doctor_notes': latest.get('doctor_notes', ''),
+        'follow_up_days': latest.get('follow_up_days', 7)
+    }
+    
+    # Generate the care plan display (this is just for viewing, not recalculating risk)
+    # We use the stored risk factors from history
+    care_plan = {
+        'follow_up': latest.get('care_plan_summary', '').split(', ') if latest.get('care_plan_summary') else ["📅 Routine follow-up within 30 days"],
+        'dietary': ["🥗 Eat balanced meals with fruits and vegetables", "🧂 Reduce salt intake"],
+        'exercise': ["🚶 Light physical activity for 30 minutes daily"],
+        'lifestyle': ["💤 Get 7-8 hours of sleep", "🚫 Avoid alcohol", "🚭 Quit smoking"],
+        'support': ["👨‍👩‍👦 Ensure family/caregiver availability"],
+        'emergency': ["📞 Contact your GP if symptoms worsen"]
+    }
+    
+    # If the risk level is High, adjust the care plan
+    if risk_result['risk_level'] == 'High Risk':
+        care_plan['follow_up'] = ["📅 Follow-up within 7 days", "📞 Phone check-in within 24 hours", "🏥 Home nurse visit within 48 hours"]
+        care_plan['emergency'] = ["🚨 Go to nearest hospital if you experience chest pain, severe dizziness, or difficulty speaking"]
+    elif risk_result['risk_level'] == 'Medium Risk':
+        care_plan['follow_up'] = ["📅 Follow-up within 14 days", "📞 Phone check-in within 72 hours"]
+    
+    return render_template('care_plan.html', 
+        patient={'id': patient_id, **data}, 
+        risk=risk_result, 
+        care_plan=care_plan, 
+        history_entry=latest, 
+        user=user)
+
+# --- 13. REVIEW PLAN (Doctor) ---
+@app.route('/review_plan/<patient_id>', methods=['POST'])
+def review_plan(patient_id):
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    if user['role'] not in ['Doctor', 'Administrator']:
+        flash('⛔ Only doctors can review plans.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    entries = [h for h in history if h['patient_id'] == patient_id]
+    if not entries:
+        flash('❌ No plan found.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    latest = entries[0]
+    action = request.form.get('action')
+    doctor_notes = request.form.get('doctor_notes', '')
+    follow_up_days = int(request.form.get('follow_up_days', 7))
+    
+    for h in history:
+        if h['patient_id'] == patient_id:
+            h['status'] = 'Approved' if action == 'approve' else 'Rejected'
+            h['doctor_notes'] = doctor_notes
+            h['follow_up_days'] = follow_up_days
+            break
+    
+    save_history()
+    patient_name = PATIENT_DB.get(patient_id, {}).get('full_name', patient_id)
+    if action == 'approve':
+        save_activity(f"✅ Care plan approved for {patient_name} by {user['name']}")
+        flash(f'✅ Plan approved!', 'success')
+    else:
+        save_activity(f"❌ Care plan rejected for {patient_name} by {user['name']}")
+        flash(f'❌ Plan rejected.', 'danger')
+    
+    return redirect(url_for('care_plan', patient_id=patient_id))
+
+@app.route('/edit_plan/<patient_id>', methods=['POST'])
+def edit_plan(patient_id):
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    if user['role'] not in ['Doctor', 'Administrator']:
+        flash('⛔ Only doctors can edit plans.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    # Find the patient's history entry
+    entries = [h for h in history if h['patient_id'] == patient_id]
+    if not entries:
+        flash('❌ No plan found.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    latest = entries[0]
+    
+    # Get edited fields from form
+    follow_up = request.form.get('follow_up', '').split('\n')
+    dietary = request.form.get('dietary', '').split('\n')
+    exercise = request.form.get('exercise', '').split('\n')
+    lifestyle = request.form.get('lifestyle', '').split('\n')
+    support = request.form.get('support', '').split('\n')
+    emergency = request.form.get('emergency', '').split('\n')
+    
+    # Remove empty lines
+    follow_up = [f for f in follow_up if f.strip()]
+    dietary = [d for d in dietary if d.strip()]
+    exercise = [e for e in exercise if e.strip()]
+    lifestyle = [l for l in lifestyle if l.strip()]
+    support = [s for s in support if s.strip()]
+    emergency = [e for e in emergency if e.strip()]
+    
+    # Store edited plan in history (as a JSON string or separate fields)
+    # We'll store it as a dictionary in a new field
+    edited_plan = {
+        'follow_up': follow_up,
+        'dietary': dietary,
+        'exercise': exercise,
+        'lifestyle': lifestyle,
+        'support': support,
+        'emergency': emergency
+    }
+    
+    # Update the history entry
+    for h in history:
+        if h['patient_id'] == patient_id:
+            h['edited_plan'] = edited_plan
+            h['edited_by'] = user['name']
+            h['edited_at'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            break
+    
+    save_history()
+    save_activity(f"✏️ Care plan edited for {latest['patient_name']} by {user['name']}")
+    flash(f'✅ Plan updated successfully!', 'success')
+    
+    return redirect(url_for('care_plan', patient_id=patient_id))
+
+# --- 14. FOLLOW-UP ---
+@app.route('/follow_up/<patient_id>', methods=['GET', 'POST'])
+def follow_up(patient_id):
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    data = PATIENT_DB.get(patient_id)
+    if not data: return "Patient not found", 404
+    
+    if request.method == 'POST':
+        follow_data = {
+            'patient_id': patient_id,
+            'patient_name': data['full_name'],
+            'doctor': user['name'],
+            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'attended': request.form.get('attended') == 'Yes',
+            'condition_improved': request.form.get('condition_improved') == 'Yes',
+            'readmitted': request.form.get('readmitted') == 'Yes',
+            'notes': request.form.get('notes', '')
+        }
+        save_followup(follow_data)
+        save_activity(f"📋 Follow-up recorded for {data['full_name']} by {user['name']}")
+        flash(f'✅ Follow-up recorded!', 'success')
+        return redirect(url_for('profile', patient_id=patient_id))
+    
+    return render_template('follow_up.html', patient={'id': patient_id, **data}, user=user)
+
+# --- 15. HISTORY ---
+@app.route('/history')
+def history_page():
+    if 'user' not in session: return redirect(url_for('login'))
+    user = session['user']
+    
+    if user['role'] == 'Doctor':
+        filtered = [h for h in history if h.get('doctor') == user['name']]
+    elif user['role'] == 'Nurse':
+        assigned_doctor = user.get('assigned_doctor', '')
+        filtered = [h for h in history if h.get('doctor') == assigned_doctor]
+    else:
+        filtered = history
+    
+    return render_template('history.html', history=filtered, user=user)
+
+# --- 16. REPORTS (Advanced Admin Analytics) ---
+@app.route('/reports')
+def reports():
+    if 'user' not in session: return redirect(url_for('login'))
+    if session['user']['role'] != 'Administrator':
+        flash('⛔ Access denied. Admin only.', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    total_patients = len(PATIENT_DB)
+    high_risk = sum(1 for h in history if h.get('risk_level') == 'High Risk')
+    medium_risk = sum(1 for h in history if h.get('risk_level') == 'Medium Risk')
+    low_risk = sum(1 for h in history if h.get('risk_level') == 'Low Risk')
+    
+    dept_counts = {}
+    for pid, data in PATIENT_DB.items():
+        dept = data.get('assigned_department', 'Unassigned')
+        dept_counts[dept] = dept_counts.get(dept, 0) + 1
+    
+    monthly_data = {}
+    for h in history:
+        date = h.get('timestamp', '')
+        if date:
+            month = date[:7]
+            monthly_data[month] = monthly_data.get(month, 0) + 1
+    
+    doctor_patients = {}
+    for pid, data in PATIENT_DB.items():
+        doc = data.get('assigned_doctor', 'Unassigned')
+        doctor_patients[doc] = doctor_patients.get(doc, 0) + 1
+    
+    recent_actions = []
+    for h in history[:20]:
+        if h.get('status') in ['Approved', 'Rejected']:
+            recent_actions.append({
+                'patient': h.get('patient_name'),
+                'status': h.get('status'),
+                'doctor': h.get('doctor'),
+                'timestamp': h.get('timestamp')
+            })
+    
+    return render_template('reports.html',
+        user=session['user'],
+        total_patients=total_patients,
+        high_risk=high_risk,
+        medium_risk=medium_risk,
+        low_risk=low_risk,
+        dept_counts=dept_counts,
+        monthly_data=monthly_data,
+        doctor_patients=doctor_patients,
+        recent_actions=recent_actions,
+        now=datetime.now())
+
+# --- 17. DOWNLOAD PDF ---
+@app.route('/download_pdf/<patient_id>')
+def download_pdf(patient_id):
+    if 'user' not in session: return redirect(url_for('login'))
+    patient = PATIENT_DB.get(patient_id)
+    if not patient: return "Patient not found", 404
+    
+    buffer = BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=72, leftMargin=72, topMargin=72, bottomMargin=72)
+    styles = getSampleStyleSheet()
+    title_style = ParagraphStyle('CustomTitle', parent=styles['Heading1'], fontSize=24, textColor=colors.HexColor('#1E3A8A'), spaceAfter=30)
+    heading_style = ParagraphStyle('Heading', parent=styles['Heading2'], fontSize=16, textColor=colors.HexColor('#1E3A8A'), spaceAfter=12)
+    normal_style = styles['Normal']
+    
+    story = []
+    story.append(Paragraph("🏥 Suwa Setha Hospital", title_style))
+    story.append(Paragraph("AI After-Care Plan", heading_style))
+    story.append(Spacer(1, 0.2*inch))
+    story.append(Paragraph(f"<b>Patient:</b> {patient['full_name']}", normal_style))
+    story.append(Paragraph(f"<b>ID:</b> {patient_id}", normal_style))
+    
+    latest = next((h for h in history if h['patient_id'] == patient_id), None)
+    if latest:
+        story.append(Paragraph(f"<b>Risk:</b> {latest.get('risk_score', 0)}% ({latest.get('risk_level', 'Unknown')})", normal_style))
+    
+    story.append(Spacer(1, 0.3*inch))
+    story.append(Paragraph("📋 Care Plan", heading_style))
+    
+    patient_for_ai = {
+        'Patient_ID': patient_id,
+        'Age': patient['age'],
+        'Gender': patient['gender'],
+        'Diagnosis': patient.get('diagnosis', ''),
+        'Previous_Admissions': patient.get('previous_admissions', 0),
+        'Length_of_Stay': patient.get('length_of_stay', 0),
+        'Medications_Count': len(patient.get('current_medications', [])),
+        'Has_Diabetes': 1 if 'Diabetes' in patient.get('existing_diseases', []) else 0,
+        'Has_Heart_Disease': 1 if 'Heart Disease' in patient.get('existing_diseases', []) else 0,
+        'Has_Hypertension': 1 if 'Hypertension' in patient.get('existing_diseases', []) else 0,
+        'Has_COPD': 1 if 'COPD' in patient.get('existing_diseases', []) else 0,
+        'existing_diseases': patient.get('existing_diseases', [])
+    }
+    risk_result = predict_readmission(patient_for_ai)
+    care_plan = generate_care_plan(patient_for_ai, risk_result)
+    
+    for section, items in care_plan.items():
+        label = section.replace('_', ' ').title()
+        story.append(Paragraph(f"<b>{label}</b>", heading_style))
+        for item in items:
+            story.append(Paragraph(f"• {item}", normal_style))
+        story.append(Spacer(1, 0.1*inch))
+    
+    story.append(Spacer(1, 0.5*inch))
+    story.append(Paragraph(f"<i>Generated {datetime.now().strftime('%B %d, %Y')}</i>", normal_style))
+    
+    doc.build(story)
+    buffer.seek(0)
+    
+    save_activity(f"📄 PDF downloaded for {patient['full_name']} by {session['user']['name']}")
+    flash('✅ PDF downloaded!', 'success')
+    return send_file(buffer, as_attachment=True, download_name=f'Care_Plan_{patient_id}.pdf', mimetype='application/pdf')
+
+# --- 18. API ENDPOINTS ---
+@app.route('/api/patients')
+def api_patients():
+    if 'user' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    return jsonify(PATIENT_DB)
+
+@app.route('/api/history')
+def api_history():
+    if 'user' not in session:
+        return jsonify({'error': 'Unauthorized'}), 401
+    return jsonify(history)
+
+# --- 19. RUN ---
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)

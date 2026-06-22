@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurse Dashboard - Suwa Setha AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        body { background: #F8FAFC; }
+        .navbar-dark { background: #1E3A8A !important; }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #3B82F6;
+            height: 100%;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        .stat-card .number { font-size: 28px; font-weight: 700; color: #1E3A8A; }
+        .stat-card .label { font-size: 13px; color: #64748B; font-weight: 500; }
+        .stat-card .icon { font-size: 28px; opacity: 0.15; float: right; }
+        .stat-card.pending { border-color: #F59E0B; }
+        .stat-card.pending .number { color: #F59E0B; }
+        .stat-card.approved { border-color: #10B981; }
+        .stat-card.approved .number { color: #10B981; }
+        .stat-card.rejected { border-color: #EF4444; }
+        .stat-card.rejected .number { color: #EF4444; }
+        .stat-card.notassessed { border-color: #64748B; }
+        .stat-card.notassessed .number { color: #64748B; }
+        .badge-risk { font-weight: 500; padding: 3px 12px; border-radius: 20px; font-size: 12px; }
+
+        /* FIX: Dedicated classes replace inline Jinja2 style on badge-risk */
+        .badge-risk-high   { background: #FEE2E2; color: #EF4444; }
+        .badge-risk-medium { background: #FEF3C7; color: #F59E0B; }
+        .badge-risk-low    { background: #D1FAE5; color: #10B981; }
+        .badge-risk-none   { background: #F1F5F9; color: #64748B; }
+
+        .btn-primary { background: #1E3A8A; border: none; }
+        .btn-primary:hover { background: #2563EB; }
+        .btn-sm { font-size: 12px; padding: 4px 12px; }
+        .btn-success { background: #10B981; border: none; }
+        .btn-success:hover { background: #059669; }
+        .btn-danger { background: #EF4444; border: none; }
+        .btn-danger:hover { background: #DC2626; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+        .feature-item { background: #F1F5F9; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; cursor: pointer; }
+        .feature-item:hover { background: #E2E8F0; transform: translateX(4px); }
+        .feature-item i { font-size: 18px; color: #1E3A8A; width: 28px; text-align: center; }
+        .feature-item span { font-size: 13px; font-weight: 500; color: #1F2937; }
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+            color: rgba(255,255,255,0.85);
+            transition: color 0.3s;
+        }
+        .notification-bell:hover { color: white; }
+        .notification-bell .badge-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            background: #10B981;
+            color: white;
+            min-width: 18px;
+            text-align: center;
+        }
+        .table th { font-size: 12px; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; }
+        .table td { font-size: 13px; vertical-align: middle; }
+        .filter-active { background: #EFF6FF !important; border-color: #1E3A8A !important; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark navbar-expand-lg px-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">🏥 Suwa Setha AI</a>
+        <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+                <a class="nav-link notification-bell" href="#" onclick="filterTable('Approved')" title="Click to see approved patients">
+                    <i class="fas fa-bell" style="font-size: 20px;"></i>
+                    {% set approved_count = patients|selectattr('status', 'equalto', 'Approved')|list|length %}
+                    {% if approved_count > 0 %}
+                    <span class="badge-count">{{ approved_count }}</span>
+                    {% endif %}
+                </a>
+            </li>
+            <li class="nav-item"><span class="navbar-text text-light me-3"><i class="fas fa-user-md"></i> {{ user.name }}</span></li>
+            <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid px-4 py-4 fade-in">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'info' }} alert-dismissible fade show" role="alert" id="flashMessage">
+                {{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="card p-3 mb-4" style="background: linear-gradient(135deg, #1E3A8A, #3B82F6); color: white; border: none; border-radius: 12px;">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h5 style="font-weight: 600;">👋 Welcome, {{ user.name }}</h5>
+                <p style="opacity: 0.8; font-size: 14px; margin: 0;">Assigned to: <strong>{{ assigned_doctor }}</strong></p>
+            </div>
+            <div>
+                <span class="badge bg-light text-dark"><i class="fas fa-calendar"></i> {{ now.strftime('%B %d, %Y') }}</span>
+                {% set pending = patients|selectattr('status', 'equalto', 'Pending')|list|length %}
+                {% if pending > 0 %}
+                <span class="badge bg-warning text-dark ms-2"><i class="fas fa-clock"></i> {{ pending }} Pending</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-grid mb-4">
+        <div class="feature-item" onclick="location.href='/search'"><i class="fas fa-search"></i><span>Search Patient</span></div>
+        <div class="feature-item" onclick="filterTable('Pending')"><i class="fas fa-clock" style="color:#F59E0B;"></i><span>Pending</span></div>
+        <div class="feature-item" onclick="filterTable('Approved')"><i class="fas fa-check-circle" style="color:#10B981;"></i><span>Approved</span></div>
+        <div class="feature-item" onclick="filterTable('Rejected')"><i class="fas fa-times-circle" style="color:#EF4444;"></i><span>Rejected</span></div>
+        <div class="feature-item" onclick="filterTable('Not Assessed')"><i class="fas fa-question-circle" style="color:#64748B;"></i><span>Not Assessed</span></div>
+    </div>
+
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="stat-card pending" onclick="filterTable('Pending')">
+                <span class="icon"><i class="fas fa-clock"></i></span>
+                <div class="number">{{ patients|selectattr('status', 'equalto', 'Pending')|list|length }}</div>
+                <div class="label">🟡 Pending Approval</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card approved" onclick="filterTable('Approved')">
+                <span class="icon"><i class="fas fa-check-circle"></i></span>
+                <div class="number">{{ patients|selectattr('status', 'equalto', 'Approved')|list|length }}</div>
+                <div class="label">🟢 Approved</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card rejected" onclick="filterTable('Rejected')">
+                <span class="icon"><i class="fas fa-times-circle"></i></span>
+                <div class="number">{{ patients|selectattr('status', 'equalto', 'Rejected')|list|length }}</div>
+                <div class="label">🔴 Rejected</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card notassessed" onclick="filterTable('Not Assessed')">
+                <span class="icon"><i class="fas fa-question-circle"></i></span>
+                <div class="number">{{ patients|selectattr('status', 'equalto', 'Not Assessed')|list|length }}</div>
+                <div class="label">⚪ Not Assessed</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" style="border-radius: 12px;">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="card-title"><i class="fas fa-list" style="color:#1E3A8A;"></i> My Patients</h6>
+                <div>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="filterTable('all')">All</button>
+                    <button class="btn btn-sm btn-outline-warning" onclick="filterTable('Pending')">Pending</button>
+                    <button class="btn btn-sm btn-outline-success" onclick="filterTable('Approved')">Approved</button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="filterTable('Rejected')">Rejected</button>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="filterTable('Not Assessed')">Not Assessed</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover" id="patientTable">
+                    <thead>
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Name</th>
+                            <th>Risk Score</th>
+                            <th>Risk Level</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% set sorted_patients = patients|sort(attribute='risk_level', reverse=False) %}
+                        {% set sorted_by_risk = sorted_patients|sort(attribute='risk_score', reverse=True) %}
+                        {% for p in sorted_by_risk %}
+                        <tr class="patient-row" data-risk="{{ p.risk_level }}" data-status="{{ p.status }}">
+                            <td>{{ p.id }}</td>
+                            <td>{{ p.name }}</td>
+                            <td>{% if p.risk_score > 0 %}{{ p.risk_score }}%{% else %}-{% endif %}</td>
+                            <td>
+                                <!-- FIX: CSS class instead of inline Jinja2 style -->
+                                <span class="badge-risk
+                                    {% if p.risk_level == 'High Risk' %}badge-risk-high
+                                    {% elif p.risk_level == 'Medium Risk' %}badge-risk-medium
+                                    {% elif p.risk_level == 'Low Risk' %}badge-risk-low
+                                    {% else %}badge-risk-none{% endif %}">
+                                    {{ p.risk_level if p.risk_level != 'Not Assessed' else '—' }}
+                                </span>
+                            </td>
+                            <td>
+                                {% if p.status == 'Pending' %}
+                                <span class="badge bg-warning">Pending</span>
+                                {% elif p.status == 'Approved' %}
+                                <span class="badge bg-success">Approved</span>
+                                {% elif p.status == 'Rejected' %}
+                                <span class="badge bg-danger">Rejected</span>
+                                {% else %}
+                                <span class="badge bg-secondary">Not Assessed</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if p.status == 'Not Assessed' %}
+                                    <a href="/assess/{{ p.id }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-clipboard-list"></i> Start Assessment
+                                    </a>
+                                {% elif p.status == 'Rejected' %}
+                                    <a href="/assess/{{ p.id }}" class="btn btn-sm btn-warning">
+                                        <i class="fas fa-redo"></i> Re-Assess
+                                    </a>
+                                {% elif p.status == 'Pending' %}
+                                    <a href="/profile/{{ p.id }}" class="btn btn-sm btn-secondary">
+                                        <i class="fas fa-eye"></i> View (Waiting)
+                                    </a>
+                                {% elif p.status == 'Approved' %}
+                                    <a href="/care_plan/{{ p.id }}" class="btn btn-sm btn-success">
+                                        <i class="fas fa-file-medical"></i> View Plan
+                                    </a>
+                                {% else %}
+                                    <a href="/profile/{{ p.id }}" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-eye"></i> View
+                                    </a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr><td colspan="6" class="text-center text-muted py-4">No patients assigned yet.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function filterTable(filter) {
+        const rows = document.querySelectorAll('.patient-row');
+
+        rows.forEach(row => {
+            const status = row.dataset.status || '';
+
+            if (filter === 'all') {
+                row.style.display = '';
+            } else {
+                row.style.display = (status === filter) ? '' : 'none';
+            }
+        });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.classList.remove('filter-active');
+        });
+    }
+
+    document.querySelector('.notification-bell').addEventListener('click', function (e) {
+        e.preventDefault();
+        filterTable('Approved');
+        this.style.color = '#10B981';
+        setTimeout(() => { this.style.color = ''; }, 3000);
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function (alert) {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(function () { alert.remove(); }, 500);
+            });
+        }, 4000);
+    });
+</script>
+
+</body>
+</html>

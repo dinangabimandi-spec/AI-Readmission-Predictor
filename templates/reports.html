@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Suwa Setha AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        body { background: #F8FAFC; }
+        .navbar-dark { background: #1E3A8A !important; }
+        .stat-card { background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid #3B82F6; height: 100%; }
+        .stat-card .number { font-size: 24px; font-weight: 700; color: #1E3A8A; }
+        .stat-card .label { font-size: 13px; color: #64748B; font-weight: 500; }
+        .stat-card.high { border-color: #EF4444; }
+        .stat-card.medium { border-color: #F59E0B; }
+        .stat-card.low { border-color: #10B981; }
+        .btn-primary { background: #1E3A8A; border: none; }
+        .btn-primary:hover { background: #2563EB; }
+        .chart-container { max-height: 200px; }
+        .table th { font-size: 12px; font-weight: 600; color: #64748B; text-transform: uppercase; }
+        .table td { font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark navbar-expand-lg px-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">🏥 Suwa Setha AI</a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><span class="navbar-text text-light me-3"><i class="fas fa-user-shield"></i> {{ user.name }}</span></li>
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- FIX: Store all Jinja2 JSON values in data attributes — no Jinja2 inside <script> -->
+<div id="chartData"
+     data-dept='{{ dept_counts|tojson }}'
+     data-monthly='{{ monthly_data|tojson }}'
+     data-doctor='{{ doctor_patients|tojson }}'
+     style="display:none;">
+</div>
+
+<div class="container-fluid px-4 py-4">
+    <h2 style="color:#1E3A8A;"><i class="fas fa-chart-line"></i> Analytics Reports</h2>
+    <p class="text-muted">Real-time hospital analytics dashboard</p>
+
+    <!-- Stats -->
+    <div class="row g-3 mb-4">
+        <div class="col-md-3">
+            <div class="stat-card total"><div class="number">{{ total_patients }}</div><div class="label">Total Patients</div></div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card high"><div class="number">{{ high_risk }}</div><div class="label">🔴 High Risk</div></div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card medium"><div class="number">{{ medium_risk }}</div><div class="label">🟠 Medium Risk</div></div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card low"><div class="number">{{ low_risk }}</div><div class="label">🟢 Low Risk</div></div>
+        </div>
+    </div>
+
+    <!-- Charts -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h6 class="card-title">Department Distribution</h6>
+                <div class="chart-container"><canvas id="deptChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h6 class="card-title">Monthly Trends</h6>
+                <div class="chart-container"><canvas id="monthlyChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-3">
+                <h6 class="card-title">Doctor Workload</h6>
+                <div class="chart-container"><canvas id="doctorChart"></canvas></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Actions -->
+    <div class="card">
+        <div class="card-body">
+            <h6 class="card-title">📋 Recent Approvals & Rejections</h6>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead><tr><th>Patient</th><th>Status</th><th>Reviewed By</th><th>Date</th></tr></thead>
+                    <tbody>
+                        {% for action in recent_actions %}
+                        <tr>
+                            <td>{{ action.patient }}</td>
+                            <td><span class="badge {% if action.status == 'Approved' %}bg-success{% else %}bg-danger{% endif %}">{{ action.status }}</span></td>
+                            <td>{{ action.doctor }}</td>
+                            <td>{{ action.timestamp }}</td>
+                        </tr>
+                        {% else %}
+                        <tr><td colspan="4" class="text-muted">No actions recorded yet.</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // FIX: Read JSON values from data attributes — pure JS, no Jinja2 inside <script>
+    var chartEl     = document.getElementById('chartData');
+    var deptData    = JSON.parse(chartEl.getAttribute('data-dept'));
+    var monthlyData = JSON.parse(chartEl.getAttribute('data-monthly'));
+    var doctorData  = JSON.parse(chartEl.getAttribute('data-doctor'));
+
+    // Department Chart
+    new Chart(document.getElementById('deptChart'), {
+        type: 'bar',
+        data: {
+            labels: Object.keys(deptData),
+            datasets: [{ label: 'Patients', data: Object.values(deptData), backgroundColor: '#1E3A8A', borderRadius: 4 }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+
+    // Monthly Chart
+    new Chart(document.getElementById('monthlyChart'), {
+        type: 'line',
+        data: {
+            labels: Object.keys(monthlyData),
+            datasets: [{ label: 'Assessments', data: Object.values(monthlyData), borderColor: '#3B82F6', fill: false, tension: 0.3 }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    // Doctor Workload
+    new Chart(document.getElementById('doctorChart'), {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(doctorData),
+            datasets: [{ data: Object.values(doctorData), backgroundColor: ['#1E3A8A', '#3B82F6', '#8B5CF6', '#EC4899', '#F59E0B', '#10B981'] }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } }, cutout: '60%' }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
