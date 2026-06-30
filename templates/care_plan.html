@@ -9,38 +9,200 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * { font-family: 'Poppins', sans-serif; }
-        body { background: #F8FAFC; }
+        body { background: #F0F4F8; }
         .navbar-dark { background: #1E3A8A !important; }
-        .plan-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 16px; }
-        .badge-risk { padding: 6px 18px; border-radius: 20px; font-weight: 600; font-size: 16px; }
 
-        /* FIX 1: Replace inline Jinja2 style on badge-risk with dedicated classes */
-        .badge-risk-high     { background: #FEE2E2; color: #EF4444; }
-        .badge-risk-medium   { background: #FEF3C7; color: #F59E0B; }
-        .badge-risk-low      { background: #D1FAE5; color: #10B981; }
+        /* ===== MEDICAL DOCUMENT STYLES ===== */
+        .medical-document {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 40px;
+            position: relative;
+        }
 
-        .btn-primary { background: #1E3A8A; border: none; }
-        .btn-primary:hover { background: #2563EB; }
-        .btn-success { background: #10B981; border: none; }
-        .btn-success:hover { background: #059669; }
-        .btn-danger { background: #EF4444; border: none; }
-        .btn-danger:hover { background: #DC2626; }
-        .btn-sm { font-size: 12px; padding: 4px 12px; }
-        .review-section { border: 2px solid #1E3A8A; border-radius: 12px; }
-        .review-section .card-header { background: #1E3A8A; color: white; border-radius: 10px 10px 0 0; }
-        .edit-mode { background: #F0F7FF; border: 2px solid #3B82F6; border-radius: 8px; padding: 12px; }
-        .edit-mode .form-control { background: white; }
-        .editable-item { cursor: pointer; transition: all 0.3s; }
-        .editable-item:hover { background: #EFF6FF; }
+        /* Header Section */
+        .doc-header {
+            border-bottom: 3px solid #1E3A8A;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .hospital-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1E3A8A;
+            letter-spacing: 1px;
+        }
+        .hospital-tagline {
+            font-size: 13px;
+            color: #64748B;
+            font-weight: 400;
+        }
+        .doc-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1E3A8A;
+            text-align: center;
+            padding: 10px 0;
+            background: #EFF6FF;
+            border-radius: 8px;
+            margin: 15px 0 25px 0;
+            letter-spacing: 1px;
+        }
 
-        /* FIX 2: Replace inline Jinja2 border style on emergency card with a class */
-        .emergency-card { border-left: 4px solid #EF4444; }
+        /* Patient Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 30px;
+            background: #F8FAFC;
+            padding: 18px 24px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #1E3A8A;
+        }
+        .info-item {
+            font-size: 14px;
+        }
+        .info-item strong {
+            color: #1E3A8A;
+            font-weight: 600;
+        }
+
+        /* Risk score color helper classes (replaces inline style with Jinja) */
+        .risk-score-text {
+            font-weight: 700;
+        }
+        .risk-score-text.high { color: #EF4444; }
+        .risk-score-text.medium { color: #F59E0B; }
+        .risk-score-text.low { color: #10B981; }
+
+        /* Risk badge variants (replaces inline conditional style) */
+        .risk-badge {
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+        }
+        .risk-badge.high {
+            background: #FEE2E2;
+            color: #EF4444;
+        }
+        .risk-badge.medium {
+            background: #FEF3C7;
+            color: #F59E0B;
+        }
+        .risk-badge.low {
+            background: #D1FAE5;
+            color: #10B981;
+        }
+
+        /* Doctor Signature Section */
+        .doctor-signature {
+            border-top: 2px solid #E2E8F0;
+            padding-top: 20px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .signature-line {
+            display: inline-block;
+            width: 200px;
+            border-bottom: 2px solid #1E3A8A;
+            margin-top: 5px;
+        }
+
+        /* Care Plan Sections */
+        .plan-section {
+            margin-bottom: 20px;
+            padding: 16px 20px;
+            background: #F8FAFC;
+            border-radius: 8px;
+            border-left: 4px solid #3B82F6;
+        }
+        .plan-section.danger {
+            border-left-color: #EF4444;
+        }
+        .plan-section.success {
+            border-left-color: #10B981;
+        }
+        .plan-section.warning {
+            border-left-color: #F59E0B;
+        }
+        .plan-section h6 {
+            color: #1E3A8A;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+        .plan-section ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        .plan-section ul li {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        /* Print Button */
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            padding: 14px 28px;
+            border-radius: 50px;
+            background: #1E3A8A;
+            color: white;
+            border: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+            transition: all 0.3s;
+        }
+        .print-btn:hover {
+            background: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(30, 58, 138, 0.5);
+        }
+
+        /* Print Styles */
+        @media print {
+            body { background: white; }
+            .navbar-dark { display: none; }
+            .print-btn { display: none; }
+            .medical-document {
+                box-shadow: none;
+                padding: 20px;
+                margin: 0;
+                border-radius: 0;
+            }
+            .doc-header { border-bottom-color: #000; }
+            .doc-title { background: #f0f0f0; }
+            .info-grid { background: #f5f5f5; border-left-color: #000; }
+            .plan-section { background: #f5f5f5; border-left-color: #000; }
+            .plan-section.danger { border-left-color: #000; }
+            .plan-section.success { border-left-color: #000; }
+            .plan-section.warning { border-left-color: #000; }
+            .no-print { display: none !important; }
+            .doctor-signature { border-top-color: #000; }
+            .signature-line { border-bottom-color: #000; }
+        }
+
+        @media (max-width: 768px) {
+            .medical-document { padding: 20px; margin: 10px; }
+            .info-grid { grid-template-columns: 1fr; gap: 6px; }
+            .doctor-signature { flex-direction: column; gap: 10px; }
+            .doc-title { font-size: 18px; }
+        }
     </style>
 </head>
-<body data-high-risk="{{ 'true' if risk.risk_level == 'High Risk' and history_entry.status != 'Approved' else 'false' }}">
-<!-- FIX 3: data-high-risk attribute lets JS read the risk state without Jinja2 inside <script> -->
+<body>
 
-<nav class="navbar navbar-dark navbar-expand-lg px-4">
+<!-- Navbar -->
+<nav class="navbar navbar-dark navbar-expand-lg px-4 no-print">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">🏥 Suwa Setha AI</a>
         <ul class="navbar-nav ms-auto">
@@ -51,232 +213,263 @@
     </div>
 </nav>
 
-<div class="container py-4">
-    <div class="d-flex justify-content-between align-items-center">
-        <h2 style="color:#1E3A8A;">📋 After-Care Plan</h2>
+<!-- ===== MEDICAL CARE PLAN DOCUMENT ===== -->
+<div class="medical-document" id="carePlanDocument">
 
-        <!-- FIX 1 applied: use dedicated CSS class instead of inline Jinja2 style -->
-        <span class="badge-risk
-            {% if risk.risk_level == 'High Risk' %}badge-risk-high
-            {% elif risk.risk_level == 'Medium Risk' %}badge-risk-medium
-            {% else %}badge-risk-low{% endif %}">
-            {{ risk.risk_level }} ({{ risk.risk_score }}%)
-        </span>
-    </div>
-    <p class="text-muted">
-        Patient: <strong>{{ patient.full_name }}</strong> ({{ patient.id }}) 
-        | Status: <span class="badge {% if history_entry.status == 'Approved' %}bg-success{% elif history_entry.status == 'Rejected' %}bg-danger{% elif history_entry.status == 'Pending' %}bg-warning{% else %}bg-secondary{% endif %}">
-            {{ history_entry.status if history_entry else 'Draft' }}
-        </span>
-    </p>
-
-    {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}
-    <div class="alert alert-info">
-        <i class="fas fa-edit"></i> <strong>Edit Mode:</strong> You can modify the plan below before approving or rejecting.
-    </div>
-    {% endif %}
-
-    <form method="POST" action="/edit_plan/{{ patient.id }}" id="editPlanForm">
+    <!-- ===== HEADER ===== -->
+    <div class="doc-header">
         <div class="row">
-            <div class="col-md-6">
-                <!-- Follow-Up -->
-                <div class="plan-card {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}edit-mode{% endif %}">
-                    <h6><i class="fas fa-calendar-alt" style="color:#1E3A8A;"></i> Follow-Up Schedule</h6>
-                    {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}
-                        <div class="mb-2">
-                            <label class="form-label small">Edit Follow-up Plan</label>
-                            <textarea class="form-control" name="follow_up" rows="3" placeholder="Enter follow-up instructions...">{{ care_plan.follow_up|join('\n') }}</textarea>
-                        </div>
-                    {% else %}
-                        <ul>{% for item in care_plan.follow_up %}<li>{{ item }}</li>{% endfor %}</ul>
-                    {% endif %}
-                </div>
-
-                <!-- Dietary -->
-                <div class="plan-card {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}edit-mode{% endif %}">
-                    <h6><i class="fas fa-utensils" style="color:#1E3A8A;"></i> Dietary Advice</h6>
-                    {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}
-                        <div class="mb-2">
-                            <label class="form-label small">Edit Dietary Advice</label>
-                            <textarea class="form-control" name="dietary" rows="3" placeholder="Enter dietary advice...">{{ care_plan.dietary|join('\n') }}</textarea>
-                        </div>
-                    {% else %}
-                        <ul>{% for item in care_plan.dietary %}<li>{{ item }}</li>{% endfor %}</ul>
-                    {% endif %}
-                </div>
-
-                <!-- Exercise -->
-                <div class="plan-card {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}edit-mode{% endif %}">
-                    <h6><i class="fas fa-walking" style="color:#1E3A8A;"></i> Exercise</h6>
-                    {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}
-                        <div class="mb-2">
-                            <label class="form-label small">Edit Exercise Plan</label>
-                            <textarea class="form-control" name="exercise" rows="2" placeholder="Enter exercise instructions...">{{ care_plan.exercise|join('\n') }}</textarea>
-                        </div>
-                    {% else %}
-                        <ul>{% for item in care_plan.exercise %}<li>{{ item }}</li>{% endfor %}</ul>
-                    {% endif %}
-                </div>
+            <div class="col-md-8">
+                <div class="hospital-name">🏥 Suwa Setha Hospital</div>
+                <div class="hospital-tagline">No. 25, Hospital Road, Colombo 02, Sri Lanka</div>
+                <div class="hospital-tagline">Tel: +94 11 234 5678 | Email: info@suwasetha.lk</div>
             </div>
-
-            <div class="col-md-6">
-                <!-- Lifestyle -->
-                <div class="plan-card {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}edit-mode{% endif %}">
-                    <h6><i class="fas fa-heart" style="color:#1E3A8A;"></i> Lifestyle</h6>
-                    {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}
-                        <div class="mb-2">
-                            <label class="form-label small">Edit Lifestyle Advice</label>
-                            <textarea class="form-control" name="lifestyle" rows="3" placeholder="Enter lifestyle advice...">{{ care_plan.lifestyle|join('\n') }}</textarea>
-                        </div>
-                    {% else %}
-                        <ul>{% for item in care_plan.lifestyle %}<li>{{ item }}</li>{% endfor %}</ul>
-                    {% endif %}
-                </div>
-
-                <!-- Support -->
-                <div class="plan-card {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}edit-mode{% endif %}">
-                    <h6><i class="fas fa-hand-holding-heart" style="color:#1E3A8A;"></i> Support</h6>
-                    {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}
-                        <div class="mb-2">
-                            <label class="form-label small">Edit Support Plan</label>
-                            <textarea class="form-control" name="support" rows="2" placeholder="Enter support instructions...">{{ care_plan.support|join('\n') }}</textarea>
-                        </div>
-                    {% else %}
-                        <ul>{% for item in care_plan.support %}<li>{{ item }}</li>{% endfor %}</ul>
-                    {% endif %}
-                </div>
-
-                <!-- Emergency -->
-                <!-- FIX 2 applied: use .emergency-card class instead of inline Jinja2 border style -->
-                <div class="plan-card emergency-card {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}edit-mode{% endif %}">
-                    <h6><i class="fas fa-ambulance" style="color:#EF4444;"></i> Emergency Advice</h6>
-                    {% if user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}
-                        <div class="mb-2">
-                            <label class="form-label small">Edit Emergency Advice</label>
-                            <textarea class="form-control" name="emergency" rows="2" placeholder="Enter emergency advice...">{{ care_plan.emergency|join('\n') }}</textarea>
-                        </div>
-                    {% else %}
-                        <ul>{% for item in care_plan.emergency %}<li>{{ item }}</li>{% endfor %}</ul>
-                    {% endif %}
-                </div>
+            <div class="col-md-4 text-end">
+                <div style="font-size:12px; color:#64748B; font-weight:500;">DOCUMENT ID: CP-{{ patient.id }}-{{ now.strftime('%Y%m%d') }}</div>
+                <div style="font-size:12px; color:#64748B;">Date: {{ now.strftime('%B %d, %Y') }}</div>
             </div>
         </div>
+    </div>
 
-        <!-- Doctor Review Section -->
-        {% if user.role == 'Doctor' or user.role == 'Administrator' %}
-        {% if history_entry.status == 'Pending' or history_entry.status == 'Approved' %}
-        <div class="card review-section mt-3">
-            <div class="card-header"><h5 class="mb-0"><i class="fas fa-user-md"></i> Doctor Review</h5></div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">📅 Follow-up (days)</label>
-                        <input type="number" class="form-control" name="follow_up_days" value="{{ history_entry.follow_up_days if history_entry else 7 }}" min="1" max="30">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">📝 Doctor's Notes</label>
-                        <textarea class="form-control" name="doctor_notes" rows="2" placeholder="Add your comments...">{{ history_entry.doctor_notes if history_entry else '' }}</textarea>
-                    </div>
-                </div>
+    <!-- ===== TITLE ===== -->
+    <div class="doc-title">
+        📋 Patient Discharge After-Care Plan
+    </div>
 
-                {% if user.role == 'Doctor' %}
-                <button type="submit" formaction="/edit_plan/{{ patient.id }}" class="btn btn-primary mb-2">
-                    <i class="fas fa-save"></i> Save Edits
-                </button>
-                {% endif %}
-
-                <div class="d-flex gap-2 flex-wrap">
-                    <button type="submit" name="action" value="approve" class="btn btn-success">
-                        <i class="fas fa-check-circle"></i> Approve Plan
-                    </button>
-                    <button type="submit" name="action" value="reject" class="btn btn-danger">
-                        <i class="fas fa-times-circle"></i> Reject Plan
-                    </button>
-                    {% if user.role == 'Doctor' %}
-                    <a href="/follow_up/{{ patient.id }}" class="btn btn-outline-primary">
-                        <i class="fas fa-clipboard-list"></i> Follow-Up
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
+    <!-- ===== PATIENT INFORMATION ===== -->
+    <div class="info-grid">
+        <div class="info-item"><strong>Patient Name:</strong> {{ patient.full_name }}</div>
+        <div class="info-item"><strong>Patient ID:</strong> {{ patient.id }}</div>
+        <div class="info-item"><strong>Age:</strong> {{ patient.age }} years</div>
+        <div class="info-item"><strong>Gender:</strong> {{ patient.gender }}</div>
+        <div class="info-item"><strong>Diagnosis:</strong> {{ patient.diagnosis }}</div>
+        <div class="info-item"><strong>Secondary Diagnosis:</strong> {{ patient.secondary_diagnosis or 'None' }}</div>
+        <div class="info-item"><strong>Admission Date:</strong> {{ patient.admission_date }}</div>
+        <div class="info-item"><strong>Discharge Date:</strong> {{ patient.discharge_date or now.strftime('%Y-%m-%d') }}</div>
+        <div class="info-item"><strong>Assigned Doctor:</strong> {{ patient.assigned_doctor }}</div>
+        <div class="info-item"><strong>Department:</strong> {{ patient.assigned_department or 'General Medicine' }}</div>
+        <div class="info-item">
+            <strong>Risk Score:</strong>
+            {% if risk.risk_level == 'High Risk' %}
+            <span class="risk-score-text high">{{ risk.risk_score }}%</span>
+            {% elif risk.risk_level == 'Medium Risk' %}
+            <span class="risk-score-text medium">{{ risk.risk_score }}%</span>
+            {% else %}
+            <span class="risk-score-text low">{{ risk.risk_score }}%</span>
+            {% endif %}
         </div>
-
-        {% if history_entry.status == 'Approved' %}
-        <div class="alert alert-success mt-3">✅ Plan Approved by {{ history_entry.doctor }} on {{ history_entry.timestamp }}</div>
-        {% elif history_entry.status == 'Rejected' %}
-        <div class="alert alert-danger mt-3">❌ Plan Rejected. Notes: {{ history_entry.doctor_notes }}</div>
-        {% endif %}
-        {% endif %}
-        {% endif %}
-    </form>
-
-    <!-- Download & Share - ONLY for Nurses -->
-    {% if user.role == 'Nurse' and history_entry.status == 'Approved' %}
-    <div class="d-flex gap-2 mt-4 flex-wrap">
-        <a href="/download_pdf/{{ patient.id }}" class="btn btn-primary"><i class="fas fa-file-pdf"></i> Download PDF</a>
-        <button class="btn btn-outline-secondary" onclick="alert('📧 Email sent to {{ patient.email }}')"><i class="fas fa-envelope"></i> Email</button>
-        <button class="btn btn-outline-secondary" onclick="alert('📱 SMS sent to {{ patient.phone }}')"><i class="fas fa-sms"></i> SMS</button>
-        <a href="/history" class="btn btn-outline-secondary"><i class="fas fa-history"></i> View History</a>
+        <div class="info-item">
+            <strong>Risk Level:</strong>
+            {% if risk.risk_level == 'High Risk' %}
+            <span class="risk-badge high">{{ risk.risk_level }}</span>
+            {% elif risk.risk_level == 'Medium Risk' %}
+            <span class="risk-badge medium">{{ risk.risk_level }}</span>
+            {% else %}
+            <span class="risk-badge low">{{ risk.risk_level }}</span>
+            {% endif %}
+        </div>
     </div>
-    {% elif user.role == 'Nurse' %}
-    <div class="alert alert-warning mt-3">
-        <i class="fas fa-clock"></i> This plan is waiting for doctor approval. PDF, Email, and SMS options will be available after approval.
+
+    <!-- ===== CARE PLAN SECTIONS ===== -->
+
+    <!-- 1. Follow-Up Schedule -->
+    <div class="plan-section {% if risk.risk_level == 'High Risk' %}danger{% elif risk.risk_level == 'Medium Risk' %}warning{% else %}success{% endif %}">
+        <h6><i class="fas fa-calendar-check" style="color:#1E3A8A;"></i> 1. Follow-Up Schedule</h6>
+        <ul>
+            {% if risk.risk_level == 'High Risk' %}
+            <li><strong>Urgent:</strong> Schedule a follow-up appointment within <strong>7 days</strong>.</li>
+            <li>Phone check-in within <strong>24 hours</strong> by the nursing team.</li>
+            <li>Home health nurse visit within <strong>48 hours</strong>.</li>
+            <li>Arrange cardiology/endocrinology review if applicable.</li>
+            {% elif risk.risk_level == 'Medium Risk' %}
+            <li>Schedule a follow-up appointment within <strong>14 days</strong>.</li>
+            <li>Phone check-in within <strong>72 hours</strong>.</li>
+            <li>Monitor symptoms and report any changes.</li>
+            {% else %}
+            <li>Schedule a routine follow-up appointment within <strong>30 days</strong>.</li>
+            <li>Regular monitoring as per standard protocol.</li>
+            {% endif %}
+        </ul>
     </div>
-    {% endif %}
+
+    <!-- 2. Medications -->
+    <div class="plan-section">
+        <h6><i class="fas fa-pills" style="color:#1E3A8A;"></i> 2. Medication Plan</h6>
+        <ul>
+            {% if patient.current_medications %}
+            <li><strong>Continue prescribed medications:</strong></li>
+            {% for med in patient.current_medications %}
+            <li>• {{ med }} — as per prescription</li>
+            {% endfor %}
+            <li>Do not skip doses. Set daily reminders.</li>
+            <li>Do not stop or change medications without consulting the doctor.</li>
+            {% else %}
+            <li>Follow the medication schedule provided in your discharge summary.</li>
+            <li>Take all medications as prescribed by your doctor.</li>
+            {% endif %}
+            <li>Bring all medications to your follow-up appointment.</li>
+        </ul>
+    </div>
+
+    <!-- 3. Monitoring Instructions -->
+    <div class="plan-section">
+        <h6><i class="fas fa-heartbeat" style="color:#1E3A8A;"></i> 3. Monitoring Instructions</h6>
+        <ul>
+            {% if 'Diabetes' in patient.existing_diseases %}
+            <li><strong>Diabetes Monitoring:</strong> Check blood glucose levels twice daily (morning and evening). Maintain a log.</li>
+            {% endif %}
+            {% if 'Hypertension' in patient.existing_diseases %}
+            <li><strong>Blood Pressure:</strong> Monitor blood pressure daily. Record readings in a diary.</li>
+            {% endif %}
+            {% if 'Heart Disease' in patient.existing_diseases %}
+            <li><strong>Cardiac Monitoring:</strong> Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.</li>
+            {% endif %}
+            {% if 'COPD' in patient.existing_diseases %}
+            <li><strong>Respiratory Monitoring:</strong> Monitor oxygen saturation using a pulse oximeter twice daily.</li>
+            {% endif %}
+            {% if not patient.existing_diseases %}
+            <li><strong>General Monitoring:</strong> Monitor general health and report any unusual symptoms immediately.</li>
+            {% endif %}
+            <li>Temperature monitoring twice daily — report fever above 38°C.</li>
+            <li>Weight monitoring daily — report sudden weight gain or loss.</li>
+            <li>Maintain a <strong>symptom diary</strong> to track any changes.</li>
+        </ul>
+    </div>
+
+    <!-- 4. Dietary Advice -->
+    <div class="plan-section">
+        <h6><i class="fas fa-utensils" style="color:#1E3A8A;"></i> 4. Dietary Advice</h6>
+        <ul>
+            <li><strong>Heart Health:</strong> Reduce salt and saturated fat intake.</li>
+            <li><strong>Diabetes Management:</strong> Follow diabetic meal plan — monitor carbohydrate intake.</li>
+            <li><strong>General:</strong> Eat balanced meals with fruits, vegetables, and whole grains.</li>
+            <li>Choose lean proteins (fish, chicken, legumes).</li>
+            <li>Limit sugar, processed foods, and unhealthy fats.</li>
+            <li>Drink at least <strong>8 glasses (2 liters)</strong> of water daily.</li>
+            {% if 'Diabetes' in patient.existing_diseases %}
+            <li>Avoid sugary drinks and high-GI foods.</li>
+            {% endif %}
+            {% if 'Heart Disease' in patient.existing_diseases %}
+            <li>Avoid saturated fats and trans fats.</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <!-- 5. Physical Activity -->
+    <div class="plan-section">
+        <h6><i class="fas fa-walking" style="color:#1E3A8A;"></i> 5. Physical Activity</h6>
+        <ul>
+            <li><strong>Light physical activity</strong> for <strong>30 minutes daily</strong> (e.g., walking, light stretching).</li>
+            <li>Start slowly and gradually increase activity levels.</li>
+            {% if patient.mobility_status == 'Bedridden' %}
+            <li><strong>Bedridden:</strong> Perform bed-based exercises as advised by the physiotherapist.</li>
+            <li>Change position every 2 hours to prevent bedsores.</li>
+            {% elif patient.mobility_status == 'Assisted' %}
+            <li><strong>Assisted:</strong> Walk with assistance or walking aids.</li>
+            <li>Physiotherapy sessions as scheduled.</li>
+            {% else %}
+            <li>Independent mobility — maintain regular walking routine.</li>
+            {% endif %}
+            <li>Avoid strenuous activity until cleared by the doctor.</li>
+        </ul>
+    </div>
+
+    <!-- 6. Lifestyle & Support -->
+    <div class="plan-section">
+        <h6><i class="fas fa-heart" style="color:#1E3A8A;"></i> 6. Lifestyle & Support</h6>
+        <ul>
+            <li><strong>Sleep:</strong> Get 7-8 hours of quality sleep nightly.</li>
+            <li><strong>Alcohol:</strong> Avoid alcohol consumption completely.</li>
+            <li><strong>Smoking:</strong> Quit smoking immediately — seek support if needed.</li>
+            <li><strong>Stress:</strong> Practice stress management (deep breathing, meditation).</li>
+            <li><strong>Support:</strong> Ensure family or caregiver availability for daily assistance.</li>
+            {% if patient.family_support == 'Weak' %}
+            <li><strong>⚠️ Community Support:</strong> Arrange community support services or home care aid.</li>
+            {% endif %}
+            {% if patient.lives_alone == 'Yes' %}
+            <li><strong>⚠️ Lives Alone:</strong> Set up daily check-in calls with family or healthcare provider.</li>
+            {% endif %}
+            <li>Keep a <strong>health diary</strong> to track symptoms, medications, and appointments.</li>
+            <li>Keep emergency contacts readily accessible.</li>
+        </ul>
+    </div>
+
+    <!-- 7. Emergency Advice -->
+    <div class="plan-section danger">
+        <h6><i class="fas fa-ambulance" style="color:#EF4444;"></i> 7. Emergency Advice</h6>
+        <ul>
+            {% if risk.risk_level == 'High Risk' %}
+            <li><strong>🚨 URGENT:</strong> Visit the nearest hospital immediately if you experience:</li>
+            <li>• Chest pain or severe shortness of breath</li>
+            <li>• Severe dizziness or fainting</li>
+            <li>• Difficulty speaking or weakness on one side of the body</li>
+            <li>• Uncontrolled bleeding or severe pain</li>
+            <li>📞 <strong>Emergency Contact:</strong> Call Suwa Setha Hospital Hotline at <strong>+94 11 234 5678</strong> (24/7)</li>
+            {% else %}
+            <li><strong>Contact your general practitioner</strong> if you experience any unusual symptoms.</li>
+            <li>Visit the nearest clinic if symptoms worsen.</li>
+            <li>📞 <strong>Emergency Contact:</strong> Suwa Setha Hospital Hotline: <strong>+94 11 234 5678</strong></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <!-- 8. Doctor Signature -->
+    <div class="doctor-signature">
+        <div>
+            <div style="font-weight:600; color:#1E3A8A;">👨‍⚕️ Responsible Healthcare Professional</div>
+            <div style="font-size:14px; font-weight:500;">{{ patient.assigned_doctor or 'Dr. D. Samarasinghe' }}</div>
+            <div style="font-size:13px; color:#64748B;">Department of {{ patient.assigned_department or 'General Medicine' }}</div>
+            <div style="font-size:13px; color:#64748B;">Suwa Setha Hospital</div>
+        </div>
+        <div class="text-end">
+            <div style="font-size:13px; color:#64748B;">Doctor's Signature</div>
+            <div class="signature-line"></div>
+            <div style="font-size:12px; color:#64748B; margin-top:4px;">Date: {{ now.strftime('%B %d, %Y') }}</div>
+        </div>
+    </div>
+
+    <!-- 9. Footer -->
+    <div style="margin-top: 25px; padding-top: 15px; border-top: 2px solid #E2E8F0; font-size: 11px; color: #94A3B8; text-align: center;">
+        <p>This care plan is generated by Suwa Setha AI — Hospital Readmission Risk Predictor & After-Care Plan Generator</p>
+        <p>© {{ now.year }} Suwa Setha Hospital. All rights reserved. | Document ID: CP-{{ patient.id }}-{{ now.strftime('%Y%m%d') }}</p>
+        <p style="font-size: 10px;">This document is valid for 30 days from the date of issue. Please bring this document to all follow-up appointments.</p>
+    </div>
+
 </div>
 
-<!-- High Risk Alert Modal -->
-{% if risk.risk_level == 'High Risk' and history_entry.status != 'Approved' %}
-<div class="modal" id="highRiskModal" tabindex="-1" data-bs-backdrop="static">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border: 5px solid #EF4444; border-radius: 12px;">
-            <div class="modal-header" style="background:#EF4444; color:white; border-radius: 10px 10px 0 0;">
-                <h5 class="modal-title"><i class="fas fa-exclamation-triangle"></i> URGENT HIGH RISK</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Patient:</strong> {{ patient.full_name }}</p>
-                <p><strong>Risk Score:</strong> {{ risk.risk_score }}%</p>
-                <p>⚠️ Immediate review required by the assigned doctor.</p>
-                <p class="text-muted small">(This alert will disappear after you acknowledge it, or when the doctor approves the plan)</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-danger" data-bs-dismiss="modal">
-                    <i class="fas fa-check"></i> Acknowledge
-                </button>
-                <a href="/profile/{{ patient.id }}" class="btn btn-outline-secondary">
-                    <i class="fas fa-eye"></i> View Patient
-                </a>
-            </div>
-        </div>
+<!-- ===== BUTTONS ===== -->
+<div class="container mt-3 mb-5 no-print">
+    <div class="d-flex gap-2 flex-wrap justify-content-center">
+        <button onclick="window.print()" class="btn btn-primary btn-lg">
+            <i class="fas fa-print"></i> Print / Save as PDF
+        </button>
+        <button onclick="window.location.href='/download_pdf/{{ patient.id }}'" class="btn btn-success btn-lg">
+            <i class="fas fa-file-pdf"></i> Download PDF
+        </button>
+        <a href="/dashboard" class="btn btn-outline-secondary btn-lg">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
     </div>
 </div>
-{% endif %}
 
+<!-- ===== SCRIPTS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // FIX 3: Read risk state from data attribute instead of embedding Jinja2 inside JS
-        var isHighRisk = document.body.getAttribute('data-high-risk') === 'true';
-        if (isHighRisk) {
-            var myModal = new bootstrap.Modal(document.getElementById('highRiskModal'), {
-                backdrop: 'static',
-                keyboard: false
-            });
-            myModal.show();
-        }
-
-        // Auto-hide flash messages after 4 seconds
-        setTimeout(function () {
-            var alerts = document.querySelectorAll('.alert');
-            alerts.forEach(function (alert) {
+    // Auto-hide flash messages after 4 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
                 alert.style.transition = 'opacity 0.5s ease';
                 alert.style.opacity = '0';
-                setTimeout(function () { alert.remove(); }, 500);
+                setTimeout(function() {
+                    alert.remove();
+                }, 500);
             });
         }, 4000);
     });
 </script>
+
 </body>
 </html>

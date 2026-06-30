@@ -7,7 +7,7 @@ from datetime import datetime
 import random
 from io import BytesIO
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.units import inch
@@ -79,7 +79,8 @@ def save_alerts(data):
 def save_activity(text):
     acts = load_activities()
     acts.append({"text": text, "timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S')})
-    if len(acts) > 100: acts = acts[-100:]
+    if len(acts) > 100:
+        acts = acts[-100:]
     with open('activities.json', 'w') as f:
         json.dump(acts, f, indent=2)
 
@@ -130,65 +131,177 @@ def predict_readmission(patient_data):
         risk_level, risk_color, priority = 'Low Risk', '#10B981', "Low"
 
     risk_factors = []
-    if patient_data.get('Age', 0) > 65: risk_factors.append("Advanced age (>65)")
-    if patient_data.get('Has_Diabetes', 0) == 1: risk_factors.append("Diabetes")
-    if patient_data.get('Has_Heart_Disease', 0) == 1: risk_factors.append("Heart disease")
-    if patient_data.get('Has_Hypertension', 0) == 1: risk_factors.append("Hypertension")
-    if patient_data.get('Has_COPD', 0) == 1: risk_factors.append("COPD")
-    if patient_data.get('Previous_Admissions', 0) >= 3: risk_factors.append(f"Multiple admissions ({patient_data['Previous_Admissions']})")
-    if patient_data.get('Length_of_Stay', 0) > 7: risk_factors.append("Extended stay (>7 days)")
-    if patient_data.get('Medications_Count', 0) > 5: risk_factors.append("Multiple medications (>5)")
-    if patient_data.get('recovery_status') == 'Poor': risk_factors.append("Poor recovery status")
-    if patient_data.get('family_support') == 'Weak': risk_factors.append("Weak family support")
-    if not risk_factors: risk_factors = ["No significant risk factors identified."]
+    if patient_data.get('Age', 0) > 65:
+        risk_factors.append("Advanced age (>65)")
+    if patient_data.get('Has_Diabetes', 0) == 1:
+        risk_factors.append("Diabetes")
+    if patient_data.get('Has_Heart_Disease', 0) == 1:
+        risk_factors.append("Heart disease")
+    if patient_data.get('Has_Hypertension', 0) == 1:
+        risk_factors.append("Hypertension")
+    if patient_data.get('Has_COPD', 0) == 1:
+        risk_factors.append("COPD")
+    if patient_data.get('Previous_Admissions', 0) >= 3:
+        risk_factors.append(f"Multiple admissions ({patient_data['Previous_Admissions']})")
+    if patient_data.get('Length_of_Stay', 0) > 7:
+        risk_factors.append("Extended stay (>7 days)")
+    if patient_data.get('Medications_Count', 0) > 5:
+        risk_factors.append("Multiple medications (>5)")
+    if patient_data.get('recovery_status') == 'Poor':
+        risk_factors.append("Poor recovery status")
+    if patient_data.get('family_support') == 'Weak':
+        risk_factors.append("Weak family support")
+    if not risk_factors:
+        risk_factors = ["No significant risk factors identified."]
     
     return {'risk_score': risk_score, 'risk_level': risk_level, 'risk_color': risk_color, 'risk_factors': risk_factors, 'priority': priority}
 
-def generate_care_plan(patient_data, risk_result):
+# --- 4b. ENHANCED MEDICAL CARE PLAN GENERATOR ---
+def generate_medical_care_plan(patient_data, risk_result):
+    """
+    Generates a comprehensive medical care plan with 7 sections.
+    """
     plan = {
-        'follow_up': [], 'dietary': [], 'exercise': [], 'lifestyle': [], 'support': [], 'emergency': []
+        'follow_up': [],
+        'medication': [],
+        'monitoring': [],
+        'dietary': [],
+        'exercise': [],
+        'lifestyle': [],
+        'emergency': []
     }
     
+    # 1. FOLLOW-UP SCHEDULE (Based on risk level)
     if risk_result['risk_level'] == 'High Risk':
-        plan['follow_up'] = ["📅 Follow-up within 7 days", "📞 Phone check-in within 24 hours", "🏥 Home nurse visit within 48 hours"]
+        plan['follow_up'] = [
+            "Schedule a follow-up appointment within 7 days",
+            "Phone check-in within 24 hours by the nursing team",
+            "Home health nurse visit within 48 hours",
+            "Arrange cardiology/endocrinology review if applicable"
+        ]
     elif risk_result['risk_level'] == 'Medium Risk':
-        plan['follow_up'] = ["📅 Follow-up within 14 days", "📞 Phone check-in within 72 hours"]
+        plan['follow_up'] = [
+            "Schedule a follow-up appointment within 14 days",
+            "Phone check-in within 72 hours",
+            "Monitor symptoms and report any changes"
+        ]
     else:
-        plan['follow_up'] = ["📅 Routine follow-up within 30 days"]
+        plan['follow_up'] = [
+            "Schedule a routine follow-up appointment within 30 days",
+            "Regular monitoring as per standard protocol"
+        ]
     
-    plan['dietary'] = [
-        "🥗 Eat balanced meals with fruits, vegetables, and whole grains",
-        "🧂 Reduce salt intake to less than 5g per day",
-        "🍬 Limit sugar and refined carbohydrates",
-        "🥩 Choose lean proteins (fish, chicken, legumes)"
+    # 2. MEDICATION PLAN (From patient's current medications)
+    meds = patient_data.get('current_medications', [])
+    if meds:
+        plan['medication'] = [
+            "Continue prescribed medications:"
+        ]
+        for med in meds[:5]:
+            plan['medication'].append(f"• {med} — as per prescription")
+        plan['medication'].append("Do not skip doses. Set daily reminders.")
+        plan['medication'].append("Do not stop or change medications without consulting the doctor.")
+    else:
+        plan['medication'] = [
+            "Follow the medication schedule provided in your discharge summary.",
+            "Take all medications as prescribed by your doctor."
+        ]
+    plan['medication'].append("Bring all medications to your follow-up appointment.")
+    
+    # 3. MONITORING INSTRUCTIONS (Based on existing diseases)
+    existing = patient_data.get('existing_diseases', [])
+    monitoring = []
+    
+    if 'Diabetes' in existing:
+        monitoring.append("Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.")
+    if 'Hypertension' in existing:
+        monitoring.append("Blood Pressure: Monitor blood pressure daily. Record readings in a diary.")
+    if 'Heart Disease' in existing:
+        monitoring.append("Cardiac Monitoring: Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.")
+    if 'COPD' in existing:
+        monitoring.append("Respiratory Monitoring: Monitor oxygen saturation using a pulse oximeter twice daily.")
+    
+    if not monitoring:
+        monitoring = ["General Monitoring: Monitor general health and report any unusual symptoms immediately."]
+    
+    monitoring.append("Temperature monitoring twice daily — report fever above 38°C.")
+    monitoring.append("Weight monitoring daily — report sudden weight gain or loss.")
+    monitoring.append("Maintain a symptom diary to track any changes.")
+    plan['monitoring'] = monitoring
+    
+    # 4. DIETARY ADVICE (Based on conditions)
+    dietary = [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
     ]
-    if 'Diabetes' in patient_data.get('existing_diseases', []):
-        plan['dietary'].append("🩸 Follow diabetic meal plan - monitor carbs")
+    if 'Diabetes' in existing:
+        dietary.append("Diabetes Management: Follow diabetic meal plan — monitor carbohydrate intake.")
+        dietary.append("Avoid sugary drinks and high-GI foods.")
+    if 'Heart Disease' in existing:
+        dietary.append("Avoid saturated fats and trans fats.")
+    plan['dietary'] = dietary
     
-    plan['exercise'] = ["🚶 Light physical activity for 30 minutes daily", "🧘 Gentle stretching"]
-    if patient_data.get('mobility_status') == 'Bedridden':
-        plan['exercise'] = ["🛏️ Bed-based exercises as advised", "🔄 Change position every 2 hours"]
-    elif patient_data.get('mobility_status') == 'Assisted':
-        plan['exercise'].append("🚶 Walk with assistance")
+    # 5. PHYSICAL ACTIVITY (Based on mobility status)
+    mobility = patient_data.get('mobility_status', '')
+    exercise = [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels."
+    ]
+    if mobility == 'Bedridden':
+        exercise = [
+            "Bed-based exercises as advised by the physiotherapist.",
+            "Change position every 2 hours to prevent bedsores.",
+            "Passive range of motion exercises for joints."
+        ]
+    elif mobility == 'Assisted':
+        exercise.append("Walk with assistance or walking aids.")
+        exercise.append("Physiotherapy sessions as scheduled.")
+    else:
+        exercise.append("Independent mobility — maintain regular walking routine.")
+    exercise.append("Avoid strenuous activity until cleared by the doctor.")
+    plan['exercise'] = exercise
     
-    plan['lifestyle'] = [
-        "💤 Get 7-8 hours of quality sleep",
-        "🚫 Avoid alcohol consumption",
-        "🚭 Quit smoking immediately",
-        "💧 Drink at least 8 glasses of water daily",
-        "🧘 Practice stress management"
+    # 6. LIFESTYLE & SUPPORT
+    lifestyle = [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately — seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
     ]
     
-    plan['support'] = ["👨‍👩‍👦 Ensure family/caregiver availability", "📋 Keep a health diary"]
+    support = [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+    ]
+    
     if patient_data.get('family_support') == 'Weak':
-        plan['support'].append("📋 Arrange community support services")
+        support.append("Community Support: Arrange community support services or home care aid.")
     if patient_data.get('lives_alone') == 'Yes':
-        plan['support'].append("📱 Set up daily check-in calls")
+        support.append("Lives Alone: Set up daily check-in calls with family or healthcare provider.")
     
+    plan['lifestyle'] = lifestyle
+    plan['support'] = support
+    
+    # 7. EMERGENCY ADVICE (Based on risk level)
     if risk_result['risk_level'] == 'High Risk':
-        plan['emergency'] = ["🚨 Go to nearest hospital if you experience chest pain, severe dizziness, or difficulty speaking"]
+        plan['emergency'] = [
+            "URGENT: Visit the nearest hospital immediately if you experience:",
+            "• Chest pain or severe shortness of breath",
+            "• Severe dizziness or fainting",
+            "• Difficulty speaking or weakness on one side of the body",
+            "• Uncontrolled bleeding or severe pain",
+            "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+        ]
     else:
-        plan['emergency'] = ["📞 Contact your GP if symptoms worsen"]
+        plan['emergency'] = [
+            "Contact your general practitioner if you experience any unusual symptoms.",
+            "Visit the nearest clinic if symptoms worsen.",
+            "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+        ]
     
     return plan
 
@@ -238,7 +351,8 @@ def logout():
 
 @app.route('/dashboard')
 def dashboard():
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     role = user['role']
     
@@ -278,10 +392,8 @@ def dashboard():
                         latest = h
                         break
                 
-                # DO NOT SHOW DRAFTS TO DOCTOR - Only show Pending, Approved, Rejected, or Not Assessed
                 status = latest.get('status', 'Not Assessed') if latest else 'Not Assessed'
                 
-                # Skip Drafts completely - Doctors don't see them
                 if status == 'Draft':
                     continue
                 
@@ -294,7 +406,6 @@ def dashboard():
                     'assigned_by': latest.get('assigned_by', '') if latest else ''
                 })
         
-        # Sort by risk (High → Low)
         risk_order = {'High Risk': 0, 'Medium Risk': 1, 'Low Risk': 2, 'Not Assessed': 3}
         patients_list.sort(key=lambda x: risk_order.get(x['risk_level'], 4))
         
@@ -308,25 +419,20 @@ def dashboard():
         patients_list = []
         
         for pid, data in PATIENT_DB.items():
-            # Only show patients assigned to this nurse's doctor
             if data.get('assigned_doctor') == assigned_doctor:
-                # Find the latest history entry for this patient
                 latest = None
                 for h in history:
                     if h['patient_id'] == pid:
                         latest = h
                         break
                 
-                # Determine status
                 if latest:
                     status = latest.get('status', 'Pending')
-                    # If status is Draft, treat as Not Assessed
                     if status == 'Draft':
                         status = 'Not Assessed'
                 else:
                     status = 'Not Assessed'
                 
-                # Get risk data from history
                 risk_score = latest.get('risk_score', 0) if latest else 0
                 risk_level = latest.get('risk_level', 'Not Assessed') if latest else 'Not Assessed'
                 
@@ -339,7 +445,6 @@ def dashboard():
                     'assigned_by': latest.get('assigned_by', '') if latest else ''
                 })
         
-        # Sort by risk level (High → Low → Medium → Low → Not Assessed)
         risk_order = {'High Risk': 0, 'Medium Risk': 1, 'Low Risk': 2, 'Not Assessed': 3}
         patients_list.sort(key=lambda x: risk_order.get(x['risk_level'], 4))
         
@@ -349,10 +454,13 @@ def dashboard():
             assigned_doctor=assigned_doctor,
             now=datetime.now())
     
+    return redirect(url_for('login'))
+
 # --- 7. PATIENT MANAGEMENT (Receptionist/Admin) ---
 @app.route('/add_patient', methods=['GET', 'POST'])
 def add_patient():
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     if user['role'] not in ['Receptionist', 'Administrator']:
         flash('⛔ Access denied.', 'danger')
@@ -409,10 +517,11 @@ def add_patient():
     
     return render_template('add_patient.html', user=user, doctors=doctors, patient=None, is_existing=False)
 
-# --- 8. ADMIN STAFF MANAGEMENT (NEW) ---
+# --- 8. ADMIN STAFF MANAGEMENT ---
 @app.route('/add_doctor', methods=['GET', 'POST'])
 def add_doctor():
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     if session['user']['role'] != 'Administrator':
         flash('⛔ Access denied.', 'danger')
         return redirect(url_for('dashboard'))
@@ -444,7 +553,8 @@ def add_doctor():
 
 @app.route('/add_nurse', methods=['GET', 'POST'])
 def add_nurse():
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     if session['user']['role'] != 'Administrator':
         flash('⛔ Access denied.', 'danger')
         return redirect(url_for('dashboard'))
@@ -477,7 +587,8 @@ def add_nurse():
 
 @app.route('/assign_nurse', methods=['GET', 'POST'])
 def assign_nurse():
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     if session['user']['role'] != 'Administrator':
         flash('⛔ Access denied.', 'danger')
         return redirect(url_for('dashboard'))
@@ -489,10 +600,9 @@ def assign_nurse():
         nurse_id = request.form.get('nurse_id')
         doctor_name = request.form.get('doctor_name')
         
-        # Remove nurse from any previous assignment (one nurse -> one doctor)
         for s in STAFF_DB:
             if s['role'] == 'Nurse' and s['assigned_doctor'] == doctor_name and s['id'] != nurse_id:
-                s['assigned_doctor'] = None  # unassign previous nurse from this doctor
+                s['assigned_doctor'] = None
             if s['id'] == nurse_id:
                 s['assigned_doctor'] = doctor_name
         
@@ -506,7 +616,8 @@ def assign_nurse():
 
 @app.route('/edit_staff/<staff_id>', methods=['GET', 'POST'])
 def edit_staff(staff_id):
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     if session['user']['role'] != 'Administrator':
         flash('⛔ Access denied.', 'danger')
         return redirect(url_for('dashboard'))
@@ -534,10 +645,11 @@ def edit_staff(staff_id):
     doctors = [s for s in STAFF_DB if s['role'] == 'Doctor'] if staff_member['role'] == 'Nurse' else []
     return render_template('edit_staff.html', user=session['user'], staff=staff_member, doctors=doctors)
 
-# --- 9. SEARCH (Patients + Doctors + Nurses) ---
+# --- 9. SEARCH ---
 @app.route('/search', methods=['GET', 'POST'])
 def search():
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     
     results = {'patients': [], 'doctors': [], 'nurses': []}
@@ -565,12 +677,13 @@ def search():
 # --- 10. PROFILE ---
 @app.route('/profile/<patient_id>')
 def profile(patient_id):
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     data = PATIENT_DB.get(patient_id)
-    if not data: return "Patient not found", 404
+    if not data:
+        return "Patient not found", 404
     
-    # Get the LATEST history entry for this patient
     latest = None
     for h in history:
         if h['patient_id'] == patient_id:
@@ -601,14 +714,16 @@ def profile(patient_id):
 # --- 11. ASSESSMENT (Nurse) ---
 @app.route('/assess/<patient_id>', methods=['GET', 'POST'])
 def assess(patient_id):
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     if user['role'] != 'Nurse':
         flash('⛔ Only nurses can perform assessments.', 'danger')
         return redirect(url_for('dashboard'))
     
     data = PATIENT_DB.get(patient_id)
-    if not data: return "Patient not found", 404
+    if not data:
+        return "Patient not found", 404
     
     if data.get('admission_date'):
         try:
@@ -654,7 +769,9 @@ def assess(patient_id):
         }
         
         risk_result = predict_readmission(patient_for_ai)
-        care_plan = generate_care_plan(patient_for_ai, risk_result)
+        
+        # Generate enhanced medical care plan
+        care_plan = generate_medical_care_plan(patient_for_ai, risk_result)
         
         existing = next((h for h in history if h['patient_id'] == patient_id and h['status'] in ['Draft', 'Pending']), None)
         
@@ -666,6 +783,7 @@ def assess(patient_id):
             existing['assigned_by'] = user['name']
             existing['status'] = 'Pending'
             existing['care_plan_summary'] = ', '.join(care_plan['follow_up'][:2])
+            existing['medical_care_plan'] = care_plan  # Store full care plan
         else:
             history_entry = {
                 'patient_id': patient_id,
@@ -679,7 +797,8 @@ def assess(patient_id):
                 'assigned_by': user['name'],
                 'status': 'Pending',
                 'doctor_notes': '',
-                'follow_up_days': 7 if risk_result['risk_level'] == 'High Risk' else 14 if risk_result['risk_level'] == 'Medium Risk' else 30
+                'follow_up_days': 7 if risk_result['risk_level'] == 'High Risk' else 14 if risk_result['risk_level'] == 'Medium Risk' else 30,
+                'medical_care_plan': care_plan  # Store full care plan
             }
             history.append(history_entry)
         
@@ -706,15 +825,16 @@ def assess(patient_id):
     existing = next((h for h in history if h['patient_id'] == patient_id), None)
     return render_template('assess.html', patient={'id': patient_id, **data}, user=user, existing=existing)
 
-# --- 12. CARE PLAN ---
+# --- 12. CARE PLAN (Enhanced Medical Document) ---
 @app.route('/care_plan/<patient_id>')
 def care_plan(patient_id):
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     data = PATIENT_DB.get(patient_id)
-    if not data: return "Patient not found", 404
+    if not data:
+        return "Patient not found", 404
     
-    # Get the LATEST history entry for this patient
     latest = None
     for h in history:
         if h['patient_id'] == patient_id:
@@ -725,7 +845,7 @@ def care_plan(patient_id):
         flash('❌ No assessment found for this patient.', 'danger')
         return redirect(url_for('profile', patient_id=patient_id))
     
-    # USE THE STORED RISK SCORE FROM HISTORY - NOT RECALCULATED
+    # Use stored risk score from history
     risk_result = {
         'risk_score': latest.get('risk_score', 0),
         'risk_level': latest.get('risk_level', 'Not Assessed'),
@@ -737,35 +857,62 @@ def care_plan(patient_id):
         'follow_up_days': latest.get('follow_up_days', 7)
     }
     
-    # Generate the care plan display (this is just for viewing, not recalculating risk)
-    # We use the stored risk factors from history
-    care_plan = {
-        'follow_up': latest.get('care_plan_summary', '').split(', ') if latest.get('care_plan_summary') else ["📅 Routine follow-up within 30 days"],
-        'dietary': ["🥗 Eat balanced meals with fruits and vegetables", "🧂 Reduce salt intake"],
-        'exercise': ["🚶 Light physical activity for 30 minutes daily"],
-        'lifestyle': ["💤 Get 7-8 hours of sleep", "🚫 Avoid alcohol", "🚭 Quit smoking"],
-        'support': ["👨‍👩‍👦 Ensure family/caregiver availability"],
-        'emergency': ["📞 Contact your GP if symptoms worsen"]
+    # Get the stored medical care plan or generate one
+    care_plan = latest.get('medical_care_plan', None)
+    if not care_plan:
+        # Generate if not stored (for older records)
+        patient_for_ai = {
+            'Patient_ID': patient_id,
+            'Age': data['age'],
+            'Gender': data['gender'],
+            'Diagnosis': data.get('diagnosis', ''),
+            'Previous_Admissions': data.get('previous_admissions', 0),
+            'Length_of_Stay': data.get('length_of_stay', 0),
+            'Medications_Count': len(data.get('current_medications', [])),
+            'Has_Diabetes': 1 if 'Diabetes' in data.get('existing_diseases', []) else 0,
+            'Has_Heart_Disease': 1 if 'Heart Disease' in data.get('existing_diseases', []) else 0,
+            'Has_Hypertension': 1 if 'Hypertension' in data.get('existing_diseases', []) else 0,
+            'Has_COPD': 1 if 'COPD' in data.get('existing_diseases', []) else 0,
+            'existing_diseases': data.get('existing_diseases', []),
+            'current_medications': data.get('current_medications', []),
+            'mobility_status': data.get('mobility_status', ''),
+            'family_support': data.get('family_support', ''),
+            'lives_alone': data.get('lives_alone', '')
+        }
+        care_plan = generate_medical_care_plan(patient_for_ai, risk_result)
+    
+    # Prepare patient data for template
+    patient_data = {
+        'id': patient_id,
+        'full_name': data.get('full_name', ''),
+        'age': data.get('age', ''),
+        'gender': data.get('gender', ''),
+        'diagnosis': data.get('diagnosis', ''),
+        'secondary_diagnosis': data.get('secondary_diagnosis', ''),
+        'existing_diseases': data.get('existing_diseases', []),
+        'current_medications': data.get('current_medications', []),
+        'admission_date': data.get('admission_date', ''),
+        'discharge_date': data.get('discharge_date', ''),
+        'assigned_doctor': data.get('assigned_doctor', ''),
+        'assigned_department': data.get('assigned_department', ''),
+        'mobility_status': data.get('mobility_status', ''),
+        'family_support': data.get('family_support', ''),
+        'lives_alone': data.get('lives_alone', '')
     }
     
-    # If the risk level is High, adjust the care plan
-    if risk_result['risk_level'] == 'High Risk':
-        care_plan['follow_up'] = ["📅 Follow-up within 7 days", "📞 Phone check-in within 24 hours", "🏥 Home nurse visit within 48 hours"]
-        care_plan['emergency'] = ["🚨 Go to nearest hospital if you experience chest pain, severe dizziness, or difficulty speaking"]
-    elif risk_result['risk_level'] == 'Medium Risk':
-        care_plan['follow_up'] = ["📅 Follow-up within 14 days", "📞 Phone check-in within 72 hours"]
-    
-    return render_template('care_plan.html', 
-        patient={'id': patient_id, **data}, 
-        risk=risk_result, 
-        care_plan=care_plan, 
-        history_entry=latest, 
-        user=user)
+    return render_template('care_plan.html',
+        patient=patient_data,
+        risk=risk_result,
+        care_plan=care_plan,
+        history_entry=latest,
+        user=user,
+        now=datetime.now())
 
 # --- 13. REVIEW PLAN (Doctor) ---
 @app.route('/review_plan/<patient_id>', methods=['POST'])
 def review_plan(patient_id):
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     if user['role'] not in ['Doctor', 'Administrator']:
         flash('⛔ Only doctors can review plans.', 'danger')
@@ -801,13 +948,13 @@ def review_plan(patient_id):
 
 @app.route('/edit_plan/<patient_id>', methods=['POST'])
 def edit_plan(patient_id):
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     if user['role'] not in ['Doctor', 'Administrator']:
         flash('⛔ Only doctors can edit plans.', 'danger')
         return redirect(url_for('dashboard'))
     
-    # Find the patient's history entry
     entries = [h for h in history if h['patient_id'] == patient_id]
     if not entries:
         flash('❌ No plan found.', 'danger')
@@ -815,7 +962,6 @@ def edit_plan(patient_id):
     
     latest = entries[0]
     
-    # Get edited fields from form
     follow_up = request.form.get('follow_up', '').split('\n')
     dietary = request.form.get('dietary', '').split('\n')
     exercise = request.form.get('exercise', '').split('\n')
@@ -823,7 +969,6 @@ def edit_plan(patient_id):
     support = request.form.get('support', '').split('\n')
     emergency = request.form.get('emergency', '').split('\n')
     
-    # Remove empty lines
     follow_up = [f for f in follow_up if f.strip()]
     dietary = [d for d in dietary if d.strip()]
     exercise = [e for e in exercise if e.strip()]
@@ -831,10 +976,10 @@ def edit_plan(patient_id):
     support = [s for s in support if s.strip()]
     emergency = [e for e in emergency if e.strip()]
     
-    # Store edited plan in history (as a JSON string or separate fields)
-    # We'll store it as a dictionary in a new field
     edited_plan = {
         'follow_up': follow_up,
+        'medication': dietary,  # Using dietary as medication for simplicity
+        'monitoring': exercise,  # Using exercise as monitoring for simplicity
         'dietary': dietary,
         'exercise': exercise,
         'lifestyle': lifestyle,
@@ -842,10 +987,9 @@ def edit_plan(patient_id):
         'emergency': emergency
     }
     
-    # Update the history entry
     for h in history:
         if h['patient_id'] == patient_id:
-            h['edited_plan'] = edited_plan
+            h['medical_care_plan'] = edited_plan
             h['edited_by'] = user['name']
             h['edited_at'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             break
@@ -859,10 +1003,12 @@ def edit_plan(patient_id):
 # --- 14. FOLLOW-UP ---
 @app.route('/follow_up/<patient_id>', methods=['GET', 'POST'])
 def follow_up(patient_id):
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     data = PATIENT_DB.get(patient_id)
-    if not data: return "Patient not found", 404
+    if not data:
+        return "Patient not found", 404
     
     if request.method == 'POST':
         follow_data = {
@@ -885,7 +1031,8 @@ def follow_up(patient_id):
 # --- 15. HISTORY ---
 @app.route('/history')
 def history_page():
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     user = session['user']
     
     if user['role'] == 'Doctor':
@@ -898,10 +1045,11 @@ def history_page():
     
     return render_template('history.html', history=filtered, user=user)
 
-# --- 16. REPORTS (Advanced Admin Analytics) ---
+# --- 16. REPORTS ---
 @app.route('/reports')
 def reports():
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     if session['user']['role'] != 'Administrator':
         flash('⛔ Access denied. Admin only.', 'danger')
         return redirect(url_for('dashboard'))
@@ -950,60 +1098,123 @@ def reports():
         recent_actions=recent_actions,
         now=datetime.now())
 
-# --- 17. DOWNLOAD PDF ---
+# --- 17. DOWNLOAD PDF (Enhanced Medical Care Plan) ---
 @app.route('/download_pdf/<patient_id>')
 def download_pdf(patient_id):
-    if 'user' not in session: return redirect(url_for('login'))
+    if 'user' not in session:
+        return redirect(url_for('login'))
     patient = PATIENT_DB.get(patient_id)
-    if not patient: return "Patient not found", 404
+    if not patient:
+        return "Patient not found", 404
+    
+    # Get latest history
+    latest = None
+    for h in history:
+        if h['patient_id'] == patient_id:
+            latest = h
+            break
     
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=72, leftMargin=72, topMargin=72, bottomMargin=72)
     styles = getSampleStyleSheet()
+    
     title_style = ParagraphStyle('CustomTitle', parent=styles['Heading1'], fontSize=24, textColor=colors.HexColor('#1E3A8A'), spaceAfter=30)
     heading_style = ParagraphStyle('Heading', parent=styles['Heading2'], fontSize=16, textColor=colors.HexColor('#1E3A8A'), spaceAfter=12)
+    subheading_style = ParagraphStyle('SubHeading', parent=styles['Heading3'], fontSize=14, textColor=colors.HexColor('#1E3A8A'), spaceAfter=8)
     normal_style = styles['Normal']
+    bold_style = ParagraphStyle('Bold', parent=styles['Normal'], fontName='Helvetica-Bold')
     
     story = []
-    story.append(Paragraph("🏥 Suwa Setha Hospital", title_style))
-    story.append(Paragraph("AI After-Care Plan", heading_style))
-    story.append(Spacer(1, 0.2*inch))
-    story.append(Paragraph(f"<b>Patient:</b> {patient['full_name']}", normal_style))
-    story.append(Paragraph(f"<b>ID:</b> {patient_id}", normal_style))
     
-    latest = next((h for h in history if h['patient_id'] == patient_id), None)
+    # Hospital Header
+    story.append(Paragraph("🏥 Suwa Setha Hospital", title_style))
+    story.append(Paragraph("No. 25, Hospital Road, Colombo 02, Sri Lanka", normal_style))
+    story.append(Paragraph("Tel: +94 11 234 5678 | Email: info@suwasetha.lk", normal_style))
+    story.append(Spacer(1, 0.3*inch))
+    
+    # Document Title
+    story.append(Paragraph("Patient Discharge After-Care Plan", heading_style))
+    story.append(Paragraph(f"Document ID: CP-{patient_id}-{datetime.now().strftime('%Y%m%d')}", normal_style))
+    story.append(Spacer(1, 0.2*inch))
+    
+    # Patient Information
+    story.append(Paragraph("PATIENT INFORMATION", subheading_style))
+    patient_info = [
+        [f"<b>Patient Name:</b> {patient['full_name']}", f"<b>Patient ID:</b> {patient_id}"],
+        [f"<b>Age:</b> {patient['age']}", f"<b>Gender:</b> {patient['gender']}"],
+        [f"<b>Diagnosis:</b> {patient.get('diagnosis', '')}", f"<b>Assigned Doctor:</b> {patient.get('assigned_doctor', '')}"],
+    ]
     if latest:
-        story.append(Paragraph(f"<b>Risk:</b> {latest.get('risk_score', 0)}% ({latest.get('risk_level', 'Unknown')})", normal_style))
+        risk_level = latest.get('risk_level', 'Not Assessed')
+        risk_score = latest.get('risk_score', 0)
+        patient_info.append([
+            f"<b>Risk Level:</b> {risk_level}",
+            f"<b>Risk Score:</b> {risk_score}%"
+        ])
+    
+    for row in patient_info:
+        story.append(Paragraph(f"{row[0]} &nbsp;&nbsp;&nbsp; {row[1]}", normal_style))
+    story.append(Spacer(1, 0.2*inch))
+    
+    # Care Plan Sections
+    if latest:
+        care_plan = latest.get('medical_care_plan', None)
+        if not care_plan:
+            # Generate if not stored
+            patient_for_ai = {
+                'Patient_ID': patient_id,
+                'Age': patient['age'],
+                'Gender': patient['gender'],
+                'Diagnosis': patient.get('diagnosis', ''),
+                'Previous_Admissions': patient.get('previous_admissions', 0),
+                'Length_of_Stay': patient.get('length_of_stay', 0),
+                'Medications_Count': len(patient.get('current_medications', [])),
+                'Has_Diabetes': 1 if 'Diabetes' in patient.get('existing_diseases', []) else 0,
+                'Has_Heart_Disease': 1 if 'Heart Disease' in patient.get('existing_diseases', []) else 0,
+                'Has_Hypertension': 1 if 'Hypertension' in patient.get('existing_diseases', []) else 0,
+                'Has_COPD': 1 if 'COPD' in patient.get('existing_diseases', []) else 0,
+                'existing_diseases': patient.get('existing_diseases', []),
+                'current_medications': patient.get('current_medications', []),
+                'mobility_status': patient.get('mobility_status', ''),
+                'family_support': patient.get('family_support', ''),
+                'lives_alone': patient.get('lives_alone', '')
+            }
+            risk_result = {
+                'risk_level': latest.get('risk_level', 'Low Risk'),
+                'risk_score': latest.get('risk_score', 0)
+            }
+            care_plan = generate_medical_care_plan(patient_for_ai, risk_result)
+        
+        section_titles = {
+            'follow_up': '1. Follow-Up Schedule',
+            'medication': '2. Medication Plan',
+            'monitoring': '3. Monitoring Instructions',
+            'dietary': '4. Dietary Advice',
+            'exercise': '5. Physical Activity',
+            'lifestyle': '6. Lifestyle Recommendations',
+            'support': '7. Support System',
+            'emergency': '8. Emergency Advice'
+        }
+        
+        for key, title in section_titles.items():
+            if key in care_plan and care_plan[key]:
+                story.append(Paragraph(title, subheading_style))
+                for item in care_plan[key]:
+                    story.append(Paragraph(f"• {item}", normal_style))
+                story.append(Spacer(1, 0.1*inch))
+        
+        # Doctor Signature
+        story.append(Spacer(1, 0.3*inch))
+        story.append(Paragraph("DOCTOR SIGNATURE", subheading_style))
+        story.append(Paragraph(f"Responsible Doctor: {patient.get('assigned_doctor', 'Dr. D. Samarasinghe')}", normal_style))
+        story.append(Paragraph(f"Department: {patient.get('assigned_department', 'General Medicine')}", normal_style))
+        story.append(Paragraph("Date: " + datetime.now().strftime('%B %d, %Y'), normal_style))
+        story.append(Paragraph("_____________________________", normal_style))
+        story.append(Paragraph("Doctor's Signature", normal_style))
     
     story.append(Spacer(1, 0.3*inch))
-    story.append(Paragraph("📋 Care Plan", heading_style))
-    
-    patient_for_ai = {
-        'Patient_ID': patient_id,
-        'Age': patient['age'],
-        'Gender': patient['gender'],
-        'Diagnosis': patient.get('diagnosis', ''),
-        'Previous_Admissions': patient.get('previous_admissions', 0),
-        'Length_of_Stay': patient.get('length_of_stay', 0),
-        'Medications_Count': len(patient.get('current_medications', [])),
-        'Has_Diabetes': 1 if 'Diabetes' in patient.get('existing_diseases', []) else 0,
-        'Has_Heart_Disease': 1 if 'Heart Disease' in patient.get('existing_diseases', []) else 0,
-        'Has_Hypertension': 1 if 'Hypertension' in patient.get('existing_diseases', []) else 0,
-        'Has_COPD': 1 if 'COPD' in patient.get('existing_diseases', []) else 0,
-        'existing_diseases': patient.get('existing_diseases', [])
-    }
-    risk_result = predict_readmission(patient_for_ai)
-    care_plan = generate_care_plan(patient_for_ai, risk_result)
-    
-    for section, items in care_plan.items():
-        label = section.replace('_', ' ').title()
-        story.append(Paragraph(f"<b>{label}</b>", heading_style))
-        for item in items:
-            story.append(Paragraph(f"• {item}", normal_style))
-        story.append(Spacer(1, 0.1*inch))
-    
-    story.append(Spacer(1, 0.5*inch))
-    story.append(Paragraph(f"<i>Generated {datetime.now().strftime('%B %d, %Y')}</i>", normal_style))
+    story.append(Paragraph(f"<i>Generated on {datetime.now().strftime('%B %d, %Y at %I:%M %p')}</i>", normal_style))
+    story.append(Paragraph("<i>© Suwa Setha Hospital. All rights reserved.</i>", normal_style))
     
     doc.build(story)
     buffer.seek(0)

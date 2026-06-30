@@ -1,6 +1,0 @@
-services:
-  - type: web
-    name: ai-readmission-predictor
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
