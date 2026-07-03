@@ -15,12 +15,14 @@
         .btn-primary { background: #1E3A8A; border: none; }
         .btn-primary:hover { background: #2563EB; }
         .form-label { font-weight: 500; font-size: 14px; }
-        .info-box { background: #EFF6FF; border-radius: 10px; padding: 16px; margin-bottom: 20px; }
-        .risk-preview { background: #F1F5F9; border-radius: 10px; padding: 16px; text-align: center; }
+        .info-box { background: #EFF6FF; border-radius: 10px; padding: 16px; margin-bottom: 20px; border-left: 4px solid #1E3A8A; }
         .section-title { font-size: 18px; font-weight: 600; color: #1E3A8A; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px; margin-top: 20px; margin-bottom: 16px; }
+        .risk-preview { background: #F1F5F9; border-radius: 10px; padding: 16px; text-align: center; }
+        .section-subtitle { font-size: 14px; font-weight: 500; color: #64748B; margin-bottom: 12px; }
     </style>
 </head>
 <body>
+
 <nav class="navbar navbar-dark navbar-expand-lg px-4">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">🏥 Suwa Setha AI</a>
@@ -43,63 +45,61 @@
     <div class="row">
         <div class="col-md-7">
             <form method="POST" class="form-card">
-                <!-- Medical Information - Nurse fills this -->
-<h5 class="section-title">🏥 Medical Information</h5>
-<div class="row">
-    <div class="col-md-6 mb-3">
-        <label class="form-label">Primary Diagnosis *</label>
-        <input type="text" class="form-control" name="diagnosis" value="{{ patient.diagnosis or '' }}" required>
-    </div>
-    <div class="col-md-6 mb-3">
-        <label class="form-label">Secondary Diagnosis</label>
-        <input type="text" class="form-control" name="secondary_diagnosis" value="{{ patient.secondary_diagnosis or '' }}">
-    </div>
-    <div class="col-md-12 mb-3">
-        <label class="form-label">Existing Diseases (comma separated)</label>
-        <input type="text" class="form-control" name="existing_diseases" value="{{ patient.existing_diseases|join(', ') if patient.existing_diseases else '' }}">
-    </div>
-    <div class="col-md-4 mb-3">
-        <label class="form-label">Previous Admissions</label>
-        <input type="number" class="form-control" name="previous_admissions" value="{{ patient.previous_admissions or 0 }}">
-    </div>
-    <div class="col-md-8 mb-3">
-        <label class="form-label">Current Medications (comma)</label>
-        <input type="text" class="form-control" name="current_medications" value="{{ patient.current_medications|join(', ') if patient.current_medications else '' }}">
-    </div>
-    <div class="col-md-12 mb-3">
-        <label class="form-label">Allergies (comma)</label>
-        <input type="text" class="form-control" name="allergies" value="{{ patient.allergies|join(', ') if patient.allergies else '' }}">
-    </div>
-</div>
 
-<hr>
+                <!-- ============================================ -->
+                <!-- 1. PATIENT INFORMATION (Auto-filled)          -->
+                <!-- ============================================ -->
+                <h5 class="section-title">👤 Patient Information</h5>
+                <div class="info-box">
+                    <div class="row">
+                        <div class="col-md-6"><strong>Name:</strong> {{ patient.full_name }}</div>
+                        <div class="col-md-6"><strong>Patient ID:</strong> {{ patient.id }}</div>
+                        <div class="col-md-6"><strong>Age:</strong> {{ patient.age }}</div>
+                        <div class="col-md-6"><strong>Gender:</strong> {{ patient.gender }}</div>
+                        <div class="col-md-6"><strong>Admitted:</strong> {{ patient.admission_date }}</div>
+                        <div class="col-md-6"><strong>Discharged:</strong> {{ patient.discharge_date or 'Today' }}</div>
+                        <div class="col-md-6"><strong>Length of Stay:</strong> {{ patient.length_of_stay or '0' }} days</div>
+                        <div class="col-md-6"><strong>Assigned Doctor:</strong> {{ patient.assigned_doctor or 'Unassigned' }}</div>
+                    </div>
+                </div>
 
-<!-- Patient Info Display -->
-<div class="info-box">
-    <div class="row">
-        <div class="col-md-6"><strong>Age:</strong> {{ patient.age }}</div>
-        <div class="col-md-6"><strong>Gender:</strong> {{ patient.gender }}</div>
-        <div class="col-md-6"><strong>Admitted:</strong> {{ patient.admission_date }}</div>
-        <div class="col-md-6"><strong>Discharged:</strong> {{ patient.discharge_date or 'Today' }}</div>
-        <div class="col-md-6"><strong>Length of Stay:</strong> {{ patient.length_of_stay or '0' }} days</div>
-        <div class="col-md-6"><strong>Assigned Doctor:</strong> {{ patient.assigned_doctor or 'Unassigned' }}</div>
-    </div>
-</div>
+                <!-- ============================================ -->
+                <!-- 2. MEDICAL INFORMATION (Nurse fills)          -->
+                <!-- ============================================ -->
+                <h5 class="section-title">🏥 Medical Information</h5>
+                <p class="section-subtitle">Enter the patient's medical details below.</p>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Primary Diagnosis *</label>
+                        <input type="text" class="form-control" name="diagnosis" value="{{ patient.diagnosis or '' }}" placeholder="e.g., Heart Disease" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Secondary Diagnosis</label>
+                        <input type="text" class="form-control" name="secondary_diagnosis" value="{{ patient.secondary_diagnosis or '' }}" placeholder="e.g., Hypertension">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Existing Diseases (comma separated)</label>
+                        <input type="text" class="form-control" name="existing_diseases" value="{{ patient.existing_diseases|join(', ') if patient.existing_diseases else '' }}" placeholder="e.g., Diabetes, Hypertension, COPD">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label">Previous Admissions</label>
+                        <input type="number" class="form-control" name="previous_admissions" value="{{ patient.previous_admissions or 0 }}">
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <label class="form-label">Current Medications (comma)</label>
+                        <input type="text" class="form-control" name="current_medications" value="{{ patient.current_medications|join(', ') if patient.current_medications else '' }}" placeholder="e.g., Aspirin, Metformin">
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">Allergies (comma)</label>
+                        <input type="text" class="form-control" name="allergies" value="{{ patient.allergies|join(', ') if patient.allergies else '' }}" placeholder="e.g., Penicillin, Sulfa">
+                    </div>
+                </div>
 
-<hr>
-<h5 class="section-title">📋 Discharge Assessment</h5>
-                
-                {% if existing and existing.status != 'Not Assessed' %}
-                {% if existing.status == 'Pending' %}
-                <div class="alert alert-warning">⏳ This patient is already pending doctor approval.</div>
-                {% elif existing.status == 'Approved' %}
-                <div class="alert alert-success">✅ This patient has been approved. View the care plan.</div>
-                {% elif existing.status == 'Rejected' %}
-                <div class="alert alert-danger">❌ This plan was rejected. You can re-assess.</div>
-                {% endif %}
-                {% endif %}
-
+                <!-- ============================================ -->
+                <!-- 3. DISCHARGE ASSESSMENT (Nurse fills)         -->
+                <!-- ============================================ -->
                 <h5 class="section-title">📋 Discharge Assessment</h5>
+                <p class="section-subtitle">Evaluate the patient's readiness for discharge.</p>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">Recovery Status *</label>
@@ -158,13 +158,18 @@
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100 mt-2"><i class="fas fa-robot"></i> Generate After-Care Plan</button>
+                <button type="submit" class="btn btn-primary w-100 mt-2" style="padding: 12px; font-weight: 600;">
+                    <i class="fas fa-robot"></i> Generate After-Care Plan
+                </button>
             </form>
         </div>
 
+        <!-- ============================================ -->
+        <!-- SIDEBAR - What AI Will Analyze                -->
+        <!-- ============================================ -->
         <div class="col-md-5">
             <div class="risk-preview">
-                <h6 class="text-muted">AI Will Analyze</h6>
+                <h6 class="text-muted">🤖 AI Will Analyze</h6>
                 <div class="row mt-3">
                     <div class="col-6"><i class="fas fa-calendar"></i> Age</div>
                     <div class="col-6"><i class="fas fa-stethoscope"></i> Diagnosis</div>

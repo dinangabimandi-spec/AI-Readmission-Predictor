@@ -100,7 +100,7 @@
   },
   {
     "id": "A001",
-    "name": "Admin Chandrika",
+    "name": "Admin",
     "role": "Administrator",
     "username": "admin",
     "password": "admin123"

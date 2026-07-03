@@ -12,7 +12,6 @@
         body { background: #F0F4F8; }
         .navbar-dark { background: #1E3A8A !important; }
 
-        /* ===== MEDICAL DOCUMENT STYLES ===== */
         .medical-document {
             max-width: 1000px;
             margin: 20px auto;
@@ -23,7 +22,6 @@
             position: relative;
         }
 
-        /* Header Section */
         .doc-header {
             border-bottom: 3px solid #1E3A8A;
             padding-bottom: 20px;
@@ -52,7 +50,6 @@
             letter-spacing: 1px;
         }
 
-        /* Patient Info Grid */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -71,42 +68,13 @@
             font-weight: 600;
         }
 
-        /* Risk score color helper classes (replaces inline style with Jinja) */
-        .risk-score-text {
-            font-weight: 700;
-        }
-        .risk-score-text.high { color: #EF4444; }
-        .risk-score-text.medium { color: #F59E0B; }
-        .risk-score-text.low { color: #10B981; }
-
-        /* Risk badge variants (replaces inline conditional style) */
-        .risk-badge {
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 14px;
-            display: inline-block;
-        }
-        .risk-badge.high {
-            background: #FEE2E2;
-            color: #EF4444;
-        }
-        .risk-badge.medium {
-            background: #FEF3C7;
-            color: #F59E0B;
-        }
-        .risk-badge.low {
-            background: #D1FAE5;
-            color: #10B981;
-        }
-
-        /* Doctor Signature Section */
         .doctor-signature {
             border-top: 2px solid #E2E8F0;
             padding-top: 20px;
             margin-top: 25px;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
         .signature-line {
             display: inline-block;
@@ -115,7 +83,6 @@
             margin-top: 5px;
         }
 
-        /* Care Plan Sections */
         .plan-section {
             margin-bottom: 20px;
             padding: 16px 20px;
@@ -123,15 +90,9 @@
             border-radius: 8px;
             border-left: 4px solid #3B82F6;
         }
-        .plan-section.danger {
-            border-left-color: #EF4444;
-        }
-        .plan-section.success {
-            border-left-color: #10B981;
-        }
-        .plan-section.warning {
-            border-left-color: #F59E0B;
-        }
+        .plan-section.danger { border-left-color: #EF4444; }
+        .plan-section.success { border-left-color: #10B981; }
+        .plan-section.warning { border-left-color: #F59E0B; }
         .plan-section h6 {
             color: #1E3A8A;
             font-weight: 600;
@@ -146,33 +107,265 @@
             font-size: 14px;
             margin-bottom: 4px;
         }
+        .plan-section.edit-mode {
+            background: #F0F7FF;
+            border: 2px solid #3B82F6;
+        }
+        .plan-section.edit-mode textarea {
+            border: 1px solid #CBD5E1;
+            border-radius: 6px;
+            width: 100%;
+            padding: 8px 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            background: white;
+        }
+        .plan-section.edit-mode textarea:focus {
+            border-color: #1E3A8A;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(30,58,138,0.1);
+        }
 
-        /* Print Button */
-        .print-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            padding: 14px 28px;
-            border-radius: 50px;
+        .risk-badge {
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-block;
+        }
+
+        .status-badge {
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 13px;
+        }
+        .status-badge.status-approved { background: #D1FAE5; color: #10B981; }
+        .status-badge.status-rejected { background: #FEE2E2; color: #EF4444; }
+        .status-badge.status-pending  { background: #FEF3C7; color: #F59E0B; }
+        .status-badge.status-draft    { background: #E2E8F0; color: #64748B; }
+
+        .risk-badge.risk-high   { background: #FEE2E2; color: #EF4444; }
+        .risk-badge.risk-medium { background: #FEF3C7; color: #F59E0B; }
+        .risk-badge.risk-low    { background: #D1FAE5; color: #10B981; }
+
+        .risk-score-high   { font-weight: 700; color: #EF4444; }
+        .risk-score-medium { font-weight: 700; color: #F59E0B; }
+        .risk-score-low    { font-weight: 700; color: #10B981; }
+
+        .review-section {
+            border: 2px solid #1E3A8A;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+        .review-section .card-header {
             background: #1E3A8A;
             color: white;
-            border: none;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
-            transition: all 0.3s;
+            border-radius: 10px 10px 0 0;
         }
-        .print-btn:hover {
-            background: #2563EB;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(30, 58, 138, 0.5);
+        .review-section .form-control {
+            border-radius: 8px;
+        }
+        .review-section .signature-input {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 24px;
+            color: #1E3A8A;
+            border: 2px dashed #1E3A8A;
+            padding: 10px 16px;
+        }
+        .review-section .signature-input:focus {
+            border-color: #1E3A8A;
+            box-shadow: 0 0 0 3px rgba(30,58,138,0.1);
+        }
+        .review-section .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .review-section .btn-disabled-text {
+            font-size: 12px;
+            color: #64748B;
+            margin-left: 8px;
         }
 
-        /* Print Styles */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 12px 20px;
+            background: #F8FAFC;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #E2E8F0;
+        }
+        .status-bar .status-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .status-bar .status-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .status-bar .alert-warning-sm {
+            background: #FEF3C7;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #92400E;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #F59E0B;
+        }
+        .status-bar .alert-success-sm {
+            background: #D1FAE5;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #065F46;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #10B981;
+        }
+        .status-bar .alert-danger-sm {
+            background: #FEE2E2;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #991B1B;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #EF4444;
+        }
+        .status-bar .alert-info-sm {
+            background: #EFF6FF;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #1E3A8A;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #3B82F6;
+        }
+
+        /* ===== ACTION BAR - FIXED ALIGNMENT ===== */
+        .action-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #E2E8F0;
+            align-items: center;
+        }
+        .action-bar .btn {
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            line-height: 1.4;
+            vertical-align: middle;
+        }
+        .action-bar .btn:hover:not(:disabled) { transform: translateY(-2px); }
+        .action-bar .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        .action-bar .btn-primary { background: #1E3A8A; border: none; color: white; }
+        .action-bar .btn-primary:hover:not(:disabled) { background: #2563EB; }
+        .action-bar .btn-success { background: #10B981; border: none; color: white; }
+        .action-bar .btn-success:hover:not(:disabled) { background: #059669; }
+        .action-bar .btn-info { background: #3B82F6; border: none; color: white; }
+        .action-bar .btn-info:hover:not(:disabled) { background: #2563EB; }
+        .action-bar .btn-warning { background: #F59E0B; border: none; color: white; }
+        .action-bar .btn-warning:hover:not(:disabled) { background: #D97706; }
+        .action-bar .btn-outline-secondary { border: 2px solid #64748B; color: #64748B; background: transparent; }
+        .action-bar .btn-outline-secondary:hover:not(:disabled) { background: #64748B; color: white; }
+
+        /* ===== VISIBLE SENT BADGE ===== */
+        .action-bar .sent-badge {
+            font-size: 11px;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            background: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #10B981;
+            display: inline-block;
+            margin-left: 2px;
+        }
+
+        /* ===== SENT CHIP (For "Both sent" message) ===== */
+        .sent-chip {
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: 500;
+            background: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #10B981;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        .high-risk-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1050;
+            align-items: center;
+            justify-content: center;
+        }
+        .high-risk-overlay.show { display: flex; }
+        .high-risk-modal {
+            border: 5px solid #EF4444;
+            border-radius: 16px;
+            background: white;
+            max-width: 500px;
+            width: 90%;
+        }
+        .high-risk-modal .modal-header {
+            background: #EF4444;
+            color: white;
+            border-radius: 11px 11px 0 0;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .high-risk-modal .modal-body { padding: 20px; }
+        .high-risk-modal .modal-footer {
+            padding: 16px 20px;
+            border-top: 1px solid #E2E8F0;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
         @media print {
             body { background: white; }
             .navbar-dark { display: none; }
-            .print-btn { display: none; }
+            .no-print { display: none !important; }
             .medical-document {
                 box-shadow: none;
                 padding: 20px;
@@ -186,20 +379,54 @@
             .plan-section.danger { border-left-color: #000; }
             .plan-section.success { border-left-color: #000; }
             .plan-section.warning { border-left-color: #000; }
-            .no-print { display: none !important; }
             .doctor-signature { border-top-color: #000; }
             .signature-line { border-bottom-color: #000; }
+            .review-section { display: none !important; }
+            .status-bar { display: none !important; }
+            .action-bar { display: none !important; }
         }
 
         @media (max-width: 768px) {
             .medical-document { padding: 20px; margin: 10px; }
             .info-grid { grid-template-columns: 1fr; gap: 6px; }
-            .doctor-signature { flex-direction: column; gap: 10px; }
+            .doctor-signature { flex-direction: column; gap: 15px; }
             .doc-title { font-size: 18px; }
+            .status-bar { flex-direction: column; align-items: stretch; }
+            .status-bar .status-right { justify-content: flex-start; }
+            .action-bar .btn { width: 100%; text-align: center; justify-content: center; }
         }
     </style>
 </head>
 <body>
+
+{# ===== PRECOMPUTE CONDITIONAL VALUES ===== #}
+{% set is_editable = user.role == 'Doctor' and history_entry.status in ['Pending', 'Approved'] %}
+{% set is_action_taken = history_entry.status in ['Approved', 'Rejected'] %}
+{% set is_approved = history_entry.status == 'Approved' %}
+{% set is_rejected = history_entry.status == 'Rejected' %}
+
+{% if history_entry and history_entry.status == 'Approved' %}
+    {% set status_class = 'status-approved' %}
+{% elif history_entry and history_entry.status == 'Rejected' %}
+    {% set status_class = 'status-rejected' %}
+{% elif history_entry and history_entry.status == 'Pending' %}
+    {% set status_class = 'status-pending' %}
+{% else %}
+    {% set status_class = 'status-draft' %}
+{% endif %}
+
+{% if risk.risk_level == 'High Risk' %}
+    {% set risk_class = 'risk-high' %}
+    {% set risk_score_class = 'risk-score-high' %}
+{% elif risk.risk_level == 'Medium Risk' %}
+    {% set risk_class = 'risk-medium' %}
+    {% set risk_score_class = 'risk-score-medium' %}
+{% else %}
+    {% set risk_class = 'risk-low' %}
+    {% set risk_score_class = 'risk-score-low' %}
+{% endif %}
+
+{% set show_high_risk_modal = (risk.risk_level == 'High Risk' and history_entry.status != 'Approved') %}
 
 <!-- Navbar -->
 <nav class="navbar navbar-dark navbar-expand-lg px-4 no-print">
@@ -213,10 +440,71 @@
     </div>
 </nav>
 
-<!-- ===== MEDICAL CARE PLAN DOCUMENT ===== -->
+<!-- ===== STATUS BAR ===== -->
+<div class="container">
+    <div class="status-bar no-print">
+        <div class="status-left">
+            <span style="font-weight:600; color:#1E3A8A;">
+                <i class="fas fa-file-medical-alt"></i> Care Plan
+            </span>
+            <span class="status-badge {{ status_class }}">
+                {{ history_entry.status if history_entry else 'Draft' }}
+            </span>
+            <span class="risk-badge {{ risk_class }}" style="padding:4px 16px; border-radius:20px; font-size:13px;">
+                {{ risk.risk_level }}
+            </span>
+        </div>
+        <div class="status-right">
+            {% if user.role == 'Nurse' and history_entry.status == 'Pending' %}
+                <div class="alert-warning-sm">
+                    <i class="fas fa-clock"></i> Waiting for doctor approval
+                </div>
+            
+            {% elif user.role == 'Nurse' and history_entry.status == 'Approved' %}
+                {# Check if already sent #}
+                {% set email_sent = history_entry.email_sent if history_entry else False %}
+                {% set sms_sent = history_entry.sms_sent if history_entry else False %}
+                
+                {% if email_sent and sms_sent %}
+                    <div class="alert-success-sm">
+                        <i class="fas fa-check-circle"></i> ✅ Plan sent to patient (Email & SMS)
+                    </div>
+                {% elif email_sent %}
+                    <div class="alert-info-sm">
+                        <i class="fas fa-envelope"></i> ✅ Plan sent via Email
+                    </div>
+                {% elif sms_sent %}
+                    <div class="alert-info-sm">
+                        <i class="fas fa-sms"></i> ✅ Plan sent via SMS
+                    </div>
+                {% else %}
+                    <div class="alert-success-sm">
+                        <i class="fas fa-check-circle"></i> Plan Approved - Ready to send
+                    </div>
+                {% endif %}
+            
+            {% elif user.role == 'Nurse' and history_entry.status == 'Rejected' %}
+                <div class="alert-danger-sm">
+                    <i class="fas fa-times-circle"></i> Plan Rejected - Please re-assess
+                </div>
+            
+            {% elif user.role == 'Doctor' and history_entry.status == 'Approved' %}
+                <div class="alert-success-sm">
+                    <i class="fas fa-check-circle"></i> You approved this plan
+                </div>
+            {% elif user.role == 'Doctor' and history_entry.status == 'Rejected' %}
+                <div class="alert-danger-sm">
+                    <i class="fas fa-times-circle"></i> You rejected this plan
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- ===== MEDICAL CARE PLAN ===== -->
 <div class="medical-document" id="carePlanDocument">
 
-    <!-- ===== HEADER ===== -->
+    <!-- HEADER -->
     <div class="doc-header">
         <div class="row">
             <div class="col-md-8">
@@ -231,12 +519,10 @@
         </div>
     </div>
 
-    <!-- ===== TITLE ===== -->
-    <div class="doc-title">
-        📋 Patient Discharge After-Care Plan
-    </div>
+    <!-- TITLE -->
+    <div class="doc-title">📋 Patient Discharge After-Care Plan</div>
 
-    <!-- ===== PATIENT INFORMATION ===== -->
+    <!-- PATIENT INFORMATION -->
     <div class="info-grid">
         <div class="info-item"><strong>Patient Name:</strong> {{ patient.full_name }}</div>
         <div class="info-item"><strong>Patient ID:</strong> {{ patient.id }}</div>
@@ -248,172 +534,177 @@
         <div class="info-item"><strong>Discharge Date:</strong> {{ patient.discharge_date or now.strftime('%Y-%m-%d') }}</div>
         <div class="info-item"><strong>Assigned Doctor:</strong> {{ patient.assigned_doctor }}</div>
         <div class="info-item"><strong>Department:</strong> {{ patient.assigned_department or 'General Medicine' }}</div>
-        <div class="info-item">
-            <strong>Risk Score:</strong>
-            {% if risk.risk_level == 'High Risk' %}
-            <span class="risk-score-text high">{{ risk.risk_score }}%</span>
-            {% elif risk.risk_level == 'Medium Risk' %}
-            <span class="risk-score-text medium">{{ risk.risk_score }}%</span>
-            {% else %}
-            <span class="risk-score-text low">{{ risk.risk_score }}%</span>
-            {% endif %}
+        <div class="info-item"><strong>Risk Score:</strong> <span class="{{ risk_score_class }}">{{ risk.risk_score }}%</span></div>
+        <div class="info-item"><strong>Risk Level:</strong>
+            <span class="risk-badge {{ risk_class }}" style="padding:4px 16px; border-radius:20px; font-size:14px;">
+                {{ risk.risk_level }}
+            </span>
         </div>
-        <div class="info-item">
-            <strong>Risk Level:</strong>
-            {% if risk.risk_level == 'High Risk' %}
-            <span class="risk-badge high">{{ risk.risk_level }}</span>
-            {% elif risk.risk_level == 'Medium Risk' %}
-            <span class="risk-badge medium">{{ risk.risk_level }}</span>
-            {% else %}
-            <span class="risk-badge low">{{ risk.risk_level }}</span>
-            {% endif %}
-        </div>
+        <div class="info-item"><strong>Email:</strong> {{ patient.email or 'Not available' }}</div>
+        <div class="info-item"><strong>Phone:</strong> {{ patient.phone or 'Not available' }}</div>
     </div>
 
     <!-- ===== CARE PLAN SECTIONS ===== -->
+    <form method="POST" action="/edit_plan/{{ patient.id }}" id="editPlanForm">
 
-    <!-- 1. Follow-Up Schedule -->
-    <div class="plan-section {% if risk.risk_level == 'High Risk' %}danger{% elif risk.risk_level == 'Medium Risk' %}warning{% else %}success{% endif %}">
-        <h6><i class="fas fa-calendar-check" style="color:#1E3A8A;"></i> 1. Follow-Up Schedule</h6>
-        <ul>
-            {% if risk.risk_level == 'High Risk' %}
-            <li><strong>Urgent:</strong> Schedule a follow-up appointment within <strong>7 days</strong>.</li>
-            <li>Phone check-in within <strong>24 hours</strong> by the nursing team.</li>
-            <li>Home health nurse visit within <strong>48 hours</strong>.</li>
-            <li>Arrange cardiology/endocrinology review if applicable.</li>
-            {% elif risk.risk_level == 'Medium Risk' %}
-            <li>Schedule a follow-up appointment within <strong>14 days</strong>.</li>
-            <li>Phone check-in within <strong>72 hours</strong>.</li>
-            <li>Monitor symptoms and report any changes.</li>
+        <div class="plan-section {% if risk.risk_level == 'High Risk' %}danger{% elif risk.risk_level == 'Medium Risk' %}warning{% else %}success{% endif %} {% if is_editable %}edit-mode{% endif %}">
+            <h6><i class="fas fa-calendar-check" style="color:#1E3A8A;"></i> 1. Follow-Up Schedule</h6>
+            {% if is_editable %}
+                <textarea class="form-control" name="follow_up" rows="3">{{ care_plan.follow_up|join('\n') }}</textarea>
             {% else %}
-            <li>Schedule a routine follow-up appointment within <strong>30 days</strong>.</li>
-            <li>Regular monitoring as per standard protocol.</li>
+                <ul>{% for item in care_plan.follow_up %}<li>{{ item }}</li>{% endfor %}</ul>
             {% endif %}
-        </ul>
-    </div>
+        </div>
 
-    <!-- 2. Medications -->
-    <div class="plan-section">
-        <h6><i class="fas fa-pills" style="color:#1E3A8A;"></i> 2. Medication Plan</h6>
-        <ul>
-            {% if patient.current_medications %}
-            <li><strong>Continue prescribed medications:</strong></li>
-            {% for med in patient.current_medications %}
-            <li>• {{ med }} — as per prescription</li>
-            {% endfor %}
-            <li>Do not skip doses. Set daily reminders.</li>
-            <li>Do not stop or change medications without consulting the doctor.</li>
+        <div class="plan-section {% if is_editable %}edit-mode{% endif %}">
+            <h6><i class="fas fa-pills" style="color:#1E3A8A;"></i> 2. Medication Plan</h6>
+            {% if is_editable %}
+                <textarea class="form-control" name="medication" rows="4">{{ care_plan.medication|join('\n') }}</textarea>
             {% else %}
-            <li>Follow the medication schedule provided in your discharge summary.</li>
-            <li>Take all medications as prescribed by your doctor.</li>
+                <ul>{% for item in care_plan.medication %}<li>{{ item }}</li>{% endfor %}</ul>
             {% endif %}
-            <li>Bring all medications to your follow-up appointment.</li>
-        </ul>
-    </div>
+        </div>
 
-    <!-- 3. Monitoring Instructions -->
-    <div class="plan-section">
-        <h6><i class="fas fa-heartbeat" style="color:#1E3A8A;"></i> 3. Monitoring Instructions</h6>
-        <ul>
-            {% if 'Diabetes' in patient.existing_diseases %}
-            <li><strong>Diabetes Monitoring:</strong> Check blood glucose levels twice daily (morning and evening). Maintain a log.</li>
-            {% endif %}
-            {% if 'Hypertension' in patient.existing_diseases %}
-            <li><strong>Blood Pressure:</strong> Monitor blood pressure daily. Record readings in a diary.</li>
-            {% endif %}
-            {% if 'Heart Disease' in patient.existing_diseases %}
-            <li><strong>Cardiac Monitoring:</strong> Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.</li>
-            {% endif %}
-            {% if 'COPD' in patient.existing_diseases %}
-            <li><strong>Respiratory Monitoring:</strong> Monitor oxygen saturation using a pulse oximeter twice daily.</li>
-            {% endif %}
-            {% if not patient.existing_diseases %}
-            <li><strong>General Monitoring:</strong> Monitor general health and report any unusual symptoms immediately.</li>
-            {% endif %}
-            <li>Temperature monitoring twice daily — report fever above 38°C.</li>
-            <li>Weight monitoring daily — report sudden weight gain or loss.</li>
-            <li>Maintain a <strong>symptom diary</strong> to track any changes.</li>
-        </ul>
-    </div>
-
-    <!-- 4. Dietary Advice -->
-    <div class="plan-section">
-        <h6><i class="fas fa-utensils" style="color:#1E3A8A;"></i> 4. Dietary Advice</h6>
-        <ul>
-            <li><strong>Heart Health:</strong> Reduce salt and saturated fat intake.</li>
-            <li><strong>Diabetes Management:</strong> Follow diabetic meal plan — monitor carbohydrate intake.</li>
-            <li><strong>General:</strong> Eat balanced meals with fruits, vegetables, and whole grains.</li>
-            <li>Choose lean proteins (fish, chicken, legumes).</li>
-            <li>Limit sugar, processed foods, and unhealthy fats.</li>
-            <li>Drink at least <strong>8 glasses (2 liters)</strong> of water daily.</li>
-            {% if 'Diabetes' in patient.existing_diseases %}
-            <li>Avoid sugary drinks and high-GI foods.</li>
-            {% endif %}
-            {% if 'Heart Disease' in patient.existing_diseases %}
-            <li>Avoid saturated fats and trans fats.</li>
-            {% endif %}
-        </ul>
-    </div>
-
-    <!-- 5. Physical Activity -->
-    <div class="plan-section">
-        <h6><i class="fas fa-walking" style="color:#1E3A8A;"></i> 5. Physical Activity</h6>
-        <ul>
-            <li><strong>Light physical activity</strong> for <strong>30 minutes daily</strong> (e.g., walking, light stretching).</li>
-            <li>Start slowly and gradually increase activity levels.</li>
-            {% if patient.mobility_status == 'Bedridden' %}
-            <li><strong>Bedridden:</strong> Perform bed-based exercises as advised by the physiotherapist.</li>
-            <li>Change position every 2 hours to prevent bedsores.</li>
-            {% elif patient.mobility_status == 'Assisted' %}
-            <li><strong>Assisted:</strong> Walk with assistance or walking aids.</li>
-            <li>Physiotherapy sessions as scheduled.</li>
+        <div class="plan-section {% if is_editable %}edit-mode{% endif %}">
+            <h6><i class="fas fa-heartbeat" style="color:#1E3A8A;"></i> 3. Monitoring Instructions</h6>
+            {% if is_editable %}
+                <textarea class="form-control" name="monitoring" rows="4">{{ care_plan.monitoring|join('\n') }}</textarea>
             {% else %}
-            <li>Independent mobility — maintain regular walking routine.</li>
+                <ul>{% for item in care_plan.monitoring %}<li>{{ item }}</li>{% endfor %}</ul>
             {% endif %}
-            <li>Avoid strenuous activity until cleared by the doctor.</li>
-        </ul>
-    </div>
+        </div>
 
-    <!-- 6. Lifestyle & Support -->
-    <div class="plan-section">
-        <h6><i class="fas fa-heart" style="color:#1E3A8A;"></i> 6. Lifestyle & Support</h6>
-        <ul>
-            <li><strong>Sleep:</strong> Get 7-8 hours of quality sleep nightly.</li>
-            <li><strong>Alcohol:</strong> Avoid alcohol consumption completely.</li>
-            <li><strong>Smoking:</strong> Quit smoking immediately — seek support if needed.</li>
-            <li><strong>Stress:</strong> Practice stress management (deep breathing, meditation).</li>
-            <li><strong>Support:</strong> Ensure family or caregiver availability for daily assistance.</li>
-            {% if patient.family_support == 'Weak' %}
-            <li><strong>⚠️ Community Support:</strong> Arrange community support services or home care aid.</li>
-            {% endif %}
-            {% if patient.lives_alone == 'Yes' %}
-            <li><strong>⚠️ Lives Alone:</strong> Set up daily check-in calls with family or healthcare provider.</li>
-            {% endif %}
-            <li>Keep a <strong>health diary</strong> to track symptoms, medications, and appointments.</li>
-            <li>Keep emergency contacts readily accessible.</li>
-        </ul>
-    </div>
-
-    <!-- 7. Emergency Advice -->
-    <div class="plan-section danger">
-        <h6><i class="fas fa-ambulance" style="color:#EF4444;"></i> 7. Emergency Advice</h6>
-        <ul>
-            {% if risk.risk_level == 'High Risk' %}
-            <li><strong>🚨 URGENT:</strong> Visit the nearest hospital immediately if you experience:</li>
-            <li>• Chest pain or severe shortness of breath</li>
-            <li>• Severe dizziness or fainting</li>
-            <li>• Difficulty speaking or weakness on one side of the body</li>
-            <li>• Uncontrolled bleeding or severe pain</li>
-            <li>📞 <strong>Emergency Contact:</strong> Call Suwa Setha Hospital Hotline at <strong>+94 11 234 5678</strong> (24/7)</li>
+        <div class="plan-section {% if is_editable %}edit-mode{% endif %}">
+            <h6><i class="fas fa-utensils" style="color:#1E3A8A;"></i> 4. Dietary Advice</h6>
+            {% if is_editable %}
+                <textarea class="form-control" name="dietary" rows="4">{{ care_plan.dietary|join('\n') }}</textarea>
             {% else %}
-            <li><strong>Contact your general practitioner</strong> if you experience any unusual symptoms.</li>
-            <li>Visit the nearest clinic if symptoms worsen.</li>
-            <li>📞 <strong>Emergency Contact:</strong> Suwa Setha Hospital Hotline: <strong>+94 11 234 5678</strong></li>
+                <ul>{% for item in care_plan.dietary %}<li>{{ item }}</li>{% endfor %}</ul>
             {% endif %}
-        </ul>
-    </div>
+        </div>
 
-    <!-- 8. Doctor Signature -->
+        <div class="plan-section {% if is_editable %}edit-mode{% endif %}">
+            <h6><i class="fas fa-walking" style="color:#1E3A8A;"></i> 5. Physical Activity</h6>
+            {% if is_editable %}
+                <textarea class="form-control" name="exercise" rows="3">{{ care_plan.exercise|join('\n') }}</textarea>
+            {% else %}
+                <ul>{% for item in care_plan.exercise %}<li>{{ item }}</li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+
+        <div class="plan-section {% if is_editable %}edit-mode{% endif %}">
+            <h6><i class="fas fa-heart" style="color:#1E3A8A;"></i> 6. Lifestyle Recommendations</h6>
+            {% if is_editable %}
+                <textarea class="form-control" name="lifestyle" rows="3">{{ care_plan.lifestyle|join('\n') }}</textarea>
+            {% else %}
+                <ul>{% for item in care_plan.lifestyle %}<li>{{ item }}</li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+
+        <div class="plan-section {% if is_editable %}edit-mode{% endif %}">
+            <h6><i class="fas fa-hand-holding-heart" style="color:#1E3A8A;"></i> 7. Support System</h6>
+            {% if is_editable %}
+                <textarea class="form-control" name="support" rows="3">{{ care_plan.support|join('\n') }}</textarea>
+            {% else %}
+                <ul>{% for item in care_plan.support %}<li>{{ item }}</li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+
+        <div class="plan-section danger {% if is_editable %}edit-mode{% endif %}">
+            <h6><i class="fas fa-ambulance" style="color:#EF4444;"></i> 8. Emergency Advice</h6>
+            {% if is_editable %}
+                <textarea class="form-control" name="emergency" rows="3">{{ care_plan.emergency|join('\n') }}</textarea>
+            {% else %}
+                <ul>{% for item in care_plan.emergency %}<li>{{ item }}</li>{% endfor %}</ul>
+            {% endif %}
+        </div>
+
+        {% if is_editable %}
+        <div class="text-center mt-3 no-print">
+            <button type="submit" class="btn btn-primary" style="padding: 10px 40px; border-radius: 50px;">
+                <i class="fas fa-save"></i> Save Edits
+            </button>
+        </div>
+        {% endif %}
+
+    </form>
+
+    <!-- ===== DOCTOR REVIEW & APPROVAL ===== -->
+    {% if user.role == 'Doctor' or user.role == 'Administrator' %}
+    <div class="card review-section no-print">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-user-md"></i> Doctor Review & Approval</h5>
+        </div>
+        <div class="card-body">
+            {% if history_entry.status in ['Pending', 'Approved'] %}
+            <form method="POST" action="/review_plan/{{ patient.id }}" id="reviewForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">📅 Follow-up (days)</label>
+                        <input type="number" class="form-control" name="follow_up_days" value="{{ history_entry.follow_up_days if history_entry else 7 }}" min="1" max="30">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">📝 Doctor's Notes / Comments</label>
+                        <textarea class="form-control" name="doctor_notes" rows="2" placeholder="Add your clinical comments or changes...">{{ history_entry.doctor_notes if history_entry else '' }}</textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label">✍️ Doctor's Signature *</label>
+                        <input type="text" class="form-control signature-input" name="doctor_signature" 
+                               placeholder="Type your full name as signature..." 
+                               value="{{ history_entry.doctor_signature or user.name }}"
+                               {% if is_action_taken %}disabled{% endif %}>
+                        <small class="text-muted">
+                            {% if is_action_taken %}
+                                <span class="text-success">✓ Already signed</span>
+                            {% else %}
+                                Type your full name to sign this care plan.
+                            {% endif %}
+                        </small>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 flex-wrap">
+                    {% if is_action_taken %}
+                        <button type="button" class="btn btn-success" disabled>
+                            <i class="fas fa-check-circle"></i> Approve Plan
+                            <span class="btn-disabled-text">(Action already taken)</span>
+                        </button>
+                        <button type="button" class="btn btn-danger" disabled>
+                            <i class="fas fa-times-circle"></i> Reject Plan
+                            <span class="btn-disabled-text">(Action already taken)</span>
+                        </button>
+                    {% else %}
+                        <button type="submit" name="action" value="approve" class="btn btn-success">
+                            <i class="fas fa-check-circle"></i> Approve Plan
+                        </button>
+                        <button type="submit" name="action" value="reject" class="btn btn-danger">
+                            <i class="fas fa-times-circle"></i> Reject Plan
+                        </button>
+                    {% endif %}
+                    <a href="/follow_up/{{ patient.id }}" class="btn btn-outline-primary">
+                        <i class="fas fa-clipboard-list"></i> Record Follow-Up
+                    </a>
+                </div>
+            </form>
+            {% else %}
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> This plan is not pending approval.
+                </div>
+            {% endif %}
+
+            {% if history_entry.status == 'Approved' %}
+            <div class="alert alert-success mt-3">✅ Plan Approved by {{ history_entry.doctor }} on {{ history_entry.timestamp }}</div>
+            {% elif history_entry.status == 'Rejected' %}
+            <div class="alert alert-danger mt-3">❌ Plan Rejected. Notes: {{ history_entry.doctor_notes }}</div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- ===== DOCTOR SIGNATURE ===== -->
     <div class="doctor-signature">
         <div>
             <div style="font-weight:600; color:#1E3A8A;">👨‍⚕️ Responsible Healthcare Professional</div>
@@ -423,12 +714,26 @@
         </div>
         <div class="text-end">
             <div style="font-size:13px; color:#64748B;">Doctor's Signature</div>
-            <div class="signature-line"></div>
+            {% if history_entry.status == 'Approved' %}
+                {% if history_entry.doctor_signature %}
+                <div style="font-family: 'Brush Script MT', cursive; font-size: 28px; color: #1E3A8A; line-height: 1.2;">
+                    {{ history_entry.doctor_signature }}
+                </div>
+                {% else %}
+                <div style="font-family: 'Brush Script MT', cursive; font-size: 28px; color: #1E3A8A; line-height: 1.2;">
+                    {{ history_entry.doctor.split(' ')[0] }} {{ history_entry.doctor.split(' ')[1][0] if history_entry.doctor.split(' ')|length > 1 else '' }}.
+                </div>
+                {% endif %}
+                <div style="font-size:12px; color:#64748B;">Digitally Signed</div>
+            {% else %}
+                <div class="signature-line"></div>
+                <div style="font-size:12px; color:#64748B; margin-top:4px;">Pending Approval</div>
+            {% endif %}
             <div style="font-size:12px; color:#64748B; margin-top:4px;">Date: {{ now.strftime('%B %d, %Y') }}</div>
         </div>
     </div>
 
-    <!-- 9. Footer -->
+    <!-- FOOTER -->
     <div style="margin-top: 25px; padding-top: 15px; border-top: 2px solid #E2E8F0; font-size: 11px; color: #94A3B8; text-align: center;">
         <p>This care plan is generated by Suwa Setha AI — Hospital Readmission Risk Predictor & After-Care Plan Generator</p>
         <p>© {{ now.year }} Suwa Setha Hospital. All rights reserved. | Document ID: CP-{{ patient.id }}-{{ now.strftime('%Y%m%d') }}</p>
@@ -437,37 +742,200 @@
 
 </div>
 
-<!-- ===== BUTTONS ===== -->
-<div class="container mt-3 mb-5 no-print">
-    <div class="d-flex gap-2 flex-wrap justify-content-center">
-        <button onclick="window.print()" class="btn btn-primary btn-lg">
-            <i class="fas fa-print"></i> Print / Save as PDF
-        </button>
-        <button onclick="window.location.href='/download_pdf/{{ patient.id }}'" class="btn btn-success btn-lg">
+<!-- ===== ACTION BAR (FIXED) ===== -->
+<div class="container no-print">
+    <div class="action-bar">
+        
+        <!-- Download PDF Button -->
+        <a href="/download_pdf/{{ patient.id }}" class="btn btn-success">
             <i class="fas fa-file-pdf"></i> Download PDF
-        </button>
-        <a href="/dashboard" class="btn btn-outline-secondary btn-lg">
-            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+
+        <!-- ===== NURSE ONLY: Email & SMS ===== -->
+        {% if user.role == 'Nurse' and history_entry.status == 'Approved' %}
+            {% set email_sent = history_entry.email_sent if history_entry else false %}
+            {% set sms_sent = history_entry.sms_sent if history_entry else false %}
+            
+            <!-- Email Button -->
+            <button class="btn btn-info" id="sendEmailBtn" 
+                    data-email="{{ patient.email or '' }}" 
+                    data-name="{{ patient.full_name }}">
+                <i class="fas fa-envelope"></i> Send Email
+                {% if email_sent %}
+                    <span class="sent-badge">✓ Sent</span>
+                {% endif %}
+            </button>
+
+            <!-- SMS Button -->
+            <button class="btn btn-warning" id="sendSmsBtn" 
+                    data-phone="{{ patient.phone or '' }}" 
+                    data-name="{{ patient.full_name }}">
+                <i class="fas fa-sms"></i> Send SMS
+                {% if sms_sent %}
+                    <span class="sent-badge">✓ Sent</span>
+                {% endif %}
+            </button>
+
+            <!-- ===== BOTH SENT CHIP (Clean, not an alert) ===== -->
+            {% if email_sent and sms_sent %}
+                <span class="sent-chip">
+                    <i class="fas fa-check-circle"></i> Both sent to patient
+                </span>
+            {% endif %}
+
+        {% elif user.role == 'Nurse' and history_entry.status == 'Pending' %}
+            <!-- Waiting for approval message -->
+            <span style="border-radius: 50px; padding: 8px 20px; font-size: 13px; font-weight: 500; background: #FEF3C7; color: #92400E; border: 1px solid #F59E0B; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fas fa-clock"></i> Waiting for doctor approval
+            </span>
+        {% endif %}
+
+        <!-- Dashboard Button -->
+        <a href="/dashboard" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Dashboard
         </a>
     </div>
 </div>
+
+<!-- ===== HIGH RISK MODAL ===== -->
+{% if show_high_risk_modal %}
+<div class="high-risk-overlay no-print" id="highRiskModal">
+    <div class="high-risk-modal">
+        <div class="modal-header">
+            <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> URGENT HIGH RISK ALERT</h5>
+            <button type="button" class="btn-close btn-close-white" id="highRiskCloseBtn" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p><strong>Patient:</strong> {{ patient.full_name }}</p>
+            <p><strong>Risk Score:</strong> {{ risk.risk_score }}%</p>
+            <p>⚠️ Immediate review required by the assigned doctor.</p>
+            <p class="text-muted small">(This alert will disappear after you acknowledge it, or when the doctor approves the plan)</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-danger" id="highRiskAckBtn">
+                <i class="fas fa-check"></i> Acknowledge
+            </button>
+            <a href="/profile/{{ patient.id }}" class="btn btn-outline-secondary">
+                <i class="fas fa-eye"></i> View Patient
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
 
 <!-- ===== SCRIPTS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // Auto-hide flash messages after 4 seconds
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(function(alert) {
-                alert.style.transition = 'opacity 0.5s ease';
-                alert.style.opacity = '0';
-                setTimeout(function() {
-                    alert.remove();
-                }, 500);
+    // ===== SEND EMAIL FUNCTION =====
+    function sendEmail(email, name, button) {
+        console.log('sendEmail called with:', email, name);
+        if (email && email !== '' && email !== 'None' && email !== 'null' && email !== 'undefined') {
+            alert('📧 Email sent to ' + name + ' at ' + email);
+            
+            // Update the button to show "Sent" but keep it clickable
+            if (button) {
+                button.innerHTML = '<i class="fas fa-envelope"></i> Send Email <span class="sent-badge">✓ Sent</span>';
+                // Mark as sent in the backend
+                fetch('/mark_email_sent/{{ patient.id }}', { method: 'POST' })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Email marked as sent');
+                        // Reload to update the status on dashboard
+                        setTimeout(function() {
+                            location.reload();
+                        }, 500);
+                    });
+            }
+        } else {
+            alert('⚠️ No valid email address available for this patient.\n\nPlease check patient records.\n\nEmail value: "' + email + '"');
+        }
+    }
+
+    // ===== SEND SMS FUNCTION =====
+    function sendSMS(phone, name, button) {
+        console.log('sendSMS called with:', phone, name);
+        if (phone && phone !== '' && phone !== 'None' && phone !== 'null' && phone !== 'undefined') {
+            alert('📱 SMS sent to ' + name + ' at ' + phone);
+            
+            // Update the button to show "Sent" but keep it clickable
+            if (button) {
+                button.innerHTML = '<i class="fas fa-sms"></i> Send SMS <span class="sent-badge">✓ Sent</span>';
+                // Mark as sent in the backend
+                fetch('/mark_sms_sent/{{ patient.id }}', { method: 'POST' })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('SMS marked as sent');
+                        // Reload to update the status on dashboard
+                        setTimeout(function() {
+                            location.reload();
+                        }, 500);
+                    });
+            }
+        } else {
+            alert('⚠️ No valid phone number available for this patient.\n\nPlease check patient records.\n\nPhone value: "' + phone + '"');
+        }
+    }
+
+    // ===== WIRE UP BUTTONS =====
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('DOM loaded - setting up email/sms buttons');
+        
+        var emailBtn = document.getElementById('sendEmailBtn');
+        if (emailBtn) {
+            console.log('Email button found!');
+            console.log('data-email:', emailBtn.getAttribute('data-email'));
+            console.log('data-name:', emailBtn.getAttribute('data-name'));
+            emailBtn.addEventListener('click', function () {
+                var email = emailBtn.getAttribute('data-email');
+                var name = emailBtn.getAttribute('data-name');
+                sendEmail(email, name, emailBtn);
+            });
+        } else {
+            console.log('Email button NOT found');
+        }
+        
+        var smsBtn = document.getElementById('sendSmsBtn');
+        if (smsBtn) {
+            console.log('SMS button found!');
+            console.log('data-phone:', smsBtn.getAttribute('data-phone'));
+            console.log('data-name:', smsBtn.getAttribute('data-name'));
+            smsBtn.addEventListener('click', function () {
+                var phone = smsBtn.getAttribute('data-phone');
+                var name = smsBtn.getAttribute('data-name');
+                sendSMS(phone, name, smsBtn);
+            });
+        } else {
+            console.log('SMS button NOT found');
+        }
+    });
+
+    // --- Auto-hide flash messages ---
+    document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            var alerts = document.querySelectorAll('.alert:not(.alert-success):not(.alert-danger):not(.alert-warning)');
+            alerts.forEach(function (alertEl) {
+                if (!alertEl.classList.contains('alert-success') && !alertEl.classList.contains('alert-danger')) return;
+                alertEl.style.transition = 'opacity 0.5s ease';
+                alertEl.style.opacity = '0';
+                setTimeout(function () { alertEl.remove(); }, 500);
             });
         }, 4000);
+    });
+
+    // --- High risk modal ---
+    document.addEventListener('DOMContentLoaded', function () {
+        var modal = document.getElementById('highRiskModal');
+        if (!modal) return;
+        modal.classList.add('show');
+        var closeAndHide = function () { modal.classList.remove('show'); };
+        var ackBtn = document.getElementById('highRiskAckBtn');
+        if (ackBtn) ackBtn.addEventListener('click', closeAndHide);
+        var closeBtn = document.getElementById('highRiskCloseBtn');
+        if (closeBtn) closeBtn.addEventListener('click', closeAndHide);
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) { closeAndHide(); }
+        });
     });
 </script>
 

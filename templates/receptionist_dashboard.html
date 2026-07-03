@@ -24,6 +24,8 @@
         .feature-item:hover { background: #E2E8F0; transform: translateX(4px); }
         .feature-item i { font-size: 18px; color: #1E3A8A; width: 28px; text-align: center; }
         .feature-item span { font-size: 13px; font-weight: 500; color: #1F2937; }
+        .table th { font-size: 12px; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; }
+        .table td { font-size: 13px; vertical-align: middle; }
     </style>
 </head>
 <body>
@@ -42,12 +44,14 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             {% for category, message in messages %}
-            <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'info' }} alert-dismissible fade show" role="alert">{{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>
+            <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'info' }} alert-dismissible fade show" role="alert">
+                {{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
             {% endfor %}
         {% endif %}
     {% endwith %}
 
-    <div class="card p-3 mb-4" style="background: linear-gradient(135deg, #1E3A8A, #3B82F6); color: white; border: none;">
+    <div class="card p-3 mb-4" style="background: linear-gradient(135deg, #1E3A8A, #3B82F6); color: white; border: none; border-radius: 12px;">
         <div class="d-flex justify-content-between align-items-center">
             <div>
                 <h5 style="font-weight: 600;">👋 Welcome, {{ user.name }}</h5>
@@ -81,7 +85,18 @@
             <h6 class="card-title"><i class="fas fa-list" style="color:#1E3A8A;"></i> All Patients</h6>
             <div class="table-responsive">
                 <table class="table table-hover">
-                    <thead><tr><th>Patient ID</th><th>Name</th><th>Doctor</th><th>Admitted</th><th>Discharged</th><th>Status</th><th>Action</th></tr></thead>
+                    <thead>
+                        <tr>
+                            <th>Patient ID</th>
+                            <th>Name</th>
+                            <th>Doctor</th>
+                            <th>Admitted</th>
+                            <th>Discharged</th>
+                            <th>Status</th>
+                            <!-- Action header is REMOVED - just the button column -->
+                            <th></th>
+                        </tr>
+                    </thead>
                     <tbody>
                         {% for p in patients %}
                         <tr>
@@ -91,7 +106,11 @@
                             <td>{{ p.admission_date }}</td>
                             <td>{{ p.discharge_date or '-' }}</td>
                             <td><span class="badge {% if p.status == 'Admitted' %}bg-success{% else %}bg-secondary{% endif %}">{{ p.status }}</span></td>
-                            <td><a href="/profile/{{ p.id }}" class="btn btn-sm btn-primary">View</a></td>
+                            <td>
+                                <a href="/profile/{{ p.id }}" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-eye"></i> View
+                                </a>
+                            </td>
                         </tr>
                         {% else %}
                         <tr><td colspan="7" class="text-center text-muted">No patients registered.</td></tr>
@@ -104,5 +123,20 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Auto-hide flash messages after 4 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(function() {
+                    alert.remove();
+                }, 500);
+            });
+        }, 4000);
+    });
+</script>
 </body>
 </html>

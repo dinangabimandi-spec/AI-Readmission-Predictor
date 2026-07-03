@@ -11,6 +11,7 @@
         * { font-family: 'Poppins', sans-serif; }
         body { background: #F8FAFC; }
         .navbar-dark { background: #1E3A8A !important; }
+
         .stat-card {
             background: white;
             border-radius: 12px;
@@ -36,28 +37,56 @@
         .stat-card.rejected .number { color: #EF4444; }
         .stat-card.notassessed { border-color: #64748B; }
         .stat-card.notassessed .number { color: #64748B; }
-        .badge-risk { font-weight: 500; padding: 3px 12px; border-radius: 20px; font-size: 12px; }
 
-        /* FIX: Dedicated classes replace inline Jinja2 style on badge-risk */
-        .badge-risk-high   { background: #FEE2E2; color: #EF4444; }
-        .badge-risk-medium { background: #FEF3C7; color: #F59E0B; }
-        .badge-risk-low    { background: #D1FAE5; color: #10B981; }
-        .badge-risk-none   { background: #F1F5F9; color: #64748B; }
+        .badge-risk { font-weight: 500; padding: 3px 12px; border-radius: 20px; font-size: 12px; }
+        .badge-risk.risk-high   { background: #FEE2E2; color: #EF4444; }
+        .badge-risk.risk-medium { background: #FEF3C7; color: #F59E0B; }
+        .badge-risk.risk-low    { background: #D1FAE5; color: #10B981; }
 
         .btn-primary { background: #1E3A8A; border: none; }
         .btn-primary:hover { background: #2563EB; }
-        .btn-sm { font-size: 12px; padding: 4px 12px; }
-        .btn-success { background: #10B981; border: none; }
-        .btn-success:hover { background: #059669; }
-        .btn-danger { background: #EF4444; border: none; }
-        .btn-danger:hover { background: #DC2626; }
+
+        .btn-action {
+            border-radius: 50px;
+            padding: 6px 18px;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.3s;
+            min-width: 100px;
+            border: none;
+        }
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .btn-action-primary { background: #1E3A8A; color: white; }
+        .btn-action-primary:hover { background: #2563EB; color: white; }
+        .btn-action-success { background: #10B981; color: white; }
+        .btn-action-success:hover { background: #059669; color: white; }
+        .btn-action-warning { background: #F59E0B; color: white; }
+        .btn-action-warning:hover { background: #D97706; color: white; }
+        .btn-action-secondary { background: #64748B; color: white; }
+        .btn-action-secondary:hover { background: #475569; color: white; }
+        .btn-action-danger { background: #EF4444; color: white; }
+        .btn-action-danger:hover { background: #DC2626; color: white; }
+        .btn-action-info { background: #3B82F6; color: white; }
+        .btn-action-info:hover { background: #2563EB; color: white; }
+        .btn-action-sm { padding: 4px 14px; font-size: 11px; min-width: 80px; }
+
         .fade-in { animation: fadeIn 0.5s ease-in; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
         .feature-item { background: #F1F5F9; border-radius: 10px; padding: 12px 16px; display: flex; align-items: center; gap: 10px; transition: all 0.3s; cursor: pointer; }
         .feature-item:hover { background: #E2E8F0; transform: translateX(4px); }
         .feature-item i { font-size: 18px; color: #1E3A8A; width: 28px; text-align: center; }
         .feature-item span { font-size: 13px; font-weight: 500; color: #1F2937; }
+
         .notification-bell {
             position: relative;
             cursor: pointer;
@@ -72,14 +101,25 @@
             font-size: 10px;
             padding: 2px 6px;
             border-radius: 50%;
-            background: #10B981;
+            background: #EF4444;  /* Red to stand out for pending actions */
             color: white;
             min-width: 18px;
             text-align: center;
         }
-        .table th { font-size: 12px; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; }
-        .table td { font-size: 13px; vertical-align: middle; }
+
+        .table th { font-size: 12px; font-weight: 600; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #E2E8F0; }
+        .table td { font-size: 13px; vertical-align: middle; padding: 10px 8px; }
         .filter-active { background: #EFF6FF !important; border-color: #1E3A8A !important; }
+
+        .sent-badge {
+            font-size: 11px;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        .sent-badge.sent { background: #D1FAE5; color: #065F46; }
+        .sent-badge.partial { background: #FEF3C7; color: #92400E; }
+        .sent-badge.not-sent { background: #F1F5F9; color: #64748B; }
     </style>
 </head>
 <body>
@@ -89,11 +129,11 @@
         <a class="navbar-brand" href="/">🏥 Suwa Setha AI</a>
         <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item">
-                <a class="nav-link notification-bell" href="#" onclick="filterTable('Approved')" title="Click to see approved patients">
+                <!-- Bell icon: shows count of approved but unsent plans -->
+                <a class="nav-link notification-bell" href="#" onclick="filterTable('Pending Send')" title="Click to see plans pending send">
                     <i class="fas fa-bell" style="font-size: 20px;"></i>
-                    {% set approved_count = patients|selectattr('status', 'equalto', 'Approved')|list|length %}
-                    {% if approved_count > 0 %}
-                    <span class="badge-count">{{ approved_count }}</span>
+                    {% if notification_count > 0 %}
+                    <span class="badge-count">{{ notification_count }}</span>
                     {% endif %}
                 </a>
             </li>
@@ -133,38 +173,46 @@
     <div class="feature-grid mb-4">
         <div class="feature-item" onclick="location.href='/search'"><i class="fas fa-search"></i><span>Search Patient</span></div>
         <div class="feature-item" onclick="filterTable('Pending')"><i class="fas fa-clock" style="color:#F59E0B;"></i><span>Pending</span></div>
+        <div class="feature-item" onclick="filterTable('Pending Send')"><i class="fas fa-bell" style="color:#EF4444;"></i><span>To Send</span></div>
         <div class="feature-item" onclick="filterTable('Approved')"><i class="fas fa-check-circle" style="color:#10B981;"></i><span>Approved</span></div>
         <div class="feature-item" onclick="filterTable('Rejected')"><i class="fas fa-times-circle" style="color:#EF4444;"></i><span>Rejected</span></div>
         <div class="feature-item" onclick="filterTable('Not Assessed')"><i class="fas fa-question-circle" style="color:#64748B;"></i><span>Not Assessed</span></div>
     </div>
 
     <div class="row g-3 mb-4">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="stat-card pending" onclick="filterTable('Pending')">
                 <span class="icon"><i class="fas fa-clock"></i></span>
                 <div class="number">{{ patients|selectattr('status', 'equalto', 'Pending')|list|length }}</div>
-                <div class="label">🟡 Pending Approval</div>
+                <div class="label">🟡 Pending</div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="stat-card approved" onclick="filterTable('Approved')">
                 <span class="icon"><i class="fas fa-check-circle"></i></span>
                 <div class="number">{{ patients|selectattr('status', 'equalto', 'Approved')|list|length }}</div>
                 <div class="label">🟢 Approved</div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="stat-card rejected" onclick="filterTable('Rejected')">
                 <span class="icon"><i class="fas fa-times-circle"></i></span>
                 <div class="number">{{ patients|selectattr('status', 'equalto', 'Rejected')|list|length }}</div>
                 <div class="label">🔴 Rejected</div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="stat-card notassessed" onclick="filterTable('Not Assessed')">
                 <span class="icon"><i class="fas fa-question-circle"></i></span>
                 <div class="number">{{ patients|selectattr('status', 'equalto', 'Not Assessed')|list|length }}</div>
                 <div class="label">⚪ Not Assessed</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="stat-card" style="border-color:#EF4444;" onclick="filterTable('Pending Send')">
+                <span class="icon"><i class="fas fa-bell"></i></span>
+                <div class="number" style="color:#EF4444;">{{ notification_count }}</div>
+                <div class="label">🔔 To Send (Approved)</div>
             </div>
         </div>
     </div>
@@ -176,6 +224,7 @@
                 <div>
                     <button class="btn btn-sm btn-outline-secondary" onclick="filterTable('all')">All</button>
                     <button class="btn btn-sm btn-outline-warning" onclick="filterTable('Pending')">Pending</button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="filterTable('Pending Send')">To Send</button>
                     <button class="btn btn-sm btn-outline-success" onclick="filterTable('Approved')">Approved</button>
                     <button class="btn btn-sm btn-outline-danger" onclick="filterTable('Rejected')">Rejected</button>
                     <button class="btn btn-sm btn-outline-secondary" onclick="filterTable('Not Assessed')">Not Assessed</button>
@@ -190,24 +239,32 @@
                             <th>Risk Score</th>
                             <th>Risk Level</th>
                             <th>Status</th>
+                            <th>Sent</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% set risk_order = {'High Risk': 0, 'Medium Risk': 1, 'Low Risk': 2, 'Not Assessed': 3} %}
                         {% set sorted_patients = patients|sort(attribute='risk_level', reverse=False) %}
                         {% set sorted_by_risk = sorted_patients|sort(attribute='risk_score', reverse=True) %}
                         {% for p in sorted_by_risk %}
-                        <tr class="patient-row" data-risk="{{ p.risk_level }}" data-status="{{ p.status }}">
+                        <tr class="patient-row"
+                            data-risk="{{ p.risk_level }}"
+                            data-status="{{ p.status }}"
+                            data-email-sent="{{ p.email_sent|lower }}"
+                            data-sms-sent="{{ p.sms_sent|lower }}">
                             <td>{{ p.id }}</td>
                             <td>{{ p.name }}</td>
                             <td>{% if p.risk_score > 0 %}{{ p.risk_score }}%{% else %}-{% endif %}</td>
                             <td>
-                                <!-- FIX: CSS class instead of inline Jinja2 style -->
-                                <span class="badge-risk
-                                    {% if p.risk_level == 'High Risk' %}badge-risk-high
-                                    {% elif p.risk_level == 'Medium Risk' %}badge-risk-medium
-                                    {% elif p.risk_level == 'Low Risk' %}badge-risk-low
-                                    {% else %}badge-risk-none{% endif %}">
+                                {% if p.risk_level == 'High Risk' %}
+                                    {% set risk_badge_class = 'risk-high' %}
+                                {% elif p.risk_level == 'Medium Risk' %}
+                                    {% set risk_badge_class = 'risk-medium' %}
+                                {% else %}
+                                    {% set risk_badge_class = 'risk-low' %}
+                                {% endif %}
+                                <span class="badge-risk {{ risk_badge_class }}">
                                     {{ p.risk_level if p.risk_level != 'Not Assessed' else '—' }}
                                 </span>
                             </td>
@@ -222,32 +279,49 @@
                                 <span class="badge bg-secondary">Not Assessed</span>
                                 {% endif %}
                             </td>
+                            <!-- Sent Status Column -->
+                            <td>
+                                {% if p.status == 'Approved' %}
+                                    {% if p.email_sent and p.sms_sent %}
+                                        <span class="sent-badge sent"><i class="fas fa-check-circle"></i> Both Sent</span>
+                                    {% elif p.email_sent %}
+                                        <span class="sent-badge partial"><i class="fas fa-envelope"></i> Email Sent</span>
+                                    {% elif p.sms_sent %}
+                                        <span class="sent-badge partial"><i class="fas fa-sms"></i> SMS Sent</span>
+                                    {% else %}
+                                        <span class="sent-badge not-sent"><i class="fas fa-clock"></i> Not Sent</span>
+                                    {% endif %}
+                                {% else %}
+                                    <span class="text-muted" style="font-size:12px;">—</span>
+                                {% endif %}
+                            </td>
+                            <!-- Action Buttons -->
                             <td>
                                 {% if p.status == 'Not Assessed' %}
-                                    <a href="/assess/{{ p.id }}" class="btn btn-sm btn-primary">
-                                        <i class="fas fa-clipboard-list"></i> Start Assessment
+                                    <a href="/assess/{{ p.id }}" class="btn-action btn-action-primary btn-action-sm">
+                                        <i class="fas fa-clipboard-list"></i> Start
                                     </a>
                                 {% elif p.status == 'Rejected' %}
-                                    <a href="/assess/{{ p.id }}" class="btn btn-sm btn-warning">
+                                    <a href="/assess/{{ p.id }}" class="btn-action btn-action-warning btn-action-sm">
                                         <i class="fas fa-redo"></i> Re-Assess
                                     </a>
                                 {% elif p.status == 'Pending' %}
-                                    <a href="/profile/{{ p.id }}" class="btn btn-sm btn-secondary">
-                                        <i class="fas fa-eye"></i> View (Waiting)
+                                    <a href="/profile/{{ p.id }}" class="btn-action btn-action-secondary btn-action-sm">
+                                        <i class="fas fa-eye"></i> View
                                     </a>
                                 {% elif p.status == 'Approved' %}
-                                    <a href="/care_plan/{{ p.id }}" class="btn btn-sm btn-success">
+                                    <a href="/care_plan/{{ p.id }}" class="btn-action btn-action-success btn-action-sm">
                                         <i class="fas fa-file-medical"></i> View Plan
                                     </a>
                                 {% else %}
-                                    <a href="/profile/{{ p.id }}" class="btn btn-sm btn-primary">
+                                    <a href="/profile/{{ p.id }}" class="btn-action btn-action-primary btn-action-sm">
                                         <i class="fas fa-eye"></i> View
                                     </a>
                                 {% endif %}
                             </td>
                         </tr>
                         {% else %}
-                        <tr><td colspan="6" class="text-center text-muted py-4">No patients assigned yet.</td></tr>
+                        <tr><td colspan="7" class="text-center text-muted py-4">No patients assigned yet.</td></tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -257,46 +331,56 @@
 </div>
 
 <script>
+    // Filter function supporting 'Pending Send'
     function filterTable(filter) {
         const rows = document.querySelectorAll('.patient-row');
 
         rows.forEach(row => {
             const status = row.dataset.status || '';
+            const emailSent = row.dataset.emailSent === 'true';
+            const smsSent = row.dataset.smsSent === 'true';
 
+            let show = false;
             if (filter === 'all') {
-                row.style.display = '';
+                show = true;
+            } else if (filter === 'Pending Send') {
+                show = (status === 'Approved' && !emailSent && !smsSent);
             } else {
-                row.style.display = (status === filter) ? '' : 'none';
+                show = (status === filter);
             }
+
+            row.style.display = show ? '' : 'none';
         });
 
+        // Highlight active stat card (optional)
         document.querySelectorAll('.stat-card').forEach(card => {
             card.classList.remove('filter-active');
         });
     }
 
-    document.querySelector('.notification-bell').addEventListener('click', function (e) {
+    // Bell icon click -> filter to 'Pending Send'
+    document.querySelector('.notification-bell').addEventListener('click', function(e) {
         e.preventDefault();
-        filterTable('Approved');
-        this.style.color = '#10B981';
+        filterTable('Pending Send');
+        this.style.color = '#EF4444';
         setTimeout(() => { this.style.color = ''; }, 3000);
     });
-</script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        setTimeout(function () {
+    // Auto-hide flash messages after 4 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
             const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(function (alert) {
+            alerts.forEach(function(alert) {
                 alert.style.transition = 'opacity 0.5s ease';
                 alert.style.opacity = '0';
-                setTimeout(function () { alert.remove(); }, 500);
+                setTimeout(function() {
+                    alert.remove();
+                }, 500);
             });
         }, 4000);
     });
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
