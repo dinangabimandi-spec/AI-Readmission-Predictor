@@ -686,12 +686,13 @@ def search():
             if query in pid.lower() or query in data.get('full_name', '').lower():
                 results['patients'].append({'id': pid, **data})
 
-        for s in STAFF_DB:
-            if query in s.get('name', '').lower() or query in s.get('id', '').lower():
-                if s['role'] == 'Doctor':
-                    results['doctors'].append(s)
-                elif s['role'] == 'Nurse':
-                    results['nurses'].append(s)
+        if user['role'] == 'Administrator':
+            for s in STAFF_DB:
+                if query in s.get('name', '').lower() or query in s.get('id', '').lower():
+                    if s['role'] == 'Doctor':
+                        results['doctors'].append(s)
+                    elif s['role'] == 'Nurse':
+                        results['nurses'].append(s)
 
         if not any(results.values()):
             flash('❌ No results found.', 'danger')

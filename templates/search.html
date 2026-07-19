@@ -44,7 +44,11 @@
 {% endwith %}
 
     <h2 style="color:#1E3A8A;"><i class="fas fa-search"></i> Search</h2>
+    {% if user.role == 'Administrator' %}
     <p class="text-muted">Search for patients, doctors, or nurses by name or ID.</p>
+    {% else %}
+    <p class="text-muted">Search for patients by name or ID.</p>
+    {% endif %}
 
     <form method="POST" class="row g-3 mb-4">
         <div class="col-md-10">
