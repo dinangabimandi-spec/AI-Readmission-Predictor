@@ -1,1 +1,47 @@
-[]
+[
+  {
+    "patient_id": "P2002",
+    "patient_name": "Prasad Liyanage",
+    "risk_score": 78.5,
+    "timestamp": "2026-07-12 00:49:03",
+    "assigned_doctor": "Dr. Nirmal Perera",
+    "status": "unread",
+    "message": "HIGH RISK: Prasad Liyanage (78.5%)"
+  },
+  {
+    "patient_id": "P2012",
+    "patient_name": "Nuwan Karunaratne",
+    "risk_score": 78.5,
+    "timestamp": "2026-07-13 00:49:03",
+    "assigned_doctor": "Dr. Tharindu Fernando",
+    "status": "unread",
+    "message": "HIGH RISK: Nuwan Karunaratne (78.5%)"
+  },
+  {
+    "patient_id": "P2022",
+    "patient_name": "Malsha Herath",
+    "risk_score": 78.5,
+    "timestamp": "2026-07-14 00:49:03",
+    "assigned_doctor": "Dr. Sachini Wijesinghe",
+    "status": "unread",
+    "message": "HIGH RISK: Malsha Herath (78.5%)"
+  },
+  {
+    "patient_id": "P2032",
+    "patient_name": "Chithra Munasinghe",
+    "risk_score": 78.5,
+    "timestamp": "2026-07-14 00:49:03",
+    "assigned_doctor": "Dr. Kasun Jayawardena",
+    "status": "unread",
+    "message": "HIGH RISK: Chithra Munasinghe (78.5%)"
+  },
+  {
+    "patient_id": "P2042",
+    "patient_name": "Dilrukshi Kumara",
+    "risk_score": 78.5,
+    "timestamp": "2026-07-10 00:49:03",
+    "assigned_doctor": "Dr. Dinithi Silva",
+    "status": "unread",
+    "message": "HIGH RISK: Dilrukshi Kumara (78.5%)"
+  }
+]

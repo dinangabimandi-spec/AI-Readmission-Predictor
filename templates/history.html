@@ -43,6 +43,17 @@
 </nav>
 
 <div class="container-fluid px-4 py-4 fade-in">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'info' }} alert-dismissible fade show" role="alert">
+            {{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
     <div class="d-flex justify-content-between align-items-center mb-3">
         <div>
             <h2 style="color:#1E3A8A;"><i class="fas fa-history"></i> History</h2>

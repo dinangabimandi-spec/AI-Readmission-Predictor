@@ -1,547 +1,2699 @@
 [
   {
-    "patient_id": "P2031",
-    "patient_name": "Chandrika Herath",
-    "timestamp": "2026-06-29 19:33:00",
-    "risk_score": 54,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Heart disease, Multiple admissions (7), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Sachini Wijesinghe",
-    "assigned_by": "Nurse Sanduni Perera",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2094",
-    "patient_name": "Sunil De Silva",
-    "timestamp": "2026-06-29 18:28:00",
-    "risk_score": 57,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Multiple admissions (6)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Sanduni Perera",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2015",
-    "patient_name": "Champa Herath",
-    "timestamp": "2026-06-29 18:10:00",
-    "risk_score": 30,
-    "risk_level": "Low Risk",
-    "risk_factors": "Multiple admissions (4)",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Nirmal Perera",
-    "assigned_by": "Nurse Malsha Fernando",
-    "status": "Rejected",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2031",
-    "patient_name": "Chandrika Herath",
-    "timestamp": "2026-06-29 14:42:00",
-    "risk_score": 38,
-    "risk_level": "Low Risk",
-    "risk_factors": "Hypertension, COPD, Multiple admissions (7), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Sachini Wijesinghe",
-    "assigned_by": "Nurse Malsha Fernando",
-    "status": "Pending",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2032",
-    "patient_name": "Geethani Wijeratne",
-    "timestamp": "2026-06-29 13:42:00",
-    "risk_score": 56,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Advanced age (>65), Multiple admissions (5), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Nethmi Wickramasinghe",
-    "status": "Rejected",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2094",
-    "patient_name": "Sunil De Silva",
-    "timestamp": "2026-06-29 12:44:00",
-    "risk_score": 58,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Hypertension, Multiple admissions (6)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Ishari Gunasekara",
-    "status": "Pending",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2094",
-    "patient_name": "Sunil De Silva",
-    "timestamp": "2026-06-29 11:36:00",
-    "risk_score": 43,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Hypertension, Multiple admissions (6)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Malsha Fernando",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2040",
-    "patient_name": "Geethani Amarasinghe",
-    "timestamp": "2026-06-28 14:05:00",
-    "risk_score": 65,
-    "risk_level": "Medium Risk",
-    "risk_factors": "COPD, Multiple admissions (4)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Kasun Jayawardena",
-    "assigned_by": "Nurse Sanduni Perera",
-    "status": "Rejected",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2077",
-    "patient_name": "Karunaratne De Silva",
-    "timestamp": "2026-06-28 13:54:00",
-    "risk_score": 49,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Diabetes, Hypertension, Multiple admissions (7)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Kasun Jayawardena",
-    "assigned_by": "Nurse Malsha Fernando",
-    "status": "Pending",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2029",
-    "patient_name": "Anura Kariyawasam",
-    "timestamp": "2026-06-28 10:21:00",
-    "risk_score": 50,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Hypertension, Multiple admissions (5)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Tharushi Jayasinghe",
-    "status": "Rejected",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2086",
-    "patient_name": "Kamala Bandara",
-    "timestamp": "2026-06-28 08:22:00",
-    "risk_score": 25,
-    "risk_level": "Low Risk",
-    "risk_factors": "Hypertension, Multiple admissions (4)",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Kasun Jayawardena",
-    "assigned_by": "Nurse Tharushi Jayasinghe",
-    "status": "Rejected",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2056",
-    "patient_name": "Nadeeka Mendis",
-    "timestamp": "2026-06-27 15:55:00",
-    "risk_score": 34,
-    "risk_level": "Low Risk",
-    "risk_factors": "Diabetes, Hypertension",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Kasun Jayawardena",
-    "assigned_by": "Nurse Ishari Gunasekara",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2083",
-    "patient_name": "Chandrika Kumara",
-    "timestamp": "2026-06-27 15:53:00",
-    "risk_score": 23,
-    "risk_level": "Low Risk",
-    "risk_factors": "Heart disease, Multiple admissions (3)",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Ishari Gunasekara",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2059",
-    "patient_name": "Wijesinghe Bandaranayake",
-    "timestamp": "2026-06-26 18:39:00",
-    "risk_score": 49,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Multiple admissions (6), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Sachini Wijesinghe",
-    "assigned_by": "Nurse Nethmi Wickramasinghe",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2012",
-    "patient_name": "Karunaratne Rathnayake",
-    "timestamp": "2026-06-25 17:05:00",
-    "risk_score": 57,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Diabetes, Heart disease, Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Nirmal Perera",
-    "assigned_by": "Nurse Ishari Gunasekara",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2057",
-    "patient_name": "Priyantha Bandara",
-    "timestamp": "2026-06-24 17:32:00",
-    "risk_score": 81,
+    "patient_name": "Prasad Liyanage",
+    "timestamp": "2026-07-12 00:49:03",
+    "risk_score": 78.5,
     "risk_level": "High Risk",
-    "risk_factors": "Advanced age (>65), Hypertension, Multiple admissions (3), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 7 days",
-    "doctor": "Dr. Sachini Wijesinghe",
-    "assigned_by": "Nurse Ishari Gunasekara",
-    "status": "Approved",
+    "risk_factors": "Multiple admissions (4)",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Nirmal Perera",
+    "assigned_by": "Nurse Malsha Fernando",
+    "status": "Pending",
     "doctor_notes": "",
-    "follow_up_days": 7
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tLisinopril \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2002"
   },
   {
-    "patient_id": "P2078",
-    "patient_name": "Piyal Gunawardena",
-    "timestamp": "2026-06-23 20:08:00",
-    "risk_score": 59,
+    "patient_name": "Iresha Karunaratne",
+    "timestamp": "2026-07-15 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Hypertension, Multiple admissions (5), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
+    "risk_factors": "Advanced age (>65), Heart disease, COPD, Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Nirmal Perera",
+    "assigned_by": "Nurse Malsha Fernando",
+    "status": "Pending",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tMetformin \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "\tAmlodipine \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Cardiac Monitoring: Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.",
+        "Respiratory Monitoring: Monitor oxygen saturation using a pulse oximeter twice daily.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Avoid saturated fats and trans fats."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2003"
+  },
+  {
+    "patient_name": "Indika Munasinghe",
+    "timestamp": "2026-07-12 00:49:03",
+    "risk_score": 20.0,
+    "risk_level": "Low Risk",
+    "risk_factors": "Advanced age (>65)",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Nirmal Perera",
+    "assigned_by": "Nurse Malsha Fernando",
+    "status": "Pending",
+    "doctor_notes": "",
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tLisinopril \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "\tAtorvastatin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2004"
+  },
+  {
+    "patient_name": "Dilshan Amarasekara",
+    "timestamp": "2026-07-08 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Advanced age (>65), Heart disease, Extended stay (>7 days), Poor recovery status, Weak family support",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Nirmal Perera",
+    "assigned_by": "Nurse Malsha Fernando",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Cardiac Monitoring: Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Avoid saturated fats and trans fats."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2005",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Chandana Abeysekara",
+    "timestamp": "2026-07-03 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Advanced age (>65), Hypertension, Multiple admissions (4), Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Nirmal Perera",
+    "assigned_by": "Nurse Malsha Fernando",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Blood Pressure: Monitor blood pressure daily. Record readings in a diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2006",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Nadeeka Bandara",
+    "timestamp": "2026-07-09 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Multiple admissions (5), Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Nirmal Perera",
+    "assigned_by": "Nurse Malsha Fernando",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAtorvastatin \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "\tFurosemide \u2014 as per prescription",
+        "\tInsulin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2007",
+    "email_sent": false,
+    "sms_sent": false
+  },
+  {
+    "patient_name": "Nethmi Wickramasinghe",
+    "timestamp": "2026-07-08 00:49:03",
+    "risk_score": 20.0,
+    "risk_level": "Low Risk",
+    "risk_factors": "Heart disease",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Nirmal Perera",
+    "assigned_by": "Nurse Malsha Fernando",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Cardiac Monitoring: Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Avoid saturated fats and trans fats."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2008",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Sriyani Abeysekara",
+    "timestamp": "2026-07-05 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Heart disease, Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Nirmal Perera",
+    "assigned_by": "Nurse Malsha Fernando",
+    "status": "Rejected",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tLisinopril \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Cardiac Monitoring: Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Avoid saturated fats and trans fats."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2009"
+  },
+  {
+    "patient_name": "Nuwan Karunaratne",
+    "timestamp": "2026-07-13 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Multiple admissions (3), Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
     "doctor": "Dr. Tharindu Fernando",
     "assigned_by": "Nurse Ishari Gunasekara",
-    "status": "Rejected",
+    "status": "Pending",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAtorvastatin \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2012"
   },
   {
-    "patient_id": "P2030",
-    "patient_name": "Kusum Perera",
-    "timestamp": "2026-06-23 18:06:00",
-    "risk_score": 52,
+    "patient_name": "Geethani Amarasinghe",
+    "timestamp": "2026-07-14 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Diabetes, Heart disease, COPD",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Sachini Wijesinghe",
+    "risk_factors": "Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Tharindu Fernando",
     "assigned_by": "Nurse Ishari Gunasekara",
     "status": "Pending",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tLisinopril \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2013"
   },
   {
-    "patient_id": "P2048",
-    "patient_name": "Geethani Jayasuriya",
-    "timestamp": "2026-06-23 14:43:00",
-    "risk_score": 36,
-    "risk_level": "Low Risk",
-    "risk_factors": "Hypertension, COPD, Multiple admissions (7)",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Kasun Jayawardena",
-    "assigned_by": "Nurse Nethmi Wickramasinghe",
-    "status": "Rejected",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2048",
-    "patient_name": "Geethani Jayasuriya",
-    "timestamp": "2026-06-23 12:34:00",
-    "risk_score": 59,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Heart disease, Hypertension, Multiple admissions (7)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Kasun Jayawardena",
-    "assigned_by": "Nurse Nethmi Wickramasinghe",
-    "status": "Pending",
-    "doctor_notes": "",
-    "follow_up_days": 14
-  },
-  {
-    "patient_id": "P2043",
-    "patient_name": "Wijesinghe Herath",
-    "timestamp": "2026-06-22 13:14:00",
-    "risk_score": 24,
+    "patient_name": "Nirosha Amarasekara",
+    "timestamp": "2026-07-11 00:49:03",
+    "risk_score": 20.0,
     "risk_level": "Low Risk",
     "risk_factors": "Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Nethmi Wickramasinghe",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2054",
-    "patient_name": "Nimal Kulasekara",
-    "timestamp": "2026-06-21 20:12:00",
-    "risk_score": 50,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Diabetes, Multiple admissions (5), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
     "doctor": "Dr. Tharindu Fernando",
-    "assigned_by": "Nurse Nethmi Wickramasinghe",
-    "status": "Approved",
+    "assigned_by": "Nurse Ishari Gunasekara",
+    "status": "Pending",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2014"
   },
   {
-    "patient_id": "P2019",
-    "patient_name": "Gamika Wickramasinghe",
-    "timestamp": "2026-06-19 12:47:00",
-    "risk_score": 46,
+    "patient_name": "Chaminda Silva",
+    "timestamp": "2026-07-08 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Diabetes, COPD, Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Tharindu Fernando",
+    "assigned_by": "Nurse Ishari Gunasekara",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.",
+        "Respiratory Monitoring: Monitor oxygen saturation using a pulse oximeter twice daily.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Diabetes Management: Follow diabetic meal plan \u2014 monitor carbohydrate intake.",
+        "Avoid sugary drinks and high-GI foods."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2015",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Janaka Ekanayake",
+    "timestamp": "2026-07-05 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Heart disease, Multiple admissions (5), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Sanduni Perera",
+    "risk_factors": "Advanced age (>65), Diabetes, Multiple admissions (3), Extended stay (>7 days), Poor recovery status, Weak family support",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Tharindu Fernando",
+    "assigned_by": "Nurse Ishari Gunasekara",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Diabetes Management: Follow diabetic meal plan \u2014 monitor carbohydrate intake.",
+        "Avoid sugary drinks and high-GI foods."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2016",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Anura Jayasuriya",
+    "timestamp": "2026-06-30 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Multiple admissions (4), Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Tharindu Fernando",
+    "assigned_by": "Nurse Ishari Gunasekara",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAtorvastatin \u2014 as per prescription",
+        "\tInsulin \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2017",
+    "email_sent": false,
+    "sms_sent": false
+  },
+  {
+    "patient_name": "Kamala Perera",
+    "timestamp": "2026-07-02 00:49:03",
+    "risk_score": 20.0,
+    "risk_level": "Low Risk",
+    "risk_factors": "Advanced age (>65), Diabetes, Extended stay (>7 days), Poor recovery status, Weak family support",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Tharindu Fernando",
+    "assigned_by": "Nurse Ishari Gunasekara",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tLisinopril \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Diabetes Management: Follow diabetic meal plan \u2014 monitor carbohydrate intake.",
+        "Avoid sugary drinks and high-GI foods."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2018",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Upul Senanayake",
+    "timestamp": "2026-07-11 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "COPD, Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Tharindu Fernando",
+    "assigned_by": "Nurse Ishari Gunasekara",
     "status": "Rejected",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tFurosemide \u2014 as per prescription",
+        "\tAmlodipine \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Respiratory Monitoring: Monitor oxygen saturation using a pulse oximeter twice daily.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2019"
   },
   {
-    "patient_id": "P2037",
-    "patient_name": "Champa Kulasekara",
-    "timestamp": "2026-06-18 19:45:00",
-    "risk_score": 37,
-    "risk_level": "Low Risk",
-    "risk_factors": "Diabetes, Heart disease, COPD, Multiple admissions (6)",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Kasun Jayawardena",
-    "assigned_by": "Nurse Nethmi Wickramasinghe",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2042",
-    "patient_name": "Channa Karunaratne",
-    "timestamp": "2026-06-18 14:47:00",
-    "risk_score": 18,
-    "risk_level": "Low Risk",
-    "risk_factors": "No significant risk factors identified.",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Nirmal Perera",
-    "assigned_by": "Nurse Sanduni Perera",
-    "status": "Approved",
-    "doctor_notes": "",
-    "follow_up_days": 30
-  },
-  {
-    "patient_id": "P2042",
-    "patient_name": "Channa Karunaratne",
-    "timestamp": "2026-06-18 13:28:00",
-    "risk_score": 26,
-    "risk_level": "Low Risk",
-    "risk_factors": "Diabetes, Hypertension, COPD",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Nirmal Perera",
+    "patient_name": "Malsha Herath",
+    "timestamp": "2026-07-14 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Advanced age (>65), Diabetes, COPD, Extended stay (>7 days), Weak family support",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Sachini Wijesinghe",
     "assigned_by": "Nurse Tharushi Jayasinghe",
     "status": "Pending",
     "doctor_notes": "",
-    "follow_up_days": 30
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "\tFurosemide \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.",
+        "Respiratory Monitoring: Monitor oxygen saturation using a pulse oximeter twice daily.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Diabetes Management: Follow diabetic meal plan \u2014 monitor carbohydrate intake.",
+        "Avoid sugary drinks and high-GI foods."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2022"
   },
   {
-    "patient_id": "P2037",
-    "patient_name": "Champa Kulasekara",
-    "timestamp": "2026-06-18 11:58:00",
-    "risk_score": 59,
+    "patient_name": "Priyantha Herath",
+    "timestamp": "2026-07-11 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Multiple admissions (6)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Kasun Jayawardena",
+    "risk_factors": "No significant risk factors identified.",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Sachini Wijesinghe",
     "assigned_by": "Nurse Tharushi Jayasinghe",
-    "status": "Rejected",
+    "status": "Pending",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAspirin \u2014 as per prescription",
+        "\tInsulin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2023"
   },
   {
-    "patient_id": "P2027",
-    "patient_name": "Ranjani Jayasuriya",
-    "timestamp": "2026-06-15 20:54:00",
-    "risk_score": 66,
+    "patient_name": "Nimal Gunasekara",
+    "timestamp": "2026-07-12 00:49:03",
+    "risk_score": 20.0,
+    "risk_level": "Low Risk",
+    "risk_factors": "Multiple admissions (4), Weak family support",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Sachini Wijesinghe",
+    "assigned_by": "Nurse Tharushi Jayasinghe",
+    "status": "Pending",
+    "doctor_notes": "",
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAmlodipine \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2024"
+  },
+  {
+    "patient_name": "Lakshman Wickramasinghe",
+    "timestamp": "2026-07-08 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Advanced age (>65)",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Sachini Wijesinghe",
+    "assigned_by": "Nurse Tharushi Jayasinghe",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tMetformin \u2014 as per prescription",
+        "\tAmlodipine \u2014 as per prescription",
+        "\tAtorvastatin \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2025",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Ajith Rathnayake",
+    "timestamp": "2026-06-30 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Advanced age (>65), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Nirmal Perera",
+    "risk_factors": "Multiple admissions (4), Extended stay (>7 days), Weak family support",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Sachini Wijesinghe",
     "assigned_by": "Nurse Tharushi Jayasinghe",
     "status": "Approved",
     "doctor_notes": "",
     "follow_up_days": 14,
-    "sms_sent": true,
-    "email_sent": true
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tMetformin \u2014 as per prescription",
+        "\tFurosemide \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2026",
+    "email_sent": true,
+    "sms_sent": true
   },
   {
-    "patient_id": "P2027",
-    "patient_name": "Ranjani Jayasuriya",
-    "timestamp": "2026-06-15 12:24:00",
-    "risk_score": 58,
+    "patient_name": "Sachini Wijesinghe",
+    "timestamp": "2026-07-01 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Advanced age (>65), Diabetes, Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Nirmal Perera",
-    "assigned_by": "Nurse Ishari Gunasekara",
+    "risk_factors": "Advanced age (>65), Diabetes, Multiple admissions (4), Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Sachini Wijesinghe",
+    "assigned_by": "Nurse Tharushi Jayasinghe",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAmlodipine \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Diabetes Management: Follow diabetic meal plan \u2014 monitor carbohydrate intake.",
+        "Avoid sugary drinks and high-GI foods."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2027",
+    "email_sent": false,
+    "sms_sent": false
+  },
+  {
+    "patient_name": "Roshan Weerasinghe",
+    "timestamp": "2026-07-07 00:49:03",
+    "risk_score": 20.0,
+    "risk_level": "Low Risk",
+    "risk_factors": "Multiple admissions (5), Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Sachini Wijesinghe",
+    "assigned_by": "Nurse Tharushi Jayasinghe",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tFurosemide \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "\tAmlodipine \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2028",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Ranga Kodikara",
+    "timestamp": "2026-07-12 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Sachini Wijesinghe",
+    "assigned_by": "Nurse Tharushi Jayasinghe",
     "status": "Rejected",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2029"
   },
   {
-    "patient_id": "P2041",
-    "patient_name": "Wijesinghe Gunawardana",
-    "timestamp": "2026-06-14 10:07:00",
-    "risk_score": 57,
-    "risk_level": "Medium Risk",
-    "risk_factors": "Advanced age (>65), COPD, Multiple admissions (7)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Ishari Gunasekara",
+    "patient_name": "Chithra Munasinghe",
+    "timestamp": "2026-07-14 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Advanced age (>65), Heart disease, Hypertension, Multiple admissions (4), Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Kasun Jayawardena",
+    "assigned_by": "Nurse Sanduni Perera",
     "status": "Pending",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tMetformin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Blood Pressure: Monitor blood pressure daily. Record readings in a diary.",
+        "Cardiac Monitoring: Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Avoid saturated fats and trans fats."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2032"
   },
   {
-    "patient_id": "P2093",
-    "patient_name": "Chithra Siriwardena",
-    "timestamp": "2026-06-13 17:13:00",
-    "risk_score": 62,
+    "patient_name": "Mahesh Dissanayake",
+    "timestamp": "2026-07-14 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Advanced age (>65), Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Nirmal Perera",
+    "risk_factors": "Advanced age (>65), Hypertension, Weak family support",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Kasun Jayawardena",
+    "assigned_by": "Nurse Sanduni Perera",
+    "status": "Pending",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAtorvastatin \u2014 as per prescription",
+        "\tInsulin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Blood Pressure: Monitor blood pressure daily. Record readings in a diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2033"
+  },
+  {
+    "patient_name": "Thusitha Gamage",
+    "timestamp": "2026-07-13 00:49:03",
+    "risk_score": 20.0,
+    "risk_level": "Low Risk",
+    "risk_factors": "Diabetes, Hypertension, Extended stay (>7 days), Weak family support",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Kasun Jayawardena",
+    "assigned_by": "Nurse Sanduni Perera",
+    "status": "Pending",
+    "doctor_notes": "",
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAtorvastatin \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.",
+        "Blood Pressure: Monitor blood pressure daily. Record readings in a diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Diabetes Management: Follow diabetic meal plan \u2014 monitor carbohydrate intake.",
+        "Avoid sugary drinks and high-GI foods."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2034"
+  },
+  {
+    "patient_name": "Sampath Wijesinghe",
+    "timestamp": "2026-07-09 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Kasun Jayawardena",
+    "assigned_by": "Nurse Sanduni Perera",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "\tFurosemide \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2035",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Tharushi Rathnayake",
+    "timestamp": "2026-07-08 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "COPD, Multiple admissions (3), Extended stay (>7 days), Poor recovery status, Weak family support",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Kasun Jayawardena",
     "assigned_by": "Nurse Sanduni Perera",
     "status": "Approved",
     "doctor_notes": "",
     "follow_up_days": 14,
     "medical_care_plan": {
       "follow_up": [
-        "Schedule a follow-up appointment within 14 days\r",
-        "Phone check-in within 72 hours\r",
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
         "Monitor symptoms and report any changes"
       ],
       "medication": [
-        "Heart Health: Reduce salt and saturated fat intake.\r",
-        "Eat balanced meals with fruits, vegetables, and whole grains.\r",
-        "Choose lean proteins (fish, chicken, legumes).\r",
-        "Limit sugar, processed foods, and unhealthy fats.\r",
-        "Drink at least 8 glasses (2 liters) of water daily."
+        "Continue prescribed medications:",
+        "\tMetformin \u2014 as per prescription",
+        "\tFurosemide \u2014 as per prescription",
+        "\tAmlodipine \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
       ],
       "monitoring": [
-        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).\r",
-        "Start slowly and gradually increase activity levels.\r",
-        "Independent mobility \u2014 maintain regular walking routine.\r",
-        "Avoid strenuous activity until cleared by the doctor."
+        "Respiratory Monitoring: Monitor oxygen saturation using a pulse oximeter twice daily.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
       ],
       "dietary": [
-        "Heart Health: Reduce salt and saturated fat intake.\r",
-        "Eat balanced meals with fruits, vegetables, and whole grains.\r",
-        "Choose lean proteins (fish, chicken, legumes).\r",
-        "Limit sugar, processed foods, and unhealthy fats.\r",
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
         "Drink at least 8 glasses (2 liters) of water daily."
       ],
       "exercise": [
-        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).\r",
-        "Start slowly and gradually increase activity levels.\r",
-        "Independent mobility \u2014 maintain regular walking routine.\r",
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
         "Avoid strenuous activity until cleared by the doctor."
       ],
       "lifestyle": [
-        "Sleep: Get 7-8 hours of quality sleep nightly.\r",
-        "Alcohol: Avoid alcohol consumption completely.\r",
-        "Smoking: Quit smoking immediately \u2014 seek support if needed.\r",
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
         "Stress: Practice stress management (deep breathing, meditation)."
       ],
-      "support": [
-        "Support: Ensure family or caregiver availability for daily assistance.\r",
-        "Keep a health diary to track symptoms, medications, and appointments.\r",
-        "Keep emergency contacts readily accessible."
-      ],
       "emergency": [
-        "Contact your general practitioner if you experience any unusual symptoms.\r",
-        "Visit the nearest clinic if symptoms worsen.\r",
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
         "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
       ]
     },
-    "edited_by": "Dr. Nirmal Perera",
-    "edited_at": "2026-06-30 16:09:58",
+    "patient_id": "P2036",
     "email_sent": true,
     "sms_sent": true
   },
   {
-    "patient_id": "P2093",
-    "patient_name": "Chithra Siriwardena",
-    "timestamp": "2026-06-13 11:31:00",
-    "risk_score": 70,
+    "patient_name": "Tharindu Kumara",
+    "timestamp": "2026-07-10 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Advanced age (>65), Diabetes, Extended stay (>7 days)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Nirmal Perera",
-    "assigned_by": "Nurse Tharushi Jayasinghe",
-    "status": "Rejected",
+    "risk_factors": "Diabetes, Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Kasun Jayawardena",
+    "assigned_by": "Nurse Sanduni Perera",
+    "status": "Approved",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "\tAmlodipine \u2014 as per prescription",
+        "\tAtorvastatin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Diabetes Management: Follow diabetic meal plan \u2014 monitor carbohydrate intake.",
+        "Avoid sugary drinks and high-GI foods."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2037",
+    "email_sent": false,
+    "sms_sent": false
   },
   {
-    "patient_id": "P2090",
-    "patient_name": "Gamini Lokuhewa",
-    "timestamp": "2026-06-09 13:23:00",
-    "risk_score": 36,
+    "patient_name": "Yashoda Rajapaksa",
+    "timestamp": "2026-07-01 00:49:03",
+    "risk_score": 20.0,
     "risk_level": "Low Risk",
-    "risk_factors": "Advanced age (>65), Diabetes, Multiple admissions (3)",
-    "care_plan_summary": "Follow-up within 30 days",
-    "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Ishari Gunasekara",
-    "status": "Rejected",
+    "risk_factors": "Poor recovery status, Weak family support",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Kasun Jayawardena",
+    "assigned_by": "Nurse Sanduni Perera",
+    "status": "Approved",
     "doctor_notes": "",
-    "follow_up_days": 30
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tFurosemide \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "\tAtorvastatin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2038",
+    "email_sent": true,
+    "sms_sent": true
   },
   {
-    "patient_id": "P2065",
-    "patient_name": "Daya Kumara",
-    "timestamp": "2026-06-09 08:12:00",
-    "risk_score": 56,
+    "patient_name": "Pushpa Kodikara",
+    "timestamp": "2026-07-05 00:49:03",
+    "risk_score": 52.0,
     "risk_level": "Medium Risk",
-    "risk_factors": "Advanced age (>65), Heart disease, Hypertension, Multiple admissions (4)",
-    "care_plan_summary": "Follow-up within 14 days",
-    "doctor": "Dr. Tharindu Fernando",
+    "risk_factors": "Multiple admissions (4), Poor recovery status, Weak family support",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Kasun Jayawardena",
+    "assigned_by": "Nurse Sanduni Perera",
+    "status": "Rejected",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tMetformin \u2014 as per prescription",
+        "\tInsulin \u2014 as per prescription",
+        "\tLisinopril \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2039"
+  },
+  {
+    "patient_name": "Dilrukshi Kumara",
+    "timestamp": "2026-07-10 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Hypertension, Multiple admissions (3), Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Dinithi Silva",
+    "assigned_by": "Nurse Nethmi Wickramasinghe",
+    "status": "Pending",
+    "doctor_notes": "",
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "\tMetformin \u2014 as per prescription",
+        "\tAtorvastatin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Blood Pressure: Monitor blood pressure daily. Record readings in a diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2042"
+  },
+  {
+    "patient_name": "Chathurika Jayasuriya",
+    "timestamp": "2026-07-15 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Multiple admissions (4), Extended stay (>7 days), Weak family support",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Dinithi Silva",
+    "assigned_by": "Nurse Nethmi Wickramasinghe",
+    "status": "Pending",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tLisinopril \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible.",
+        "Community Support: Arrange community support services or home care aid."
+      ]
+    },
+    "patient_id": "P2043"
+  },
+  {
+    "patient_name": "Anoma Ranasinghe",
+    "timestamp": "2026-07-12 00:49:03",
+    "risk_score": 20.0,
+    "risk_level": "Low Risk",
+    "risk_factors": "Heart disease, Hypertension, Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Dinithi Silva",
+    "assigned_by": "Nurse Nethmi Wickramasinghe",
+    "status": "Pending",
+    "doctor_notes": "",
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tInsulin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Blood Pressure: Monitor blood pressure daily. Record readings in a diary.",
+        "Cardiac Monitoring: Monitor for chest pain, shortness of breath, or palpitations. Keep a symptom diary.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Avoid saturated fats and trans fats."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2044"
+  },
+  {
+    "patient_name": "Rukmali Ekanayake",
+    "timestamp": "2026-07-08 00:49:03",
+    "risk_score": 78.5,
+    "risk_level": "High Risk",
+    "risk_factors": "Advanced age (>65), Extended stay (>7 days)",
+    "care_plan_summary": "Schedule a follow-up appointment within 7 days, Phone check-in within 24 hours by the nursing team",
+    "doctor": "Dr. Dinithi Silva",
     "assigned_by": "Nurse Nethmi Wickramasinghe",
     "status": "Approved",
     "doctor_notes": "",
-    "follow_up_days": 14
+    "follow_up_days": 7,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 7 days",
+        "Phone check-in within 24 hours by the nursing team",
+        "Home health nurse visit within 48 hours",
+        "Arrange cardiology/endocrinology review if applicable"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tFurosemide \u2014 as per prescription",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "URGENT: Visit the nearest hospital immediately if you experience:",
+        "\tChest pain or severe shortness of breath",
+        "\tSevere dizziness or fainting",
+        "\tDifficulty speaking or weakness on one side of the body",
+        "\tUncontrolled bleeding or severe pain",
+        "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2045",
+    "email_sent": true,
+    "sms_sent": true
   },
   {
-    "patient_id": "P2073",
-    "patient_name": "Champa Jayawardena",
-    "timestamp": "2026-06-06 19:11:00",
-    "risk_score": 37,
-    "risk_level": "Low Risk",
-    "risk_factors": "Diabetes, Multiple admissions (6)",
-    "care_plan_summary": "Follow-up within 30 days",
+    "patient_name": "Sanjeewa Rajapaksa",
+    "timestamp": "2026-07-02 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Diabetes, COPD, Multiple admissions (5)",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
     "doctor": "Dr. Dinithi Silva",
-    "assigned_by": "Nurse Malsha Fernando",
-    "status": "Pending",
+    "assigned_by": "Nurse Nethmi Wickramasinghe",
+    "status": "Approved",
     "doctor_notes": "",
-    "follow_up_days": 30
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAmlodipine \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "Diabetes Monitoring: Check blood glucose levels twice daily (morning and evening). Maintain a log.",
+        "Respiratory Monitoring: Monitor oxygen saturation using a pulse oximeter twice daily.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily.",
+        "Diabetes Management: Follow diabetic meal plan \u2014 monitor carbohydrate intake.",
+        "Avoid sugary drinks and high-GI foods."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Independent mobility \u2014 maintain regular walking routine.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2046",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Iresha Karunaratne",
+    "timestamp": "2026-07-05 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Multiple admissions (5), Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Dinithi Silva",
+    "assigned_by": "Nurse Nethmi Wickramasinghe",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tMetformin \u2014 as per prescription",
+        "\tInsulin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Light physical activity for 30 minutes daily (e.g., walking, light stretching).",
+        "Start slowly and gradually increase activity levels.",
+        "Walk with assistance or walking aids.",
+        "Physiotherapy sessions as scheduled.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2047",
+    "email_sent": false,
+    "sms_sent": false
+  },
+  {
+    "patient_name": "Ruwan Fernando",
+    "timestamp": "2026-06-25 00:49:03",
+    "risk_score": 20.0,
+    "risk_level": "Low Risk",
+    "risk_factors": "Advanced age (>65), Extended stay (>7 days), Poor recovery status",
+    "care_plan_summary": "Schedule a routine follow-up appointment within 30 days, Regular monitoring as per standard protocol",
+    "doctor": "Dr. Dinithi Silva",
+    "assigned_by": "Nurse Nethmi Wickramasinghe",
+    "status": "Approved",
+    "doctor_notes": "",
+    "follow_up_days": 30,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a routine follow-up appointment within 30 days",
+        "Regular monitoring as per standard protocol"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tFurosemide \u2014 as per prescription",
+        "\tInsulin \u2014 as per prescription",
+        "\tAtorvastatin \u2014 as per prescription",
+        "\tAmlodipine \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2048",
+    "email_sent": true,
+    "sms_sent": true
+  },
+  {
+    "patient_name": "Geethani Amarasinghe",
+    "timestamp": "2026-07-11 00:49:03",
+    "risk_score": 52.0,
+    "risk_level": "Medium Risk",
+    "risk_factors": "Poor recovery status",
+    "care_plan_summary": "Schedule a follow-up appointment within 14 days, Phone check-in within 72 hours",
+    "doctor": "Dr. Dinithi Silva",
+    "assigned_by": "Nurse Nethmi Wickramasinghe",
+    "status": "Rejected",
+    "doctor_notes": "",
+    "follow_up_days": 14,
+    "medical_care_plan": {
+      "follow_up": [
+        "Schedule a follow-up appointment within 14 days",
+        "Phone check-in within 72 hours",
+        "Monitor symptoms and report any changes"
+      ],
+      "medication": [
+        "Continue prescribed medications:",
+        "\tAspirin \u2014 as per prescription",
+        "Do not skip doses. Set daily reminders.",
+        "Do not stop or change medications without consulting the doctor.",
+        "Bring all medications to your follow-up appointment."
+      ],
+      "monitoring": [
+        "General Monitoring: Monitor general health and report any unusual symptoms immediately.",
+        "Temperature monitoring twice daily \u2014 report fever above 38\u00b0C.",
+        "Weight monitoring daily \u2014 report sudden weight gain or loss.",
+        "Maintain a symptom diary to track any changes."
+      ],
+      "dietary": [
+        "Heart Health: Reduce salt and saturated fat intake.",
+        "Eat balanced meals with fruits, vegetables, and whole grains.",
+        "Choose lean proteins (fish, chicken, legumes).",
+        "Limit sugar, processed foods, and unhealthy fats.",
+        "Drink at least 8 glasses (2 liters) of water daily."
+      ],
+      "exercise": [
+        "Bed-based exercises as advised by the physiotherapist.",
+        "Change position every 2 hours to prevent bedsores.",
+        "Passive range of motion exercises for joints.",
+        "Avoid strenuous activity until cleared by the doctor."
+      ],
+      "lifestyle": [
+        "Sleep: Get 7-8 hours of quality sleep nightly.",
+        "Alcohol: Avoid alcohol consumption completely.",
+        "Smoking: Quit smoking immediately \u2014 seek support if needed.",
+        "Stress: Practice stress management (deep breathing, meditation)."
+      ],
+      "emergency": [
+        "Contact your general practitioner if you experience any unusual symptoms.",
+        "Visit the nearest clinic if symptoms worsen.",
+        "Emergency Contact: Suwa Setha Hospital Hotline: +94 11 234 5678"
+      ],
+      "support": [
+        "Support: Ensure family or caregiver availability for daily assistance.",
+        "Keep a health diary to track symptoms, medications, and appointments.",
+        "Keep emergency contacts readily accessible."
+      ]
+    },
+    "patient_id": "P2049"
   }
 ]

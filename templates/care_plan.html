@@ -442,6 +442,17 @@
 
 <!-- ===== STATUS BAR ===== -->
 <div class="container">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'info' }} alert-dismissible fade show" role="alert">
+            {{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
     <div class="status-bar no-print">
         <div class="status-left">
             <span style="font-weight:600; color:#1E3A8A;">
@@ -552,7 +563,7 @@
             {% if is_editable %}
                 <textarea class="form-control" name="follow_up" rows="3">{{ care_plan.follow_up|join('\n') }}</textarea>
             {% else %}
-                <ul>{% for item in care_plan.follow_up %}<li>{{ item }}</li>{% endfor %}</ul>
+                <ul>{% for item in care_plan.follow_up %}{% if item.startswith('\t') %}<li style="list-style:none; margin-left:20px; color:#555;">{{ item.lstrip('\t') }}</li>{% else %}<li>{{ item }}</li>{% endif %}{% endfor %}</ul>
             {% endif %}
         </div>
 
@@ -561,7 +572,7 @@
             {% if is_editable %}
                 <textarea class="form-control" name="medication" rows="4">{{ care_plan.medication|join('\n') }}</textarea>
             {% else %}
-                <ul>{% for item in care_plan.medication %}<li>{{ item }}</li>{% endfor %}</ul>
+                <ul>{% for item in care_plan.medication %}{% if item.startswith('\t') %}<li style="list-style:none; margin-left:20px; color:#555;">{{ item.lstrip('\t') }}</li>{% else %}<li>{{ item }}</li>{% endif %}{% endfor %}</ul>
             {% endif %}
         </div>
 
@@ -570,7 +581,7 @@
             {% if is_editable %}
                 <textarea class="form-control" name="monitoring" rows="4">{{ care_plan.monitoring|join('\n') }}</textarea>
             {% else %}
-                <ul>{% for item in care_plan.monitoring %}<li>{{ item }}</li>{% endfor %}</ul>
+                <ul>{% for item in care_plan.monitoring %}{% if item.startswith('\t') %}<li style="list-style:none; margin-left:20px; color:#555;">{{ item.lstrip('\t') }}</li>{% else %}<li>{{ item }}</li>{% endif %}{% endfor %}</ul>
             {% endif %}
         </div>
 
@@ -579,7 +590,7 @@
             {% if is_editable %}
                 <textarea class="form-control" name="dietary" rows="4">{{ care_plan.dietary|join('\n') }}</textarea>
             {% else %}
-                <ul>{% for item in care_plan.dietary %}<li>{{ item }}</li>{% endfor %}</ul>
+                <ul>{% for item in care_plan.dietary %}{% if item.startswith('\t') %}<li style="list-style:none; margin-left:20px; color:#555;">{{ item.lstrip('\t') }}</li>{% else %}<li>{{ item }}</li>{% endif %}{% endfor %}</ul>
             {% endif %}
         </div>
 
@@ -588,7 +599,7 @@
             {% if is_editable %}
                 <textarea class="form-control" name="exercise" rows="3">{{ care_plan.exercise|join('\n') }}</textarea>
             {% else %}
-                <ul>{% for item in care_plan.exercise %}<li>{{ item }}</li>{% endfor %}</ul>
+                <ul>{% for item in care_plan.exercise %}{% if item.startswith('\t') %}<li style="list-style:none; margin-left:20px; color:#555;">{{ item.lstrip('\t') }}</li>{% else %}<li>{{ item }}</li>{% endif %}{% endfor %}</ul>
             {% endif %}
         </div>
 
@@ -597,7 +608,7 @@
             {% if is_editable %}
                 <textarea class="form-control" name="lifestyle" rows="3">{{ care_plan.lifestyle|join('\n') }}</textarea>
             {% else %}
-                <ul>{% for item in care_plan.lifestyle %}<li>{{ item }}</li>{% endfor %}</ul>
+                <ul>{% for item in care_plan.lifestyle %}{% if item.startswith('\t') %}<li style="list-style:none; margin-left:20px; color:#555;">{{ item.lstrip('\t') }}</li>{% else %}<li>{{ item }}</li>{% endif %}{% endfor %}</ul>
             {% endif %}
         </div>
 
@@ -606,7 +617,7 @@
             {% if is_editable %}
                 <textarea class="form-control" name="support" rows="3">{{ care_plan.support|join('\n') }}</textarea>
             {% else %}
-                <ul>{% for item in care_plan.support %}<li>{{ item }}</li>{% endfor %}</ul>
+                <ul>{% for item in care_plan.support %}{% if item.startswith('\t') %}<li style="list-style:none; margin-left:20px; color:#555;">{{ item.lstrip('\t') }}</li>{% else %}<li>{{ item }}</li>{% endif %}{% endfor %}</ul>
             {% endif %}
         </div>
 
@@ -615,7 +626,7 @@
             {% if is_editable %}
                 <textarea class="form-control" name="emergency" rows="3">{{ care_plan.emergency|join('\n') }}</textarea>
             {% else %}
-                <ul>{% for item in care_plan.emergency %}<li>{{ item }}</li>{% endfor %}</ul>
+                <ul>{% for item in care_plan.emergency %}{% if item.startswith('\t') %}<li style="list-style:none; margin-left:20px; color:#555;">{{ item.lstrip('\t') }}</li>{% else %}<li>{{ item }}</li>{% endif %}{% endfor %}</ul>
             {% endif %}
         </div>
 

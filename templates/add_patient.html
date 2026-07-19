@@ -33,6 +33,17 @@
 </nav>
 
 <div class="container py-4">
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ 'success' if category == 'success' else 'danger' if category == 'danger' else 'info' }} alert-dismissible fade show" role="alert">
+            {{ message }}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
     <h2 style="color:#1E3A8A;"><i class="fas fa-user-plus"></i> Register New Patient</h2>
     <p class="text-muted">Enter NIC to auto-fill existing patient data, or fill all fields for a new patient.</p>
 
@@ -131,25 +142,54 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label class="form-label">Assign Doctor *</label>
-                <select class="form-control" name="assigned_doctor" required>
-                    <option value="">Select a doctor...</option>
-                    {% for doc in doctors %}
-                    <option value="{{ doc.name }}" {% if patient and patient.assigned_doctor == doc.name %}selected{% endif %}>
-                        {{ doc.name }} ({{ doc.specialization }})
-                    </option>
-                    {% endfor %}
-                </select>
-                <small class="text-muted">Select the doctor responsible for this patient.</small>
+                <select name="assigned_doctor" id="assigned_doctor">
+  <option value="">Select a doctor...</option>
+  {% for doc in doctors %}
+    <option value="{{ doc.name }}" data-department="{{ doc.department }}">{{ doc.name }} ({{ doc.specialization }})</option>
+  {% endfor %}
+</select>
+                <small class="text-muted d-block mt-1">Select the doctor responsible for this patient.</small>
             </div>
             <div class="col-md-6 mb-3">
                 <label class="form-label">Department</label>
-                <select class="form-control" name="assigned_department">
-                    <option value="General Medicine" {% if patient and patient.assigned_department == 'General Medicine' %}selected{% endif %}>General Medicine</option>
-                    <option value="Cardiology" {% if patient and patient.assigned_department == 'Cardiology' %}selected{% endif %}>Cardiology</option>
-                    <option value="Endocrinology" {% if patient and patient.assigned_department == 'Endocrinology' %}selected{% endif %}>Endocrinology</option>
-                    <option value="Pulmonology" {% if patient and patient.assigned_department == 'Pulmonology' %}selected{% endif %}>Pulmonology</option>
-                    <option value="Geriatric Medicine" {% if patient and patient.assigned_department == 'Geriatric Medicine' %}selected{% endif %}>Geriatric Medicine</option>
-                </select>
+                <select name="assigned_department" id="assigned_department">
+  <option value="General Medicine">General Medicine</option>
+  <option value="Cardiology">Cardiology</option>
+  <option value="Endocrinology">Endocrinology</option>
+  <option value="Pulmonology">Pulmonology</option>
+  <option value="Geriatric Medicine">Geriatric Medicine</option>
+</select>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const doctorSelect = document.getElementById('assigned_doctor');
+  const deptSelect = document.getElementById('assigned_department');
+
+  if (doctorSelect && deptSelect) {
+    doctorSelect.addEventListener('change', function () {
+      const selectedOption = doctorSelect.options[doctorSelect.selectedIndex];
+      const dept = selectedOption.getAttribute('data-department');
+      if (dept) {
+        deptSelect.value = dept;
+        deptSelect.setAttribute('disabled', 'disabled');
+
+        // keep the value submitted even though the field is disabled
+        let hidden = document.getElementById('assigned_department_hidden');
+        if (!hidden) {
+          hidden = document.createElement('input');
+          hidden.type = 'hidden';
+          hidden.name = 'assigned_department';
+          hidden.id = 'assigned_department_hidden';
+          deptSelect.parentNode.appendChild(hidden);
+          deptSelect.removeAttribute('name'); // disabled selects don't submit anyway, this avoids duplicate 'name'
+        }
+        hidden.value = dept;
+      } else {
+        deptSelect.removeAttribute('disabled');
+      }
+    });
+  }
+});
+</script>
             </div>
         </div>
 

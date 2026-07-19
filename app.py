@@ -11,6 +11,8 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib import colors
 from reportlab.lib.units import inch
+from ai_care_plan import ai_generate_care_plan
+
 
 app = Flask(__name__)
 app.secret_key = 'suwa-setha-hospital-secret-key-2026'
@@ -111,12 +113,19 @@ def predict_readmission(patient_data):
         return {'risk_score': 0, 'risk_level': 'Offline', 'risk_color': 'gray', 'risk_factors': [], 'priority': 'Unknown'}
 
     df = pd.DataFrame([patient_data])
-    try:
-        df['Diagnosis_Encoded'] = encoders['Diagnosis'].transform(df['Diagnosis'])
-        df['Gender_Encoded'] = encoders['Gender'].transform(df['Gender'])
-    except:
-        df['Diagnosis_Encoded'] = 0
-        df['Gender_Encoded'] = 0
+
+    def safe_encode(column):
+        try:
+            return encoders[column].transform(df[column])
+        except Exception:
+            return [0]
+
+    df['Diagnosis_Encoded'] = safe_encode('Diagnosis')
+    df['Gender_Encoded'] = safe_encode('Gender')
+    df['Recovery_Status_Encoded'] = safe_encode('Recovery_Status')
+    df['Mobility_Status_Encoded'] = safe_encode('Mobility_Status')
+    df['Medication_Compliance_Risk_Encoded'] = safe_encode('Medication_Compliance_Risk')
+    df['Family_Support_Encoded'] = safe_encode('Family_Support')
 
     X = df[feature_columns]
     X_scaled = scaler.transform(X)
@@ -196,7 +205,7 @@ def generate_medical_care_plan(patient_data, risk_result):
     if meds:
         plan['medication'] = ["Continue prescribed medications:"]
         for med in meds[:5]:
-            plan['medication'].append(f"• {med} — as per prescription")
+            plan['medication'].append(f"\t{med} — as per prescription")
         plan['medication'].append("Do not skip doses. Set daily reminders.")
         plan['medication'].append("Do not stop or change medications without consulting the doctor.")
     else:
@@ -288,10 +297,10 @@ def generate_medical_care_plan(patient_data, risk_result):
     if risk_result['risk_level'] == 'High Risk':
         plan['emergency'] = [
             "URGENT: Visit the nearest hospital immediately if you experience:",
-            "• Chest pain or severe shortness of breath",
-            "• Severe dizziness or fainting",
-            "• Difficulty speaking or weakness on one side of the body",
-            "• Uncontrolled bleeding or severe pain",
+            "\tChest pain or severe shortness of breath",
+            "\tSevere dizziness or fainting",
+            "\tDifficulty speaking or weakness on one side of the body",
+            "\tUncontrolled bleeding or severe pain",
             "Emergency Contact: Call Suwa Setha Hospital Hotline at +94 11 234 5678 (24/7)"
         ]
     else:
@@ -302,6 +311,16 @@ def generate_medical_care_plan(patient_data, risk_result):
         ]
 
     return plan
+
+def get_care_plan(patient_data, risk_result):
+    """Tries AI first. Falls back to rule-based plan if AI fails for any reason."""
+    try:
+        plan = ai_generate_care_plan(patient_data, risk_result)
+        if plan:
+            return plan
+    except Exception as e:
+        print(f"⚠️ AI care plan failed, using fallback: {e}")
+    return generate_medical_care_plan(patient_data, risk_result)
 
 # --- 5. AUTHENTICATION ---
 def get_user_by_username(username):
@@ -768,6 +787,8 @@ def assess(patient_id):
         data['family_support'] = assessment_data['family_support']
         data['lives_alone'] = assessment_data['lives_alone']
         data['recovery_status'] = assessment_data['recovery_status']
+        data['medication_compliance_risk'] = assessment_data['medication_compliance_risk']
+        data['transportation_access'] = assessment_data['transportation_access']
         save_patients()
 
         # 3. AI Prediction
@@ -783,6 +804,12 @@ def assess(patient_id):
             'Has_Heart_Disease': 1 if 'Heart Disease' in data.get('existing_diseases', []) else 0,
             'Has_Hypertension': 1 if 'Hypertension' in data.get('existing_diseases', []) else 0,
             'Has_COPD': 1 if 'COPD' in data.get('existing_diseases', []) else 0,
+            'Recovery_Status': assessment_data['recovery_status'],
+            'Mobility_Status': assessment_data['mobility_status'],
+            'Medication_Compliance_Risk': assessment_data['medication_compliance_risk'],
+            'Family_Support': assessment_data['family_support'],
+            'Lives_Alone': 1 if assessment_data['lives_alone'] else 0,
+            'Has_Transportation_Access': 1 if assessment_data['transportation_access'] else 0,
             'recovery_status': assessment_data['recovery_status'],
             'family_support': assessment_data['family_support'],
             'mobility_status': assessment_data['mobility_status'],
@@ -791,7 +818,7 @@ def assess(patient_id):
         }
 
         risk_result = predict_readmission(patient_for_ai)
-        care_plan = generate_medical_care_plan(patient_for_ai, risk_result)
+        care_plan = get_care_plan(patient_for_ai, risk_result)
 
         # 4. Save to History
         existing = next((h for h in history if h['patient_id'] == patient_id and h['status'] in ['Draft', 'Pending']), None)
@@ -857,11 +884,8 @@ def care_plan(patient_id):
     if not data:
         return "Patient not found", 404
 
-    latest = None
-    for h in history:
-        if h['patient_id'] == patient_id:
-            latest = h
-            break
+    patient_history = [h for h in history if h['patient_id'] == patient_id]
+    latest = max(patient_history, key=lambda h: h['timestamp']) if patient_history else None
 
     if not latest:
         flash('❌ No assessment found for this patient.', 'danger')
@@ -898,7 +922,7 @@ def care_plan(patient_id):
             'family_support': data.get('family_support', ''),
             'lives_alone': data.get('lives_alone', '')
         }
-        care_plan_data = generate_medical_care_plan(patient_for_ai, risk_result)
+        care_plan_data = get_care_plan(patient_for_ai, risk_result)
 
     patient_data = {
         'id': patient_id,
@@ -1189,7 +1213,7 @@ def download_pdf(patient_id):
                 'risk_level': latest.get('risk_level', 'Low Risk'),
                 'risk_score': latest.get('risk_score', 0)
             }
-            care_plan_data = generate_medical_care_plan(patient_for_ai, risk_result)
+            care_plan_data = get_care_plan(patient_for_ai, risk_result)
 
         section_titles = {
             'follow_up':  '1. Follow-Up Schedule',

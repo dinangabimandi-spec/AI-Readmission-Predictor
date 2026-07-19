@@ -6,7 +6,7 @@
     "specialization": "General Physician",
     "username": "d001",
     "password": "doc123",
-    "department": "General Physician"
+    "department": "General Medicine"
   },
   {
     "id": "D002",
@@ -15,7 +15,7 @@
     "specialization": "Cardiologist",
     "username": "d002",
     "password": "doc123",
-    "department": "Cardiologist"
+    "department": "Cardiology"
   },
   {
     "id": "D003",
@@ -24,7 +24,7 @@
     "specialization": "Endocrinologist",
     "username": "d003",
     "password": "doc123",
-    "department": "Endocrinologist"
+    "department": "Endocrinology"
   },
   {
     "id": "D004",
@@ -33,7 +33,7 @@
     "specialization": "Pulmonologist",
     "username": "d004",
     "password": "doc123",
-    "department": "Pulmonologist"
+    "department": "Pulmonology"
   },
   {
     "id": "D005",

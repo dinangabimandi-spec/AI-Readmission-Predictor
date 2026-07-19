@@ -1,0 +1,501 @@
+Patient_ID,Age,Gender,Diagnosis,Previous_Admissions,Length_of_Stay,Medications_Count,Has_Diabetes,Has_Heart_Disease,Has_Hypertension,Has_COPD,Readmitted_30days
+P1000,69,Female,Pneumonia,0,6,4,0,0,0,0,0
+P1001,32,Female,Stroke,1,15,1,1,0,0,0,1
+P1002,89,Male,Asthma,1,2,4,0,0,0,0,0
+P1003,78,Male,Hypertension,4,29,3,0,0,1,0,0
+P1004,38,Male,Pneumonia,0,3,6,1,0,0,1,1
+P1005,41,Female,Pneumonia,0,17,5,0,0,0,0,0
+P1006,20,Female,Heart Disease,7,25,1,1,0,0,0,1
+P1007,39,Male,COPD,0,24,4,0,0,0,0,0
+P1008,70,Male,Diabetes,0,12,6,1,0,1,1,0
+P1009,19,Female,Diabetes,0,18,6,0,0,0,1,0
+P1010,47,Female,Hypertension,4,15,4,0,1,0,0,0
+P1011,55,Male,Stroke,2,12,8,0,0,0,0,0
+P1012,19,Male,Diabetes,7,16,3,0,0,0,0,0
+P1013,81,Female,Asthma,1,27,2,1,0,0,0,0
+P1014,77,Male,Diabetes,0,8,3,1,0,1,0,0
+P1015,38,Male,Hypertension,6,28,4,0,0,1,0,1
+P1016,50,Male,Diabetes,2,14,5,0,0,0,0,1
+P1017,75,Female,Asthma,2,25,2,1,1,1,0,0
+P1018,39,Female,Heart Disease,1,17,1,1,0,1,0,0
+P1019,66,Female,Stroke,4,29,3,0,0,1,0,0
+P1020,76,Female,Hypertension,3,21,4,0,0,0,0,0
+P1021,59,Female,Heart Disease,3,8,3,0,0,0,0,1
+P1022,77,Female,Heart Disease,2,15,2,0,0,0,0,1
+P1023,32,Female,Heart Disease,5,27,7,0,0,1,0,0
+P1024,79,Male,Pneumonia,5,14,9,0,0,1,0,1
+P1025,79,Male,Stroke,1,18,3,0,0,0,0,0
+P1026,64,Male,COPD,3,20,1,1,0,0,0,1
+P1027,79,Male,Stroke,2,7,1,0,1,1,0,0
+P1028,68,Male,Pneumonia,4,3,0,0,0,1,0,0
+P1029,72,Male,COPD,3,29,3,0,1,1,0,0
+P1030,81,Male,Stroke,2,12,9,0,0,1,1,0
+P1031,20,Female,Heart Disease,2,21,8,0,1,0,0,0
+P1032,68,Female,Hypertension,0,24,6,0,0,0,0,1
+P1033,24,Male,COPD,4,28,9,0,1,1,1,0
+P1034,38,Male,Asthma,0,26,6,0,1,0,0,0
+P1035,56,Female,Asthma,1,3,6,0,0,0,0,0
+P1036,35,Male,Diabetes,0,20,7,0,1,1,0,0
+P1037,21,Male,COPD,6,14,0,1,0,0,0,0
+P1038,77,Female,Hypertension,0,15,9,0,0,1,0,0
+P1039,31,Male,Pneumonia,6,25,9,1,0,0,0,0
+P1040,26,Female,Heart Disease,3,14,7,0,0,1,1,0
+P1041,70,Male,Diabetes,5,7,3,0,0,0,1,0
+P1042,19,Female,Asthma,7,17,3,0,0,0,0,1
+P1043,77,Female,Pneumonia,7,12,3,0,0,1,0,1
+P1044,88,Female,Pneumonia,2,20,5,1,0,0,0,0
+P1045,61,Male,Heart Disease,7,4,6,1,1,1,1,0
+P1046,25,Female,COPD,6,9,5,1,0,1,1,0
+P1047,64,Male,Asthma,4,6,0,0,0,0,0,0
+P1048,52,Male,Hypertension,0,16,7,0,0,0,0,0
+P1049,53,Male,Pneumonia,6,25,9,0,0,0,0,0
+P1050,67,Male,Heart Disease,4,28,6,0,0,0,0,0
+P1051,21,Female,Hypertension,5,22,5,0,0,1,0,0
+P1052,19,Female,COPD,7,22,5,0,0,1,0,0
+P1053,23,Male,Asthma,5,21,4,0,1,1,0,1
+P1054,71,Male,COPD,7,21,5,0,0,1,0,1
+P1055,21,Female,Pneumonia,0,2,8,1,0,0,0,0
+P1056,71,Male,Hypertension,1,24,9,1,0,1,1,0
+P1057,80,Female,Hypertension,0,8,8,1,0,1,0,1
+P1058,35,Male,Hypertension,3,11,9,0,0,1,0,1
+P1059,61,Male,Pneumonia,6,13,7,0,0,1,0,0
+P1060,51,Female,Pneumonia,2,17,9,0,0,0,0,0
+P1061,79,Male,COPD,1,8,8,1,0,1,0,0
+P1062,31,Female,Diabetes,0,21,9,0,1,0,0,0
+P1063,65,Male,COPD,4,18,7,0,1,0,0,0
+P1064,32,Male,Asthma,1,18,7,1,0,0,0,0
+P1065,89,Male,Heart Disease,6,14,0,0,0,1,0,0
+P1066,79,Female,Hypertension,7,15,9,0,0,1,0,0
+P1067,57,Male,Diabetes,1,6,4,0,0,1,0,1
+P1068,70,Male,Heart Disease,7,11,3,0,0,1,0,0
+P1069,41,Male,Diabetes,6,13,1,0,0,0,0,0
+P1070,43,Male,Stroke,0,25,7,0,0,1,0,0
+P1071,77,Female,COPD,6,1,2,0,0,0,0,0
+P1072,58,Female,Pneumonia,1,28,3,0,0,0,0,1
+P1073,46,Male,Hypertension,4,6,6,1,1,0,0,0
+P1074,32,Female,COPD,5,9,9,0,1,1,0,0
+P1075,62,Male,Heart Disease,1,8,8,0,0,1,0,0
+P1076,82,Male,Stroke,6,11,1,0,0,0,0,0
+P1077,88,Male,Stroke,5,22,2,1,1,0,0,1
+P1078,26,Female,Stroke,6,19,3,0,0,1,1,0
+P1079,18,Female,Heart Disease,4,24,9,0,0,0,0,0
+P1080,25,Female,Heart Disease,6,9,0,1,0,1,0,0
+P1081,80,Female,Heart Disease,0,17,6,1,0,1,0,0
+P1082,28,Female,Heart Disease,2,12,1,0,0,0,0,1
+P1083,25,Female,Stroke,7,25,4,1,1,0,0,1
+P1084,52,Female,Stroke,7,14,0,0,1,1,0,0
+P1085,52,Female,Diabetes,1,15,2,0,0,1,1,0
+P1086,50,Female,COPD,2,16,1,0,0,0,0,1
+P1087,22,Male,Hypertension,6,22,0,0,1,1,0,1
+P1088,58,Female,Pneumonia,4,22,6,1,0,0,0,0
+P1089,45,Female,Stroke,1,28,4,0,1,0,0,0
+P1090,24,Female,Pneumonia,6,20,0,0,0,1,0,0
+P1091,89,Female,COPD,5,1,5,1,0,1,0,1
+P1092,29,Female,COPD,3,10,4,1,0,0,0,0
+P1093,51,Female,Pneumonia,6,8,2,0,0,1,0,0
+P1094,50,Female,Stroke,2,18,6,0,0,0,1,1
+P1095,65,Female,Pneumonia,1,28,9,0,0,0,1,0
+P1096,40,Female,Diabetes,2,1,8,1,0,0,0,0
+P1097,79,Female,Asthma,1,2,8,0,0,1,0,0
+P1098,54,Female,Stroke,6,1,8,1,0,0,1,0
+P1099,61,Male,Stroke,0,1,1,0,1,0,1,0
+P1100,52,Male,Hypertension,5,9,2,0,1,0,0,0
+P1101,82,Female,Heart Disease,6,13,6,0,0,1,0,0
+P1102,64,Female,Asthma,7,1,4,0,1,1,0,0
+P1103,20,Male,COPD,2,13,1,0,0,1,0,1
+P1104,18,Female,Stroke,3,20,2,1,0,0,1,1
+P1105,22,Male,Pneumonia,3,26,9,0,1,1,0,0
+P1106,31,Male,Asthma,4,22,5,0,0,0,1,0
+P1107,44,Male,Hypertension,1,7,6,1,0,1,0,0
+P1108,26,Male,COPD,2,2,8,0,1,1,1,0
+P1109,32,Male,Heart Disease,4,6,0,1,0,0,0,0
+P1110,59,Female,Heart Disease,2,7,6,0,1,1,0,0
+P1111,68,Male,Hypertension,7,26,7,0,1,0,0,0
+P1112,80,Female,Hypertension,1,14,2,0,0,0,0,0
+P1113,69,Female,Pneumonia,6,26,3,0,1,0,0,0
+P1114,21,Male,Stroke,6,18,9,1,0,0,1,0
+P1115,40,Male,Heart Disease,3,15,5,0,0,0,0,0
+P1116,32,Female,COPD,6,2,9,0,0,1,1,0
+P1117,60,Male,Asthma,6,10,6,0,1,0,1,0
+P1118,46,Male,COPD,7,23,3,0,0,1,0,1
+P1119,53,Female,Diabetes,0,12,7,1,0,0,0,1
+P1120,30,Female,Diabetes,3,17,4,0,0,0,0,0
+P1121,49,Male,Hypertension,4,8,0,0,0,1,0,0
+P1122,88,Female,Pneumonia,5,11,3,1,0,0,0,0
+P1123,76,Male,Diabetes,0,29,2,0,0,0,0,0
+P1124,45,Male,Heart Disease,4,3,8,1,0,1,0,0
+P1125,83,Male,COPD,1,27,7,0,0,0,0,1
+P1126,59,Female,COPD,0,6,0,0,1,0,0,0
+P1127,62,Female,Hypertension,7,9,5,0,0,0,0,1
+P1128,79,Female,Stroke,4,6,8,1,0,1,1,0
+P1129,74,Female,Stroke,1,9,6,1,1,1,0,0
+P1130,23,Female,Asthma,3,7,3,0,0,1,1,0
+P1131,45,Male,Hypertension,5,9,0,0,1,1,0,0
+P1132,45,Male,Asthma,1,18,1,0,0,0,0,0
+P1133,61,Male,Stroke,6,12,4,0,1,0,0,0
+P1134,47,Male,Hypertension,2,8,4,0,0,1,0,0
+P1135,79,Female,Hypertension,1,8,7,1,0,0,0,1
+P1136,79,Male,Hypertension,1,18,5,0,0,0,0,0
+P1137,18,Female,Stroke,5,28,7,0,1,0,0,1
+P1138,44,Male,Asthma,2,20,1,0,0,0,0,1
+P1139,79,Female,Asthma,6,15,2,0,0,1,0,1
+P1140,20,Female,Hypertension,4,27,5,0,0,0,0,0
+P1141,87,Male,Diabetes,4,7,9,0,0,0,0,0
+P1142,89,Male,Pneumonia,1,11,2,1,0,0,0,1
+P1143,44,Male,Stroke,7,20,5,0,0,1,0,0
+P1144,26,Male,Pneumonia,7,16,5,0,1,0,0,0
+P1145,79,Female,Pneumonia,2,4,1,0,0,0,0,0
+P1146,54,Male,Asthma,2,6,6,1,0,1,1,0
+P1147,68,Male,Asthma,6,26,1,1,0,1,0,0
+P1148,61,Female,Diabetes,5,22,5,0,0,0,0,0
+P1149,41,Male,Pneumonia,3,26,0,1,0,0,0,0
+P1150,76,Male,Pneumonia,4,3,2,0,0,0,0,1
+P1151,49,Male,Hypertension,5,9,1,0,0,0,0,0
+P1152,69,Male,Asthma,0,28,6,0,0,0,0,1
+P1153,79,Male,Pneumonia,4,10,3,0,0,0,0,0
+P1154,75,Female,COPD,5,14,7,0,1,0,0,1
+P1155,69,Male,Diabetes,4,11,5,1,1,0,0,0
+P1156,29,Male,COPD,3,18,9,1,0,1,0,1
+P1157,56,Male,COPD,0,22,3,0,1,1,0,0
+P1158,19,Male,Stroke,7,12,4,0,0,1,0,1
+P1159,20,Male,Stroke,7,23,8,0,0,0,0,0
+P1160,73,Female,Diabetes,3,12,6,0,0,0,0,1
+P1161,76,Male,COPD,6,13,9,0,0,1,0,1
+P1162,19,Female,Pneumonia,0,25,8,0,0,0,0,0
+P1163,19,Female,Asthma,1,13,6,0,0,0,0,0
+P1164,71,Male,Diabetes,5,19,0,1,0,0,0,1
+P1165,18,Male,Hypertension,0,26,7,0,0,1,0,0
+P1166,36,Male,COPD,6,19,3,0,0,1,0,1
+P1167,19,Male,Diabetes,6,23,2,1,0,0,0,0
+P1168,70,Female,Heart Disease,3,14,6,0,0,0,0,0
+P1169,61,Male,Heart Disease,4,4,2,0,0,1,0,1
+P1170,49,Male,Stroke,0,13,7,0,1,0,0,0
+P1171,87,Male,Asthma,5,8,5,0,1,1,1,1
+P1172,49,Male,Pneumonia,0,29,4,1,0,1,0,0
+P1173,85,Male,Asthma,2,23,3,0,1,1,0,0
+P1174,72,Male,Asthma,4,21,7,0,0,0,0,0
+P1175,73,Female,Asthma,5,23,7,1,0,0,1,0
+P1176,34,Female,Asthma,7,19,0,1,0,0,1,0
+P1177,55,Male,Hypertension,5,12,8,1,0,1,0,0
+P1178,41,Male,Hypertension,1,18,4,0,1,1,0,0
+P1179,86,Male,Stroke,3,6,3,0,0,0,0,0
+P1180,87,Female,Diabetes,1,18,5,1,0,0,0,1
+P1181,28,Male,Heart Disease,5,19,5,1,0,1,0,0
+P1182,33,Female,Asthma,4,22,1,0,0,1,0,0
+P1183,76,Male,Stroke,0,5,7,0,1,1,0,0
+P1184,87,Male,Diabetes,7,24,6,0,0,0,0,0
+P1185,20,Male,Heart Disease,0,9,0,1,0,0,1,0
+P1186,37,Male,COPD,4,27,4,0,0,1,0,0
+P1187,76,Female,Pneumonia,5,3,5,0,0,1,0,0
+P1188,53,Female,Hypertension,6,28,3,0,0,0,0,0
+P1189,36,Male,COPD,0,10,1,0,0,0,0,0
+P1190,84,Male,Heart Disease,6,19,3,1,0,0,0,1
+P1191,36,Female,COPD,0,3,0,0,0,0,0,0
+P1192,37,Female,Pneumonia,0,29,6,1,1,0,1,0
+P1193,88,Female,Stroke,7,29,1,1,1,1,0,0
+P1194,69,Female,Heart Disease,3,22,1,0,0,0,0,0
+P1195,50,Male,COPD,3,15,8,0,0,1,0,1
+P1196,57,Female,Hypertension,2,1,4,0,0,0,0,0
+P1197,56,Male,Hypertension,1,7,1,1,0,1,0,0
+P1198,18,Female,Diabetes,4,12,8,0,0,1,0,0
+P1199,28,Female,COPD,4,17,8,0,0,0,0,0
+P1200,74,Female,Asthma,4,21,0,1,0,0,0,0
+P1201,67,Female,COPD,2,26,2,0,0,0,0,0
+P1202,40,Female,Stroke,3,29,3,1,0,0,0,0
+P1203,48,Male,Heart Disease,5,24,6,0,0,1,0,0
+P1204,59,Male,Heart Disease,6,20,9,0,0,1,0,0
+P1205,24,Female,Stroke,7,5,3,0,0,0,0,0
+P1206,33,Female,COPD,6,4,1,1,0,0,0,0
+P1207,77,Male,Stroke,5,28,6,0,0,0,0,0
+P1208,19,Female,Pneumonia,7,12,5,1,0,1,0,1
+P1209,18,Female,Stroke,2,20,2,1,0,0,0,0
+P1210,65,Male,Hypertension,5,28,5,0,0,0,1,1
+P1211,29,Female,Stroke,4,24,5,1,0,1,1,0
+P1212,86,Female,Heart Disease,1,18,4,0,1,1,0,0
+P1213,54,Male,Hypertension,0,17,3,0,0,0,0,0
+P1214,49,Male,Heart Disease,6,19,9,0,0,1,0,0
+P1215,26,Male,Diabetes,3,9,0,1,0,0,0,0
+P1216,36,Female,Asthma,3,4,9,0,0,0,0,0
+P1217,65,Male,Heart Disease,2,26,5,0,0,1,0,0
+P1218,20,Male,Hypertension,7,21,1,0,0,1,0,1
+P1219,37,Male,Diabetes,3,2,2,0,0,0,0,0
+P1220,41,Male,Heart Disease,4,4,7,0,1,0,0,0
+P1221,71,Male,Pneumonia,6,2,9,1,0,0,0,0
+P1222,50,Male,Stroke,5,15,5,1,0,0,0,0
+P1223,41,Female,Asthma,4,2,2,0,1,0,0,0
+P1224,89,Female,Heart Disease,2,4,6,1,0,0,0,0
+P1225,53,Male,Diabetes,4,6,3,0,1,0,1,1
+P1226,55,Male,Pneumonia,5,7,8,1,0,1,0,1
+P1227,42,Male,COPD,1,10,4,0,1,1,0,0
+P1228,35,Female,Diabetes,2,19,2,0,0,1,0,0
+P1229,83,Female,Stroke,1,19,1,0,0,0,1,1
+P1230,71,Female,Diabetes,0,26,1,1,0,1,0,0
+P1231,52,Female,Pneumonia,1,22,2,0,0,1,0,0
+P1232,78,Female,Diabetes,0,29,1,0,0,1,0,0
+P1233,58,Female,Pneumonia,0,12,3,0,0,1,0,0
+P1234,50,Female,Heart Disease,1,3,1,0,0,1,0,0
+P1235,85,Female,Pneumonia,2,13,9,0,0,0,0,0
+P1236,50,Female,Pneumonia,7,18,8,1,0,0,0,0
+P1237,31,Male,Asthma,5,8,1,1,0,1,0,0
+P1238,38,Male,Pneumonia,4,21,8,0,1,1,1,0
+P1239,65,Male,Pneumonia,4,15,5,1,0,1,0,0
+P1240,37,Male,COPD,5,1,0,0,1,0,0,0
+P1241,25,Female,Heart Disease,6,3,3,1,0,0,0,0
+P1242,24,Female,Stroke,6,26,0,1,0,0,0,0
+P1243,84,Male,Asthma,0,8,5,0,0,1,1,0
+P1244,34,Female,COPD,0,4,3,1,0,0,0,0
+P1245,50,Male,Hypertension,2,16,2,0,0,0,0,1
+P1246,65,Female,Heart Disease,3,23,2,0,0,0,0,1
+P1247,76,Male,Heart Disease,1,10,8,1,0,0,0,0
+P1248,39,Female,Hypertension,0,12,5,0,1,1,0,0
+P1249,47,Female,Stroke,4,14,8,0,0,1,0,0
+P1250,55,Male,Pneumonia,2,14,4,0,0,1,0,0
+P1251,68,Female,COPD,1,2,1,1,0,0,1,1
+P1252,71,Male,Diabetes,2,23,7,0,0,1,0,0
+P1253,25,Male,Asthma,1,5,4,0,0,0,0,0
+P1254,44,Male,Diabetes,1,5,1,1,0,1,0,0
+P1255,44,Male,Hypertension,5,6,3,1,0,0,0,0
+P1256,38,Female,Heart Disease,0,13,8,0,0,0,0,0
+P1257,47,Female,Stroke,7,9,3,0,0,1,0,0
+P1258,45,Female,Heart Disease,2,22,3,0,1,1,0,0
+P1259,81,Male,Asthma,7,28,1,0,1,0,0,1
+P1260,86,Female,Heart Disease,2,29,5,0,0,1,0,1
+P1261,78,Male,Heart Disease,5,15,1,1,0,0,1,0
+P1262,65,Female,Asthma,4,14,6,0,0,0,0,0
+P1263,36,Female,COPD,7,24,2,0,1,0,0,0
+P1264,21,Female,COPD,4,7,2,0,0,0,0,0
+P1265,52,Male,Asthma,6,25,4,1,0,0,0,0
+P1266,81,Female,Stroke,0,20,2,0,0,0,0,0
+P1267,66,Female,Hypertension,0,2,1,1,0,0,0,0
+P1268,34,Male,Heart Disease,3,7,9,0,0,1,0,0
+P1269,61,Female,Stroke,5,6,8,0,0,0,0,0
+P1270,47,Male,Heart Disease,4,17,1,0,0,1,0,0
+P1271,63,Female,Hypertension,1,27,1,0,0,0,0,0
+P1272,23,Male,COPD,2,25,7,0,0,1,0,0
+P1273,54,Male,Stroke,0,25,8,0,0,0,0,1
+P1274,41,Female,Pneumonia,7,28,6,0,0,0,0,0
+P1275,63,Male,Pneumonia,2,2,2,1,0,0,0,0
+P1276,70,Male,Pneumonia,2,3,8,0,1,0,0,1
+P1277,77,Male,COPD,3,5,2,1,0,0,0,1
+P1278,80,Male,COPD,4,5,4,0,0,1,0,0
+P1279,49,Male,Hypertension,0,1,8,0,0,1,0,1
+P1280,50,Male,Heart Disease,2,8,2,0,0,1,0,0
+P1281,84,Female,Hypertension,0,12,6,0,0,1,0,0
+P1282,35,Male,Hypertension,1,24,0,0,0,0,0,0
+P1283,42,Male,COPD,3,4,3,0,1,0,0,0
+P1284,71,Female,Pneumonia,1,13,3,0,0,0,0,0
+P1285,75,Female,Diabetes,0,23,6,0,0,0,0,0
+P1286,84,Female,Heart Disease,6,15,7,0,0,0,0,0
+P1287,63,Female,COPD,7,11,0,1,0,0,0,0
+P1288,41,Female,Pneumonia,0,10,4,1,0,0,1,0
+P1289,49,Female,Stroke,4,3,6,1,0,0,0,0
+P1290,64,Female,Diabetes,2,22,3,1,0,1,0,0
+P1291,40,Male,Diabetes,2,14,3,0,0,1,0,0
+P1292,83,Male,COPD,1,16,3,0,0,0,0,1
+P1293,44,Female,Asthma,7,10,5,1,0,1,0,1
+P1294,19,Male,Heart Disease,3,29,6,0,0,1,0,0
+P1295,34,Male,Diabetes,6,10,1,0,0,0,0,0
+P1296,50,Male,COPD,5,12,4,0,1,0,0,0
+P1297,26,Female,COPD,7,9,3,0,0,0,0,0
+P1298,60,Female,Pneumonia,2,1,2,0,0,1,1,0
+P1299,65,Male,Stroke,4,5,6,1,0,1,0,0
+P1300,56,Female,Asthma,7,20,5,0,0,0,1,0
+P1301,59,Male,Heart Disease,1,8,6,0,0,0,0,0
+P1302,43,Male,Hypertension,1,11,4,1,0,0,0,1
+P1303,67,Male,Stroke,5,12,5,0,1,0,0,0
+P1304,42,Male,Stroke,4,1,4,0,0,0,0,0
+P1305,41,Female,Pneumonia,3,25,6,0,0,1,0,1
+P1306,30,Female,Diabetes,7,22,1,1,0,1,1,0
+P1307,77,Female,Diabetes,4,20,4,1,1,1,1,0
+P1308,24,Male,Pneumonia,3,28,5,0,0,1,0,0
+P1309,74,Female,COPD,4,25,5,1,0,1,0,0
+P1310,53,Male,Diabetes,4,11,4,0,0,0,0,0
+P1311,62,Female,Asthma,0,5,9,1,0,1,1,0
+P1312,37,Male,Heart Disease,1,15,6,1,0,0,0,0
+P1313,82,Male,Stroke,7,5,9,1,0,1,0,0
+P1314,25,Male,Stroke,4,12,7,0,0,0,0,0
+P1315,33,Female,Asthma,7,5,6,1,0,1,0,0
+P1316,31,Female,Diabetes,5,17,4,1,0,0,1,0
+P1317,32,Female,Stroke,4,17,0,0,0,0,0,1
+P1318,83,Female,Hypertension,2,24,4,1,0,0,0,0
+P1319,49,Male,Heart Disease,1,12,9,0,1,0,0,0
+P1320,80,Female,Heart Disease,2,24,1,1,1,1,0,0
+P1321,68,Female,Stroke,7,28,4,0,0,1,0,0
+P1322,42,Male,Pneumonia,7,15,4,1,1,0,0,0
+P1323,75,Male,Stroke,1,15,1,0,0,0,0,0
+P1324,80,Male,Pneumonia,7,6,4,0,0,0,1,1
+P1325,79,Female,Stroke,2,12,3,0,0,0,0,1
+P1326,39,Male,Hypertension,4,27,0,0,0,0,0,0
+P1327,75,Male,COPD,4,29,2,0,0,1,1,0
+P1328,75,Male,Heart Disease,0,20,0,0,0,0,0,0
+P1329,66,Female,Stroke,5,18,4,0,0,0,0,0
+P1330,69,Male,Hypertension,7,14,3,0,0,0,0,0
+P1331,59,Female,Pneumonia,2,2,6,0,0,0,0,0
+P1332,87,Female,Pneumonia,7,9,4,1,0,0,0,0
+P1333,32,Male,Heart Disease,7,5,9,0,0,1,1,0
+P1334,71,Male,Asthma,3,20,3,1,0,0,0,0
+P1335,77,Female,Stroke,0,26,1,1,1,0,0,1
+P1336,25,Male,Diabetes,2,29,3,0,1,0,0,0
+P1337,70,Male,Pneumonia,2,1,1,0,0,0,0,0
+P1338,77,Female,COPD,7,23,7,1,1,0,0,0
+P1339,22,Female,COPD,0,3,2,0,0,1,0,1
+P1340,85,Male,Pneumonia,4,6,8,0,1,1,0,0
+P1341,23,Female,Asthma,2,5,3,0,0,0,0,0
+P1342,64,Male,Asthma,4,21,5,1,0,0,1,0
+P1343,72,Male,Hypertension,0,27,9,0,0,0,0,0
+P1344,57,Male,COPD,4,5,4,0,0,0,0,1
+P1345,69,Female,Hypertension,1,1,9,1,0,1,0,0
+P1346,33,Male,COPD,3,17,0,1,0,1,0,0
+P1347,30,Male,Stroke,6,19,8,0,0,0,0,1
+P1348,47,Male,Stroke,2,14,0,0,0,0,0,0
+P1349,36,Female,Diabetes,5,12,7,1,0,0,0,0
+P1350,34,Female,Stroke,3,10,8,0,1,1,0,0
+P1351,80,Female,Diabetes,6,20,8,0,0,1,1,1
+P1352,36,Female,Stroke,4,21,0,0,0,0,1,0
+P1353,75,Female,Heart Disease,2,18,1,1,0,0,1,0
+P1354,72,Male,Stroke,4,24,0,0,0,1,0,0
+P1355,79,Female,Hypertension,1,27,9,1,0,0,0,0
+P1356,40,Female,Pneumonia,0,11,1,1,1,0,0,0
+P1357,26,Female,Hypertension,2,2,9,0,0,0,0,0
+P1358,29,Male,Pneumonia,6,25,7,0,0,1,0,1
+P1359,18,Female,Asthma,6,18,4,0,1,0,0,0
+P1360,75,Female,Hypertension,1,29,6,0,0,0,0,0
+P1361,18,Male,Asthma,1,25,1,0,0,1,0,0
+P1362,51,Female,Diabetes,7,7,7,1,0,0,0,0
+P1363,65,Male,Diabetes,2,24,5,0,0,0,0,1
+P1364,18,Male,Heart Disease,4,15,7,1,0,0,0,0
+P1365,33,Male,Stroke,5,11,0,0,0,0,0,0
+P1366,78,Male,Hypertension,6,18,0,0,0,1,0,0
+P1367,81,Male,Asthma,6,23,6,0,1,0,0,0
+P1368,80,Female,Pneumonia,1,12,7,0,0,0,0,0
+P1369,86,Male,Diabetes,3,6,2,1,0,0,0,0
+P1370,39,Male,Stroke,1,20,4,0,0,1,0,1
+P1371,84,Female,Diabetes,5,23,0,0,0,1,0,1
+P1372,43,Male,Pneumonia,4,13,6,0,0,0,0,0
+P1373,33,Female,Stroke,4,20,4,0,0,0,1,1
+P1374,68,Female,Stroke,3,16,7,0,1,1,0,0
+P1375,74,Female,Asthma,6,18,7,0,0,0,0,0
+P1376,46,Male,Asthma,1,10,8,1,0,1,0,0
+P1377,86,Male,Hypertension,7,28,6,0,0,1,1,0
+P1378,64,Male,Hypertension,4,23,0,1,0,1,0,0
+P1379,79,Female,COPD,5,8,2,0,0,0,0,0
+P1380,86,Male,COPD,2,18,7,0,0,0,0,0
+P1381,33,Male,Heart Disease,0,21,2,0,0,1,1,0
+P1382,65,Male,Diabetes,0,1,7,0,0,0,0,0
+P1383,56,Female,Hypertension,0,23,0,0,1,0,0,0
+P1384,50,Female,Asthma,7,8,4,0,1,1,0,0
+P1385,40,Male,Pneumonia,6,29,3,0,0,1,0,0
+P1386,27,Male,Asthma,1,6,4,0,1,0,0,0
+P1387,86,Male,Diabetes,3,5,7,0,0,0,0,0
+P1388,51,Male,COPD,7,15,9,1,1,0,0,1
+P1389,69,Female,Asthma,7,22,3,0,0,1,0,0
+P1390,27,Female,Heart Disease,4,15,3,0,1,1,0,0
+P1391,36,Female,Diabetes,2,2,2,0,1,0,1,1
+P1392,75,Female,COPD,7,1,6,0,0,0,0,0
+P1393,18,Male,Pneumonia,5,23,2,0,1,1,0,0
+P1394,86,Male,COPD,2,23,2,0,0,0,0,0
+P1395,21,Male,Stroke,5,26,9,0,0,0,0,1
+P1396,33,Female,Heart Disease,6,11,4,0,0,1,0,0
+P1397,41,Male,Diabetes,1,10,4,0,0,0,0,0
+P1398,19,Female,Pneumonia,0,18,5,0,0,1,0,0
+P1399,49,Female,Heart Disease,7,18,7,0,0,0,0,0
+P1400,41,Male,COPD,1,17,9,0,1,0,0,0
+P1401,29,Male,Heart Disease,6,26,5,0,0,1,0,0
+P1402,67,Male,Diabetes,3,8,0,1,0,0,0,0
+P1403,52,Female,Hypertension,3,15,7,0,1,1,1,1
+P1404,50,Male,Heart Disease,6,8,7,0,1,0,0,1
+P1405,50,Female,Stroke,5,17,8,0,1,0,1,0
+P1406,78,Male,Heart Disease,4,12,8,1,0,0,0,1
+P1407,68,Female,COPD,4,27,1,0,1,0,1,0
+P1408,60,Female,COPD,5,8,1,0,0,0,0,0
+P1409,29,Male,Pneumonia,3,25,2,0,0,0,0,0
+P1410,84,Female,COPD,3,14,0,0,0,0,0,1
+P1411,82,Female,Asthma,7,4,3,0,0,0,0,1
+P1412,50,Male,Diabetes,3,1,3,0,0,1,0,0
+P1413,57,Female,Diabetes,1,1,8,1,0,1,0,1
+P1414,60,Male,Hypertension,3,19,8,0,0,1,0,0
+P1415,61,Female,Hypertension,2,16,8,1,0,0,0,1
+P1416,46,Male,Diabetes,7,14,9,1,0,0,0,1
+P1417,30,Male,Stroke,0,21,6,0,0,1,0,0
+P1418,29,Female,Hypertension,3,16,1,0,0,0,0,0
+P1419,63,Female,Pneumonia,5,5,9,0,0,0,0,0
+P1420,19,Female,COPD,0,9,4,0,0,1,0,0
+P1421,52,Female,Diabetes,1,26,3,0,0,1,0,0
+P1422,25,Female,Hypertension,5,28,7,1,1,0,0,0
+P1423,43,Male,Diabetes,0,2,1,1,0,0,0,1
+P1424,51,Female,Asthma,5,18,5,0,0,1,0,0
+P1425,24,Male,Heart Disease,1,6,4,0,0,0,0,0
+P1426,85,Male,COPD,7,9,1,1,0,1,0,1
+P1427,75,Female,Diabetes,2,1,9,1,1,1,0,1
+P1428,46,Male,Heart Disease,1,9,0,1,0,1,0,0
+P1429,53,Male,Hypertension,1,25,7,0,0,0,0,1
+P1430,38,Male,Heart Disease,5,16,1,0,0,0,0,0
+P1431,53,Male,COPD,7,13,6,0,0,1,0,1
+P1432,27,Female,Diabetes,6,9,8,0,0,1,0,0
+P1433,41,Male,Asthma,4,21,8,0,0,1,0,0
+P1434,81,Female,Stroke,3,13,7,0,0,0,0,0
+P1435,66,Female,Hypertension,3,9,9,0,0,0,0,0
+P1436,53,Male,Diabetes,2,11,8,0,0,1,0,0
+P1437,41,Female,COPD,2,4,1,0,1,1,0,0
+P1438,40,Female,Hypertension,3,2,5,0,1,1,1,0
+P1439,79,Female,Pneumonia,4,29,3,0,0,1,0,1
+P1440,54,Male,Heart Disease,3,6,3,0,0,0,1,0
+P1441,29,Female,Stroke,6,14,4,0,0,1,0,0
+P1442,72,Female,COPD,4,4,2,1,0,1,0,0
+P1443,30,Female,Pneumonia,2,6,0,0,0,0,0,0
+P1444,40,Male,Diabetes,0,19,7,0,1,1,0,1
+P1445,47,Female,Asthma,5,6,4,0,1,0,0,1
+P1446,34,Male,Hypertension,6,2,2,1,0,0,0,0
+P1447,79,Male,Heart Disease,6,18,9,0,0,1,0,0
+P1448,30,Male,Hypertension,7,13,6,0,0,0,1,1
+P1449,76,Male,Stroke,2,9,6,0,0,0,0,0
+P1450,36,Male,Diabetes,2,23,0,0,0,0,0,1
+P1451,66,Male,Hypertension,1,19,8,0,0,0,0,0
+P1452,29,Female,Heart Disease,6,13,1,0,0,0,0,1
+P1453,78,Male,Diabetes,1,11,4,1,0,0,0,0
+P1454,36,Female,Hypertension,1,1,4,0,0,1,0,0
+P1455,26,Female,Asthma,5,24,7,1,1,0,1,1
+P1456,88,Male,COPD,1,22,7,1,0,0,0,0
+P1457,45,Female,Diabetes,4,7,6,0,0,0,0,0
+P1458,69,Female,COPD,3,25,6,1,0,1,0,0
+P1459,33,Female,Diabetes,0,21,5,0,0,0,0,0
+P1460,86,Female,Asthma,2,15,5,0,0,1,0,0
+P1461,29,Male,COPD,4,1,8,0,0,1,0,0
+P1462,42,Female,Pneumonia,0,12,5,0,1,1,0,0
+P1463,69,Male,Heart Disease,6,26,1,0,0,0,0,0
+P1464,70,Female,Pneumonia,6,7,1,0,1,1,0,1
+P1465,40,Female,Hypertension,6,15,4,0,0,0,0,0
+P1466,33,Male,Asthma,4,21,3,0,0,1,0,0
+P1467,74,Female,Pneumonia,4,19,1,0,0,1,0,0
+P1468,56,Female,Diabetes,2,28,2,0,0,0,0,0
+P1469,70,Female,Hypertension,3,29,6,0,0,0,0,0
+P1470,59,Male,Hypertension,7,25,7,0,0,0,0,0
+P1471,75,Female,Pneumonia,1,1,5,1,0,1,0,0
+P1472,56,Male,Pneumonia,6,17,4,0,1,0,0,0
+P1473,31,Female,Asthma,5,17,0,1,1,0,0,0
+P1474,22,Male,Heart Disease,3,3,7,0,1,0,0,0
+P1475,52,Male,Pneumonia,5,12,2,0,0,1,0,0
+P1476,35,Female,Stroke,2,6,5,0,0,1,0,0
+P1477,26,Female,Pneumonia,2,26,2,0,0,1,0,0
+P1478,75,Male,COPD,2,11,6,0,0,1,0,0
+P1479,34,Male,Diabetes,0,3,6,1,0,0,1,1
+P1480,24,Female,Stroke,5,8,8,0,0,0,0,0
+P1481,63,Male,Stroke,3,14,4,1,0,1,0,0
+P1482,30,Female,COPD,7,14,7,1,0,0,0,0
+P1483,57,Female,COPD,3,10,9,1,1,0,0,0
+P1484,59,Female,Hypertension,4,2,9,1,0,0,1,0
+P1485,26,Female,Heart Disease,4,14,7,0,0,0,0,0
+P1486,67,Male,Diabetes,6,9,0,0,0,0,1,1
+P1487,44,Female,Asthma,7,3,4,0,1,1,1,0
+P1488,83,Male,Stroke,4,21,2,0,0,0,1,1
+P1489,22,Female,Asthma,2,26,0,0,0,0,0,0
+P1490,46,Male,Pneumonia,3,8,3,1,1,0,0,0
+P1491,54,Female,Pneumonia,5,16,7,0,1,1,0,0
+P1492,55,Male,Asthma,2,2,2,0,0,0,0,0
+P1493,25,Male,Pneumonia,0,6,9,0,0,1,0,0
+P1494,82,Female,Heart Disease,4,28,1,0,0,1,0,0
+P1495,34,Female,COPD,2,21,8,0,0,0,0,0
+P1496,88,Female,Pneumonia,2,29,9,1,0,1,0,1
+P1497,62,Female,Hypertension,0,26,4,0,1,1,0,1
+P1498,21,Male,Pneumonia,1,25,6,0,0,1,0,0
+P1499,53,Female,Diabetes,3,12,1,0,0,1,0,0
