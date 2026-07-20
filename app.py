@@ -378,7 +378,7 @@ def dashboard():
     medium_risk = sum(1 for h in history if h.get('risk_level') == 'Medium Risk')
     low_risk = sum(1 for h in history if h.get('risk_level') == 'Low Risk')
 
-    recent_activities = activities[-20:][::-1] if activities else []
+    recent_activities = load_activities()[-20:][::-1]
     current_alerts = load_alerts()
 
     if role == 'Administrator':
